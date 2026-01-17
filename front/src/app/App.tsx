@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { GlobalStyles } from './ui/GlobalStyles';
 
 function App() {
   useEffect(() => {
@@ -9,7 +10,12 @@ function App() {
       })
       .catch((err) => console.error(err));
   }, []);
-  return <>Hello Project</>;
+  return (
+    <>
+      <GlobalStyles />
+      <p>Hello Project</p>
+    </>
+  );
 }
 
 export default App;

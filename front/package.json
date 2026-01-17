@@ -16,14 +16,17 @@
     "install:all": "concurrently --names \"BACKEND,FRONTEND\" --prefix \"[{name}]\" --prefix-colors \"blue,green\" \"npm run install:backend\" \"npm run install:frontend\""
   },
   "dependencies": {
+    "axios": "^1.13.2",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "styled-components": "^6.3.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@types/styled-components": "^5.1.36",
     "@vitejs/plugin-react": "^5.1.1",
     "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
