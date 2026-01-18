@@ -6,7 +6,10 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule); // ⚠️
 
-  app.enableCors();
+  app.enableCors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+  });
 
   app.useStaticAssets(join(process.cwd(), 'src/db'), {
     prefix: '/db/',

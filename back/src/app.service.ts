@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import categoriesData from './db/category.json';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getCategories(): object {
+    return categoriesData;
   }
 }

@@ -11,8 +11,8 @@
     "format": "prettier --write \"**/*.{js,ts,tsx,json}\"",
     "start:frontend": "npm run dev -- --open",
     "start:backend": "cd .. &&cd back && npm run start:dev",
-    "start": "concurrently --names \"BACKEND,FRONTEND\" --prefix \"[{name}]\" --prefix-colors \"blue,green\" \"npm run start:backend\" \"wait-on http://localhost:2000 && npm run start:frontend\"",
-    "install:backend": "cd ../back && npm install",
+ "start": "concurrently --names \"BACKEND,FRONTEND\" --prefix \"[{name}]\" --prefix-colors \"blue,green\" \"npm run start:backend\" \"wait-on http://localhost:2000/categories && npm run start:frontend\""  ,
+  "install:backend": "cd ../back && npm install",
     "install:frontend": "npm install",
     "install:all": "concurrently --names \"BACKEND,FRONTEND\" --prefix \"[{name}]\" --prefix-colors \"blue,green\" \"npm run install:backend\" \"npm run install:frontend\""
   },
