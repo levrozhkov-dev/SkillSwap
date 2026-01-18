@@ -1,0 +1,1063 @@
+[
+  {
+    "id": 1,
+    "name": "Мария",
+    "email": "maria.smirnova@example.com",
+    "password": "maria456",
+    "avatar": "",
+    "city": "Москва",
+    "description": "Помогаю выстраивать личный бренд и карьерную траекторию в IT и креативных индустриях.",
+    "age": 30,
+    "date": "2024-08-10",
+    "liked": 21,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [4, 6] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 1,
+      "name": "Карьера",
+      "skill": "Career mentoring",
+      "category": 1,
+      "subcategory": 4,
+      "description": "Консультации по построению личного бренда и подготовке резюме и портфолио.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 2,
+    "name": "Алексей",
+    "email": "alexey.kuznetsov@example.com",
+    "password": "alexey789",
+    "avatar": "",
+    "city": "Нижний Новгород",
+    "description": "Фотограф и видеомейкер, помогаю прокачать визуальный стиль и монтаж.",
+    "age": 29,
+    "date": "2024-07-02",
+    "liked": 15,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [2, 3] },
+      { "idCategory": 4, "idSubCategory": [2, 3] },
+      { "idCategory": 5, "idSubCategory": [3] },
+      { "idCategory": 6, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 2,
+      "name": "Контент",
+      "skill": "Content creation",
+      "category": 2,
+      "subcategory": 2,
+      "description": "Обучаю базовой и продвинутой фотографии, а также видеомонтажу для соцсетей.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 3,
+    "name": "Екатерина",
+    "email": "ekaterina.novikova@example.com",
+    "password": "katya000",
+    "avatar": "",
+    "city": "Казань",
+    "description": "Преподаю английский язык и помогаю готовиться к международным экзаменам.",
+    "age": 25,
+    "date": "2024-06-15",
+    "liked": 42,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [5] },
+      { "idCategory": 4, "idSubCategory": [1, 2] },
+      { "idCategory": 5, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 3,
+      "name": "Английский",
+      "skill": "Language teaching",
+      "category": 3,
+      "subcategory": 7,
+      "description": "Подготовка к международным экзаменам и развитие разговорного английского.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 4,
+    "name": "Дмитрий",
+    "email": "dmitry.ilyin@example.com",
+    "password": "dima321",
+    "avatar": "",
+    "city": "Екатеринбург",
+    "description": "Помогаю внедрять привычки ЗОЖ и выстраивать баланс работы и жизни.",
+    "age": 34,
+    "date": "2024-05-20",
+    "liked": 18,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [7] },
+      { "idCategory": 4, "idSubCategory": [1, 6] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 4,
+      "name": "ЗОЖ",
+      "skill": "Lifestyle coaching",
+      "category": 6,
+      "subcategory": 2,
+      "description": "Работаю с питанием, режимом дня и балансом жизни и работы.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ольга",
+    "email": "olga.sokolova@example.com",
+    "password": "olga111",
+    "avatar": "",
+    "city": "Новосибирск",
+    "description": "Маркетолог, помогаю выстраивать воронки продаж и рекламные кампании.",
+    "age": 31,
+    "date": "2024-04-12",
+    "liked": 27,
+    "categories": [
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 4, "idSubCategory": [2] },
+      { "idCategory": 5, "idSubCategory": [1, 2] }
+    ],
+    "skills": {
+      "id": 5,
+      "name": "Маркетинг",
+      "skill": "Digital marketing",
+      "category": 1,
+      "subcategory": 2,
+      "description": "Настройка рекламных кампаний и аналитика эффективности.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 6,
+    "name": "Сергей",
+    "email": "sergey.volkov@example.com",
+    "password": "sergey222",
+    "avatar": "",
+    "city": "Самара",
+    "description": "Продажник с опытом B2B, обучаю переговорам и работе с возражениями.",
+    "age": 33,
+    "date": "2024-03-08",
+    "liked": 19,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [3] },
+      { "idCategory": 4, "idSubCategory": [3] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 6,
+      "name": "Продажи",
+      "skill": "Sales coaching",
+      "category": 1,
+      "subcategory": 3,
+      "description": "Тренинги по переговорам и техникам закрытия сделок.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 7,
+    "name": "Анна",
+    "email": "anna.morozova@example.com",
+    "password": "anna333",
+    "avatar": "",
+    "city": "Краснодар",
+    "description": "Пишу тексты и помогаю развивать креативное письмо.",
+    "age": 26,
+    "date": "2024-02-25",
+    "liked": 23,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 3, "idSubCategory": [6] },
+      { "idCategory": 4, "idSubCategory": [2] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 7,
+      "name": "Письмо",
+      "skill": "Creative writing",
+      "category": 2,
+      "subcategory": 6,
+      "description": "Работа с художественными и коммерческими текстами.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 8,
+    "name": "Павел",
+    "email": "pavel.andreev@example.com",
+    "password": "pavel444",
+    "avatar": "",
+    "city": "Сочи",
+    "description": "Учитель скорочтения и развития памяти.",
+    "age": 37,
+    "date": "2024-02-10",
+    "liked": 29,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [6] },
+      { "idCategory": 5, "idSubCategory": [2] },
+      { "idCategory": 6, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 8,
+      "name": "Скорочтение",
+      "skill": "Learning skills",
+      "category": 4,
+      "subcategory": 4,
+      "description": "Обучение скорочтению и приёмам запоминания информации.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 9,
+    "name": "Наталья",
+    "email": "natalia.fedorova@example.com",
+    "password": "natalia555",
+    "avatar": "",
+    "city": "Пермь",
+    "description": "Организатор пространства, помогаю навести порядок дома.",
+    "age": 32,
+    "date": "2024-01-28",
+    "liked": 17,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [8] },
+      { "idCategory": 4, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 9,
+      "name": "Порядок",
+      "skill": "Home organizing",
+      "category": 5,
+      "subcategory": 1,
+      "description": "Системы хранения и оптимизация пространства.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 10,
+    "name": "Игорь",
+    "email": "igor.melnikov@example.com",
+    "password": "igor666",
+    "avatar": "",
+    "city": "Тюмень",
+    "description": "Проектный менеджер, выстраиваю процессы в команде.",
+    "age": 35,
+    "date": "2024-01-10",
+    "liked": 24,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [1, 7] },
+      { "idCategory": 5, "idSubCategory": [2] },
+      { "idCategory": 6, "idSubCategory": [7] }
+    ],
+    "skills": {
+      "id": 10,
+      "name": "Проекты",
+      "skill": "Project management",
+      "category": 1,
+      "subcategory": 7,
+      "description": "Внедрение agile-практик и управление рисками.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 11,
+    "name": "Алина",
+    "email": "alina.lebedeva@example.com",
+    "password": "alina777",
+    "avatar": "",
+    "city": "Воронеж",
+    "description": "Художник-иллюстратор, провожу уроки по рисованию.",
+    "age": 24,
+    "date": "2023-12-20",
+    "liked": 30,
+    "categories": [
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 4, "idSubCategory": [1] },
+      { "idCategory": 6, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 11,
+      "name": "Рисование",
+      "skill": "Drawing & illustration",
+      "category": 2,
+      "subcategory": 1,
+      "description": "Обучаю основам академического и цифрового рисунка.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 12,
+    "name": "Кирилл",
+    "email": "kirill.nikitin@example.com",
+    "password": "kirill888",
+    "avatar": "",
+    "city": "Уфа",
+    "description": "Музыкант и саунд-дизайнер, помогаю создавать музыку с нуля.",
+    "age": 28,
+    "date": "2023-12-05",
+    "liked": 22,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [4] },
+      { "idCategory": 3, "idSubCategory": [4] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 12,
+      "name": "Музыка",
+      "skill": "Music production",
+      "category": 2,
+      "subcategory": 4,
+      "description": "Создание аранжировок и базовый саунд-дизайн.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 13,
+    "name": "Вера",
+    "email": "vera.egorova@example.com",
+    "password": "vera999",
+    "avatar": "",
+    "city": "Челябинск",
+    "description": "Арт-терапевт, использую творчество для улучшения эмоционального состояния.",
+    "age": 36,
+    "date": "2023-11-18",
+    "liked": 26,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 13,
+      "name": "Арт-терапия",
+      "skill": "Art therapy",
+      "category": 2,
+      "subcategory": 7,
+      "description": "Применяю арт-техники для работы со стрессом и выгоранием.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 14,
+    "name": "Роман",
+    "email": "roman.stepanov@example.com",
+    "password": "roman000",
+    "avatar": "",
+    "city": "Ростов-на-Дону",
+    "description": "Преподаю испанский язык с упором на разговорную практику.",
+    "age": 29,
+    "date": "2023-11-01",
+    "liked": 20,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [8] },
+      { "idCategory": 2, "idSubCategory": [3] },
+      { "idCategory": 4, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 14,
+      "name": "Испанский",
+      "skill": "Spanish teaching",
+      "category": 3,
+      "subcategory": 3,
+      "description": "Живой разговорный испанский и практика через кейсы.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 15,
+    "name": "Татьяна",
+    "email": "tatyana.zaytseva@example.com",
+    "password": "tanya111",
+    "avatar": "",
+    "city": "Омск",
+    "description": "Преподаватель китайского языка, делаю акцент на разговор и иероглифы.",
+    "age": 33,
+    "date": "2023-10-15",
+    "liked": 19,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [8] },
+      { "idCategory": 2, "idSubCategory": [4] },
+      { "idCategory": 5, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 15,
+      "name": "Китайский",
+      "skill": "Chinese teaching",
+      "category": 3,
+      "subcategory": 5,
+      "description": "Комбинирую разговорную практику и изучение иероглифов.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 16,
+    "name": "Светлана",
+    "email": "svetlana.danilova@example.com",
+    "password": "sveta222",
+    "avatar": "",
+    "city": "Барнаул",
+    "description": "Коуч по личностному развитию и целеполаганию.",
+    "age": 38,
+    "date": "2023-10-01",
+    "liked": 33,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [7] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [2] },
+      { "idCategory": 6, "idSubCategory": [7] }
+    ],
+    "skills": {
+      "id": 16,
+      "name": "Личностный рост",
+      "skill": "Personal coaching",
+      "category": 4,
+      "subcategory": 6,
+      "description": "Работаю с целями, мотивацией и поддержкой изменений.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 17,
+    "name": "Денис",
+    "email": "denis.orlov@example.com",
+    "password": "denis333",
+    "avatar": "",
+    "city": "Иркутск",
+    "description": "Помогаю освоить базовые навыки обучения и работы с информацией.",
+    "age": 27,
+    "date": "2023-09-20",
+    "liked": 16,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 2, "idSubCategory": [6] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 17,
+      "name": "Обучение",
+      "skill": "Study skills",
+      "category": 4,
+      "subcategory": 2,
+      "description": "Техники конспектирования, планирования и повторения материала.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 18,
+    "name": "Полина",
+    "email": "polina.komarova@example.com",
+    "password": "polina444",
+    "avatar": "",
+    "city": "Тверь",
+    "description": "Люблю готовить и учу готовить вкусно и просто.",
+    "age": 26,
+    "date": "2023-09-05",
+    "liked": 28,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [3] },
+      { "idCategory": 2, "idSubCategory": [2] },
+      { "idCategory": 4, "idSubCategory": [1] },
+      { "idCategory": 6, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 18,
+      "name": "Готовка",
+      "skill": "Cooking",
+      "category": 5,
+      "subcategory": 3,
+      "description": "Рецепты на каждый день и базовые техники готовки.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 19,
+    "name": "Максим",
+    "email": "maksim.vinogradov@example.com",
+    "password": "maks555",
+    "avatar": "",
+    "city": "Калининград",
+    "description": "Помогаю обустроить дом и подобрать декор.",
+    "age": 34,
+    "date": "2023-08-20",
+    "liked": 25,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [8] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 6, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 19,
+      "name": "Ремонт",
+      "skill": "Home improvement",
+      "category": 5,
+      "subcategory": 5,
+      "description": "Базовый ремонт и создание уютных интерьеров.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 20,
+    "name": "Елена",
+    "email": "elena.gromova@example.com",
+    "password": "elena666",
+    "avatar": "",
+    "city": "Москва",
+    "description": "Инструктор по йоге и медитации, работаю с телом и вниманием.",
+    "age": 32,
+    "date": "2023-08-05",
+    "liked": 31,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 2, "idSubCategory": [7] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 20,
+      "name": "Йога",
+      "skill": "Yoga & mindfulness",
+      "category": 6,
+      "subcategory": 1,
+      "description": "Мягкие практики для расслабления и концентрации.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 21,
+    "name": "Григорий",
+    "email": "grigory.kiselev@example.com",
+    "password": "grisha777",
+    "avatar": "",
+    "city": "Санкт-Петербург",
+    "description": "Фитнес-тренер, специализируюсь на работе с начинающими.",
+    "age": 29,
+    "date": "2023-07-18",
+    "liked": 22,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [4] },
+      { "idCategory": 3, "idSubCategory": [5] },
+      { "idCategory": 5, "idSubCategory": [5] }
+    ],
+    "skills": {
+      "id": 21,
+      "name": "Фитнес",
+      "skill": "Fitness training",
+      "category": 6,
+      "subcategory": 5,
+      "description": "Составляю безопасные программы тренировок для разных уровней.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 22,
+    "name": "Яна",
+    "email": "yana.belova@example.com",
+    "password": "yana888",
+    "avatar": "",
+    "city": "Казань",
+    "description": "Ментор по ментальному здоровью, работаю в связке с психотерапевтами.",
+    "age": 35,
+    "date": "2023-07-01",
+    "liked": 27,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [7] },
+      { "idCategory": 4, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 22,
+      "name": "Психика",
+      "skill": "Mental wellbeing",
+      "category": 6,
+      "subcategory": 3,
+      "description": "Практики поддержки, работа со стрессом и выгоранием.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 23,
+    "name": "Олег",
+    "email": "oleg.zaharov@example.com",
+    "password": "oleg999",
+    "avatar": "",
+    "city": "Новосибирск",
+    "description": "Веду тренинги по тайм-менеджменту и продуктивности.",
+    "age": 33,
+    "date": "2023-06-20",
+    "liked": 24,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [2] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [2] },
+      { "idCategory": 6, "idSubCategory": [7] }
+    ],
+    "skills": {
+      "id": 23,
+      "name": "Время",
+      "skill": "Time management",
+      "category": 1,
+      "subcategory": 6,
+      "description": "Инструменты планирования и приоритизации задач.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 24,
+    "name": "Инна",
+    "email": "inna.zhukova@example.com",
+    "password": "inna000",
+    "avatar": "",
+    "city": "Самара",
+    "description": "Эксперт по личным финансам и управлению бюджетом семьи.",
+    "age": 37,
+    "date": "2023-06-05",
+    "liked": 29,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 3, "idSubCategory": [2] },
+      { "idCategory": 4, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 24,
+      "name": "Финансы",
+      "skill": "Personal finance",
+      "category": 5,
+      "subcategory": 2,
+      "description": "Учимся планировать расходы и формировать подушку безопасности.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 25,
+    "name": "Антон",
+    "email": "anton.pavlov@example.com",
+    "password": "anton111",
+    "avatar": "",
+    "city": "Ижевск",
+    "description": "Предприниматель, делюсь опытом запуска и масштабирования бизнеса.",
+    "age": 34,
+    "date": "2023-05-20",
+    "liked": 32,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [8] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 4, "idSubCategory": [3] },
+      { "idCategory": 5, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 25,
+      "name": "Бизнес",
+      "skill": "Entrepreneurship",
+      "category": 1,
+      "subcategory": 8,
+      "description": "Разбираем бизнес-модели, риски и гипотезы.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 26,
+    "name": "Марина",
+    "email": "marina.chernova@example.com",
+    "password": "marina222",
+    "avatar": "",
+    "city": "Тула",
+    "description": "Учитель немецкого языка, делаю упор на живое общение.",
+    "age": 31,
+    "date": "2023-05-05",
+    "liked": 18,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 2, "idSubCategory": [6] },
+      { "idCategory": 5, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 26,
+      "name": "Немецкий",
+      "skill": "German teaching",
+      "category": 3,
+      "subcategory": 4,
+      "description": "Практика разговорного немецкого и грамматики через диалоги.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 27,
+    "name": "Владимир",
+    "email": "vladimir.savin@example.com",
+    "password": "vladimir333",
+    "avatar": "",
+    "city": "Киров",
+    "description": "Актёр и педагог по актёрскому мастерству.",
+    "age": 39,
+    "date": "2023-04-20",
+    "liked": 21,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [4] },
+      { "idCategory": 3, "idSubCategory": [5] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 27,
+      "name": "Актёрство",
+      "skill": "Acting",
+      "category": 2,
+      "subcategory": 5,
+      "description": "Работа над голосом, телом и вниманием на сцене.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 28,
+    "name": "Лилия",
+    "email": "liliya.romanova@example.com",
+    "password": "liliya444",
+    "avatar": "",
+    "city": "Саратов",
+    "description": "Люблю работать с комнатными растениями и зелёным декором.",
+    "age": 28,
+    "date": "2023-04-05",
+    "liked": 19,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [8] },
+      { "idCategory": 4, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 28,
+      "name": "Растения",
+      "skill": "Indoor gardening",
+      "category": 5,
+      "subcategory": 4,
+      "description": "Ухаживаем за растениями и создаём зелёные уголки.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 29,
+    "name": "Пётр",
+    "email": "petr.tarasov@example.com",
+    "password": "petr555",
+    "avatar": "",
+    "city": "Пенза",
+    "description": "Настраиваю режим сна и восстановления для загруженных людей.",
+    "age": 36,
+    "date": "2023-03-22",
+    "liked": 23,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 2, "idSubCategory": [2] },
+      { "idCategory": 3, "idSubCategory": [6] },
+      { "idCategory": 5, "idSubCategory": [6] }
+    ],
+    "skills": {
+      "id": 29,
+      "name": "Сон",
+      "skill": "Sleep coaching",
+      "category": 6,
+      "subcategory": 6,
+      "description": "Составляем режим, который подходит именно вам.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 30,
+    "name": "Ксения",
+    "email": "kseniya.belyaeva@example.com",
+    "password": "ksenia666",
+    "avatar": "",
+    "city": "Владивосток",
+    "description": "Организатор DIY-проектов, люблю декорировать и создавать вещи руками.",
+    "age": 27,
+    "date": "2023-03-10",
+    "liked": 26,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [4] },
+      { "idCategory": 3, "idSubCategory": [8] },
+      { "idCategory": 4, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [4] }
+    ],
+    "skills": {
+      "id": 30,
+      "name": "DIY",
+      "skill": "DIY projects",
+      "category": 2,
+      "subcategory": 8,
+      "description": "Делаем аксессуары и декор для дома своими руками.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 31,
+    "name": "Артур",
+    "email": "artur.vasiliev@example.com",
+    "password": "artur777",
+    "avatar": "",
+    "city": "Нижний Новгород",
+    "description": "Тренер по переговорам и управлению конфликтами.",
+    "age": 34,
+    "date": "2023-02-25",
+    "liked": 28,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [3] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 4, "idSubCategory": [3] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 31,
+      "name": "Переговоры",
+      "skill": "Negotiation skills",
+      "category": 1,
+      "subcategory": 3,
+      "description": "Практические кейсы по сложным переговорам.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 32,
+    "name": "Юлия",
+    "email": "yulia.antonova@example.com",
+    "password": "yulia888",
+    "avatar": "",
+    "city": "Москва",
+    "description": "Учитель французского языка, фанатка французской культуры.",
+    "age": 30,
+    "date": "2023-02-10",
+    "liked": 21,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 2, "idSubCategory": [6] },
+      { "idCategory": 4, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 32,
+      "name": "Французский",
+      "skill": "French teaching",
+      "category": 3,
+      "subcategory": 2,
+      "description": "Разговорный французский с опорой на реальные ситуации.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 33,
+    "name": "Станислав",
+    "email": "stanislav.golubev@example.com",
+    "password": "stanislav999",
+    "avatar": "",
+    "city": "Санкт-Петербург",
+    "description": "Наставник по балансу жизни и работы, много работал в IT.",
+    "age": 38,
+    "date": "2023-01-28",
+    "liked": 30,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [7] },
+      { "idCategory": 3, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 33,
+      "name": "Баланс",
+      "skill": "Work-life balance",
+      "category": 6,
+      "subcategory": 7,
+      "description": "Помогаю выстраивать границы и планировать нагрузку.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 34,
+    "name": "Дарья",
+    "email": "daria.sedova@example.com",
+    "password": "daria000",
+    "avatar": "",
+    "city": "Ярославль",
+    "description": "Преподаватель методов преподавания, работаю с начинающими педагогами.",
+    "age": 33,
+    "date": "2023-01-15",
+    "liked": 19,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [1] },
+      { "idCategory": 2, "idSubCategory": [6] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 34,
+      "name": "Преподавание",
+      "skill": "Teaching skills",
+      "category": 4,
+      "subcategory": 5,
+      "description": "Помогаю выстраивать уроки и удерживать внимание учеников.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 35,
+    "name": "Егор",
+    "email": "egor.kiselev@example.com",
+    "password": "egor111",
+    "avatar": "",
+    "city": "Рязань",
+    "description": "Люблю проектировать обучающие программы и курсы.",
+    "age": 29,
+    "date": "2022-12-30",
+    "liked": 17,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [2] },
+      { "idCategory": 2, "idSubCategory": [6] },
+      { "idCategory": 5, "idSubCategory": [3] }
+    ],
+    "skills": {
+      "id": 35,
+      "name": "Программы",
+      "skill": "Course design",
+      "category": 4,
+      "subcategory": 3,
+      "description": "Структурирую контент и связываю темы в целостную программу.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 36,
+    "name": "Зоя",
+    "email": "zoya.martynova@example.com",
+    "password": "zoya222",
+    "avatar": "",
+    "city": "Липецк",
+    "description": "Фотограф-любитель, обучаю базовым навыкам съёмки на телефон.",
+    "age": 25,
+    "date": "2022-12-15",
+    "liked": 18,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [2] },
+      { "idCategory": 3, "idSubCategory": [2] },
+      { "idCategory": 4, "idSubCategory": [2] }
+    ],
+    "skills": {
+      "id": 36,
+      "name": "Фото",
+      "skill": "Mobile photography",
+      "category": 2,
+      "subcategory": 2,
+      "description": "Учимся снимать и обрабатывать фото на смартфон.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 37,
+    "name": "Руслан",
+    "email": "ruslan.fomin@example.com",
+    "password": "ruslan333",
+    "avatar": "",
+    "city": "Казань",
+    "description": "Специалист по осознанности и работе с вниманием.",
+    "age": 37,
+    "date": "2022-12-01",
+    "liked": 22,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [6] },
+      { "idCategory": 2, "idSubCategory": [7] },
+      { "idCategory": 5, "idSubCategory": [4] }
+    ],
+    "skills": {
+      "id": 37,
+      "name": "Осознанность",
+      "skill": "Mindfulness",
+      "category": 6,
+      "subcategory": 4,
+      "description": "Простые практики присутствия в повседневной жизни.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 38,
+    "name": "Софья",
+    "email": "sofia.trofimova@example.com",
+    "password": "sofia444",
+    "avatar": "",
+    "city": "Томск",
+    "description": "Мастер по декору интерьера и стайлингу пространства.",
+    "age": 30,
+    "date": "2022-11-20",
+    "liked": 24,
+    "categories": [
+      { "idCategory": 1, "idSubCategory": [4] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 5, "idSubCategory": [4] }
+    ],
+    "skills": {
+      "id": 38,
+      "name": "Декор",
+      "skill": "Interior styling",
+      "category": 5,
+      "subcategory": 4,
+      "description": "Подбор текстиля, декора и расстановки мебели.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 39,
+    "name": "Леонид",
+    "email": "leonid.nikolaev@example.com",
+    "password": "leonid555",
+    "avatar": "",
+    "city": "Нижний Новгород",
+    "description": "Руководитель команды, делюсь практиками управления людьми.",
+    "age": 41,
+    "date": "2022-11-05",
+    "liked": 35,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [1] },
+      { "idCategory": 3, "idSubCategory": [1] },
+      { "idCategory": 4, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 39,
+      "name": "Менеджмент",
+      "skill": "Team management",
+      "category": 1,
+      "subcategory": 1,
+      "description": "Построение процессов, one-to-one и обратная связь.",
+      "imgs": []
+    }
+  },
+  {
+    "id": 40,
+    "name": "Иван",
+    "email": "ivan.petrov@example.com",
+    "password": "password123",
+    "avatar": "",
+    "city": "Санкт-Петербург",
+    "description": "Frontend-разработчик, специализируюсь на React и TypeScript. Люблю чистую архитектуру и UI.",
+    "age": 27,
+    "date": "2022-10-25",
+    "liked": 34,
+    "categories": [
+      { "idCategory": 2, "idSubCategory": [1, 3] },
+      { "idCategory": 4, "idSubCategory": [2] },
+      { "idCategory": 5, "idSubCategory": [1] }
+    ],
+    "skills": {
+      "id": 40,
+      "name": "React",
+      "skill": "Frontend development",
+      "category": 3,
+      "subcategory": 1,
+      "description": "Разработка SPA-приложений на React с использованием хуков и контекста.",
+      "imgs": []
+    }
+  }
+]
+
+
+
+
