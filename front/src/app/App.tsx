@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { GlobalStyles } from './ui/GlobalStyles';
+import { GlobalStyles } from '../shared/styles/theme';
+
 
 function App() {
   useEffect(() => {
