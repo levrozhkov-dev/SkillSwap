@@ -16,11 +16,14 @@ export const GlobalStyles = createGlobalStyle`
     /* Вторичный / вспомогательный текст */
     --color-text-secondary: #69735D;
 
-    /* Основной акцентный цвет (кнопки, активные элементы) */
-    --color-primary: #b6d88a;
+    /* Акцентный цвет (Accent) */
+    --color-accent: #ABD27A;
 
-    /* Цвет рамок и разделителей */
-    --color-border: #ABD27A;
+    /* Цвет кнопки при наведении (Button hover) */
+    --color-button-hover: #DEEBC5;
+
+    /* Цвет кнопки при нажатии (Text link, Button pressed) */
+    --color-button-pressed: #508826;
 
     /* Фон заметок / подсветки */
     --color-bg-note: #EBE5C5;
