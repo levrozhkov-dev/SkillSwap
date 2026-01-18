@@ -50,7 +50,7 @@ export const ButtonWhite = styled.button`
   font-weight: 500;
   background-color: #ffffff;
   border: 1px solid var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-text-main);
 
   &:hover {
     background-color: var(--color-button-hover);
@@ -62,7 +62,7 @@ export const ButtonWhite = styled.button`
   &:focus {
     background-color: var(--color-button-pressed);
     border-color: var(--color-button-pressed);
-    color: #ffffff;
+    color: var(--color-text-main);
     outline: none;
   }
 
@@ -71,19 +71,19 @@ export const ButtonWhite = styled.button`
     cursor: not-allowed;
     background-color: #ffffff;
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-text-main);
 
     &:hover {
       background-color: #ffffff;
       border-color: var(--color-accent);
-      color: var(--color-accent);
+      color: var(--color-text-main);
     }
 
     &:active,
     &:focus {
       background-color: #ffffff;
       border-color: var(--color-accent);
-      color: var(--color-accent);
+      color: var(--color-text-main);
     }
   }
 `;
