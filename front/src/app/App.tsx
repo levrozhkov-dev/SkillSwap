@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { routeObjects } from './routing/routes';
 import { GlobalStyles } from '../shared/styles/theme';
 
+// Создаём роутер
+const router = createBrowserRouter(routeObjects);
 
 function App() {
   useEffect(() => {
@@ -11,10 +15,11 @@ function App() {
       })
       .catch((err) => console.error(err));
   }, []);
+
   return (
     <>
       <GlobalStyles />
-      <p>Hello Project</p>
+      <RouterProvider router={router} />
     </>
   );
 }
