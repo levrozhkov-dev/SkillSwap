@@ -7,9 +7,9 @@ export const theme = {
     textMain: 'var(--color-text-main)',
     textSecondary: 'var(--color-text-secondary)',
 
-    primary: 'var(--color-primary)',
-    border: 'var(--color-border)',
-    danger: 'var(--color-danger)',
+    accent: 'var(--color-accent)',
+    buttonHover: 'var(--color-button-hover)',
+    buttonPressed: 'var(--color-button-pressed)',
   },
 
   font: {

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import type { ButtonVariant } from './button';
 
-export const StyledButton = styled.button<{ $variant: ButtonVariant }>`
+export const ButtonGreen = styled.button`
   font-family: var(--font-main);
   font-size: var(--font-size-md);
   padding: var(--space-sm) var(--space-md);
@@ -10,74 +9,81 @@ export const StyledButton = styled.button<{ $variant: ButtonVariant }>`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   font-weight: 500;
+  background-color: var(--color-accent);
+  color: var(--color-text-main);
 
-  ${({ $variant }) => {
-    switch ($variant) {
-      case 'primary':
-        return `
-          background-color: var(--color-primary);
-          color: var(--color-text-main);
-          
-          &:hover {
-            background-color: var(--color-border);
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
-          
-          &:active {
-            background-color: var(--color-primary);
-            transform: translateY(0);
-            box-shadow: none;
-          }
-        `;
-      case 'secondary':
-        return `
-          background-color: var(--color-bg-card);
-          color: var(--color-text-main);
-          border: 1px solid var(--color-border);
-          
-          &:hover {
-            background-color: var(--color-bg-main);
-            border-color: var(--color-primary);
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
-          
-          &:active {
-            background-color: var(--color-bg-card);
-            transform: translateY(0);
-            box-shadow: none;
-          }
-        `;
-      case 'danger':
-        return `
-          background-color: var(--color-danger);
-          color: #ffffff;
-          
-          &:hover {
-            background-color: #c82333;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
-          }
-          
-          &:active {
-            background-color: var(--color-danger);
-            transform: translateY(0);
-            box-shadow: none;
-          }
-        `;
-      default:
-        return '';
-    }
-  }}
+  &:hover {
+    background-color: var(--color-button-hover);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--color-button-pressed);
+    color: #ffffff;
+    outline: none;
+  }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    
+    background-color: var(--color-accent);
+
     &:hover {
-      transform: none;
-      box-shadow: none;
+      background-color: var(--color-accent);
+    }
+
+    &:active,
+    &:focus {
+      background-color: var(--color-accent);
+      color: var(--color-text-main);
+    }
+  }
+`;
+
+export const ButtonWhite = styled.button`
+  font-family: var(--font-main);
+  font-size: var(--font-size-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  background-color: #ffffff;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+
+  &:hover {
+    background-color: var(--color-button-hover);
+    border-color: var(--color-accent);
+    color: var(--color-text-main);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--color-button-pressed);
+    border-color: var(--color-button-pressed);
+    color: #ffffff;
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ffffff;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+
+    &:hover {
+      background-color: #ffffff;
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    &:active,
+    &:focus {
+      background-color: #ffffff;
+      border-color: var(--color-accent);
+      color: var(--color-accent);
     }
   }
 `;

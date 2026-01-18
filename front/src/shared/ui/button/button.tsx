@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledButton } from './styled';
+import { ButtonGreen, ButtonWhite } from './styled';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'danger';
+export type ButtonVariant = 'green' | 'white';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -9,15 +9,27 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
-  children,
-  onClick,
-  ...props
-}) => {
-  return (
-    <StyledButton $variant={variant} onClick={onClick} {...props}>
-      {children}
-    </StyledButton>
-  );
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { variant = 'green', children, onClick, ...restProps } = props;
+
+  switch (variant) {
+    case 'green':
+      return (
+        <ButtonGreen onClick={onClick} {...restProps}>
+          {children}
+        </ButtonGreen>
+      );
+    case 'white':
+      return (
+        <ButtonWhite onClick={onClick} {...restProps}>
+          {children}
+        </ButtonWhite>
+      );
+    default:
+      return (
+        <ButtonGreen onClick={onClick} {...restProps}>
+          {children}
+        </ButtonGreen>
+      );
+  }
 };
