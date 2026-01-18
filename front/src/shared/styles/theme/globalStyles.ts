@@ -25,6 +25,8 @@ export const GlobalStyles = createGlobalStyle`
     /* Фон заметок / подсветки */
     --color-bg-note: #EBE5C5;
 
+    --color-danger: #dc3545;
+
 
     /* Основной шрифт приложения */
     --font-main: 'Jost', system-ui, sans-serif;

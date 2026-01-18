@@ -9,6 +9,7 @@ export const theme = {
 
     primary: 'var(--color-primary)',
     border: 'var(--color-border)',
+    danger: 'var(--color-danger)',
   },
 
   font: {
