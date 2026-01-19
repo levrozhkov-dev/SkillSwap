@@ -1,7 +1,17 @@
 import React, { type InputHTMLAttributes, type ReactNode } from 'react';
-import styles from './input.module.css';
+import {
+  InputWrapper,
+  InputLabel,
+  InputField,
+  InputContainer,
+  InputIcon,
+  InputErrorText,
+} from './input.styled';
 
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface InputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type'
+> {
   type?: string;
   nameLabel?: string;
   error?: boolean;
@@ -21,59 +31,34 @@ export const Input: React.FC<InputProps> = ({
   ...rest
 }) => {
   const inputId = nameLabel || React.useId();
-
-  // Формируем классы через массив и join
-  const wrapperClasses = [
-    styles['input-wrapper'],
-    error && styles['input-wrapper--error'],
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  const inputClasses = [
-    styles['input-field'],
-    error && styles['input-field--error'],
-    icon && iconPosition === 'left' && styles['input-field--icon-left'],
-    icon && iconPosition === 'right' && styles['input-field--icon-right'],
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  const iconClasses = (position: 'left' | 'right') => [
-    styles['input-icon'],
-    styles[`input-icon--${position}`],
-  ].join(' ');
+  const hasIcon = !!icon; // Флаг: есть ли иконка?
 
   return (
-    <div className={wrapperClasses}>
-      {nameLabel && (
-        <label htmlFor={inputId} className={styles['input-label']}>
-          {nameLabel}
-        </label>
-      )}
+    <InputWrapper error={error}>
+      {nameLabel && <InputLabel htmlFor={inputId}>{nameLabel}</InputLabel>}
 
-      <div className={styles['input-container']}>
-        {icon && iconPosition === 'left' && (
-          <span className={iconClasses('left')}>{icon}</span>
+      <InputContainer>
+        {hasIcon && iconPosition === 'left' && (
+          <InputIcon iconPosition="left">{icon}</InputIcon>
         )}
 
-        <input
+        <InputField
           id={inputId}
           type={type}
           placeholder={placeholder}
           aria-invalid={error}
+          error={error}
+          iconPosition={iconPosition}
+          hasIcon={hasIcon}
           {...rest}
-          className={inputClasses}
         />
 
         {icon && iconPosition === 'right' && (
-          <span className={iconClasses('right')}>{icon}</span>
+          <InputIcon iconPosition="right">{icon}</InputIcon>
         )}
-      </div>
+      </InputContainer>
 
-      {error && errorText && (
-        <div className={styles['input-error-text']}>{errorText}</div>
-      )}
-    </div>
+      {error && errorText && <InputErrorText>{errorText}</InputErrorText>}
+    </InputWrapper>
   );
 };
