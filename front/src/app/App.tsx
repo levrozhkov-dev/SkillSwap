@@ -12,19 +12,20 @@ const router = createBrowserRouter(routeObjects);
 
 function App() {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-    GetCategories('categories').then((res) => {
-      
-      //проверяем получили ли мы категории
-      console.log('Categories: ', res);
-      dispatch(setCategories(res.data));
-      
-      //проверяем получилось ли сохранить категории в стор
-      console.log(store.getState());
-    }).catch((err) => {
-    console.error('Error fetching categories: ', err);
-  });
+    GetCategories('categories')
+      .then((res) => {
+        //проверяем получили ли мы категории
+        console.log('Categories: ', res);
+        dispatch(setCategories(res.data));
+
+        //проверяем получилось ли сохранить категории в стор
+        console.log(store.getState());
+      })
+      .catch((err) => {
+        console.error('Error fetching categories: ', err);
+      });
   }, [dispatch]);
 
   return (
