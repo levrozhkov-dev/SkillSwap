@@ -34,7 +34,7 @@ export class UserService {
       .filter((u) => !excludedIds.has(u.id))
       .slice(0, 9);
 
-    return {
+    return {  
       popular: popularUsers,
       new: newUsers,
       recommended: recommendedUsers,

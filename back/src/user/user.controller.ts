@@ -10,7 +10,7 @@ export class UserController {
     return this.appService.getUser();
   }
   // Популярные пользователи,новые пользователи и рекомендации
-  @Get()
+  @Get("user")
   getUsers() {
     return this.appService.getUsers();
   }
