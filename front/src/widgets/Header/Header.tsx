@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { HeaderWrapper } from "./styled";
+import * as Styled from "./styled";
 import { HeaderInput } from "../../entities/header-input";
 
 export const Header = () => {
@@ -11,12 +11,12 @@ export const Header = () => {
   };
 
   return (
-    <HeaderWrapper>
+    <Styled.HeaderWrapper>
       <HeaderInput
         value={searchValue}
         onChange={handleSearchChange}
         placeholder="Поиск..."
       />
-    </HeaderWrapper>
+    </Styled.HeaderWrapper>
   );
 };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderInputWrapper = styled.div`
+export const Input = styled.div`
   width: 100%;
   max-width: 100%;
 

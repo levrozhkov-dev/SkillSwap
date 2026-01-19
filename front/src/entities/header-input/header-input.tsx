@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from '../../shared/ui/input';
-import { HeaderInputWrapper } from './header-input.styled';
+import * as Styled from './header-input.styled';
 
 export interface HeaderInputProps {
   value: string;
@@ -18,13 +18,13 @@ export const HeaderInput: React.FC<HeaderInputProps> = ({
   };
 
   return (
-    <HeaderInputWrapper>
+    <Styled.Input>
       <Input
         type="text"
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
       />
-    </HeaderInputWrapper>
+    </Styled.Input>
   );
 };
