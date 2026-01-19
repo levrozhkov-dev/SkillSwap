@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 
-export const ButtonGreen = styled.button`
+/* =========================
+   BASE (добавлено)
+========================= */
+export const ButtonBase = styled.button`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+/* =========================
+   GREEN BUTTON (твой код)
+========================= */
+export const ButtonGreen = styled(ButtonBase)`
   font-family: var(--font-main);
   font-size: var(--font-size-md);
   padding: var(--space-sm) var(--space-md);
@@ -40,7 +52,10 @@ export const ButtonGreen = styled.button`
   }
 `;
 
-export const ButtonWhite = styled.button`
+/* =========================
+   WHITE BUTTON (твой код)
+========================= */
+export const ButtonWhite = styled(ButtonBase)`
   font-family: var(--font-main);
   font-size: var(--font-size-md);
   padding: var(--space-sm) var(--space-md);
@@ -85,5 +100,20 @@ export const ButtonWhite = styled.button`
       border-color: var(--color-accent);
       color: var(--color-text-main);
     }
+  }
+`;
+
+/* =========================
+   ICON WRAPPER (добавлено)
+========================= */
+export const IconWrapper = styled.span`
+  display: flex;
+  align-items: center;
+
+  svg,
+  img {
+    width: 16px;
+    height: 16px;
+    display: block;
   }
 `;
