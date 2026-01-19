@@ -1,4 +1,6 @@
-export const theme = {
+import type { DefaultTheme } from 'styled-components';
+
+export const theme: DefaultTheme = {
   colors: {
     bgMain: 'var(--color-bg-main)',
     bgCard: 'var(--color-bg-card)',

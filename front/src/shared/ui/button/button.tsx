@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonGreen, ButtonWhite } from './styled';
+import * as S from './styled';
 
 export type ButtonVariant = 'green' | 'white';
 
@@ -7,29 +7,54 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: ButtonVariant;
   children: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { variant = 'green', children, onClick, ...restProps } = props;
+  const {
+    variant = 'green',
+    children,
+    onClick,
+    icon,
+    iconPosition,
+    ...restProps
+  } = props;
 
   switch (variant) {
     case 'green':
       return (
-        <ButtonGreen onClick={onClick} {...restProps}>
-          {children}
-        </ButtonGreen>
+        <S.ButtonGreen onClick={onClick} {...restProps}>
+          {icon && iconPosition === 'left' && (
+            <S.IconWrapper>{icon}</S.IconWrapper>
+          )}
+
+          <span>{children}</span>
+
+          {icon && iconPosition === 'right' && (
+            <S.IconWrapper>{icon}</S.IconWrapper>
+          )}
+        </S.ButtonGreen>
       );
     case 'white':
       return (
-        <ButtonWhite onClick={onClick} {...restProps}>
-          {children}
-        </ButtonWhite>
+        <S.ButtonWhite onClick={onClick} {...restProps}>
+          {icon && iconPosition === 'left' && (
+            <S.IconWrapper>{icon}</S.IconWrapper>
+          )}
+
+          <span>{children}</span>
+
+          {icon && iconPosition === 'right' && (
+            <S.IconWrapper>{icon}</S.IconWrapper>
+          )}
+        </S.ButtonWhite>
       );
     default:
       return (
-        <ButtonGreen onClick={onClick} {...restProps}>
+        <S.ButtonGreen onClick={onClick} {...restProps}>
           {children}
-        </ButtonGreen>
+        </S.ButtonGreen>
       );
   }
 };
