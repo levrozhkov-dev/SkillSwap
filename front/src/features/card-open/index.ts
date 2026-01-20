@@ -1,1 +1,1 @@
-export { handleCardOpen } from './handleCardOpen';
+export { useCardOpen } from './handleCardOpen';

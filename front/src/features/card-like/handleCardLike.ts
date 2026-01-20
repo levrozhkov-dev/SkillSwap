@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from '../../providers/store/store';
 import { setLike, toggleLike } from '../slice/likesSlice';
 
-export const handleCardLike = (id: number, initialLiked: number) => {
+export const useCardLike = (id: number, initialLiked: number) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const likeItem = useSelector((state: RootState) =>

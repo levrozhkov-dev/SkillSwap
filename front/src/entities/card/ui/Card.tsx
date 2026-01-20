@@ -9,8 +9,8 @@ import { CardName } from './CardName';
 import { CardInfo } from './CardInfo';
 import { CardLikeButton } from './CardLikeButton';
 import { CardButton } from './CardButton';
-import { handleCardLike } from '../../../features/card-like';
-import { handleCardOpen } from '../../../features/card-open';
+import { useCardLike } from '../../../features/card-like';
+import { useCardOpen } from '../../../features/card-open';
 
 export interface CardProps {
   id: number;
@@ -33,8 +33,8 @@ export const Card: React.FC<CardProps> = ({
     liked: currentLiked,
     isLiked,
     handleToggleLike,
-  } = handleCardLike(id, liked);
-  const { handleOpen } = handleCardOpen(id);
+  } = useCardLike(id, liked);
+  const { handleOpen } = useCardOpen(id);
 
   return (
     <StyledCard>

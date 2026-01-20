@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const handleCardOpen = (id: number) => {
+export const useCardOpen = (id: number) => {
   const navigate = useNavigate();
 
   //Заглушка
