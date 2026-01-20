@@ -4,7 +4,7 @@ import { Header } from '../../../widgets/Header';
 export const Layout = () => {
   return (
     <div>
-        <Header/>
+      <Header />
       <main>
         <Outlet />
       </main>

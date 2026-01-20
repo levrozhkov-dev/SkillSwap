@@ -1,29 +1,22 @@
-import { HeaderWrapper } from './styled';
-import { HeaderButtons } from '../../entities/HeaderButtons/HeaderButtons';
+import { useState } from 'react';
+import * as Styled from "./styled";
+import { HeaderInput } from "../../entities/header-input";
 
 export const Header = () => {
-  const handleLoginClick = () => {
-    // навигация на страницу входа
-    console.log('Login clicked');
-  };
+  // Временно: состояние для HeaderInput
+  const [searchValue, setSearchValue] = useState('');
 
-  const handleRegisterClick = () => {
-    // навигация на страницу регистрации
-    console.log('Register clicked');
-  };
-
-  const handleThemeToggle = () => {
-    // переключение темы
-    console.log('Toggle theme clicked');
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value);
   };
 
   return (
-    <HeaderWrapper>
-      <HeaderButtons
-        onLoginClick={handleLoginClick}
-        onRegisterClick={handleRegisterClick}
-        onThemeToggle={handleThemeToggle}
+    <Styled.HeaderWrapper>
+      <HeaderInput
+        value={searchValue}
+        onChange={handleSearchChange}
+        placeholder="Поиск..."
       />
-    </HeaderWrapper>
+    </Styled.HeaderWrapper>
   );
 };

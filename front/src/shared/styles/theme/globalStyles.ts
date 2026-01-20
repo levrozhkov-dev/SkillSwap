@@ -28,11 +28,15 @@ export const GlobalStyles = createGlobalStyle`
     /* Фон заметок / подсветки */
     --color-bg-note: #EBE5C5;
 
+    /* цвет фона тега категории, если категорий больше 2 */
+    --color-bg-tag: #E8ECF7;
+
 
     /* Основной шрифт приложения */
     --font-main: 'Jost', system-ui, sans-serif;
 
     /* Размеры шрифта */
+    --font-zize-xs: 12px;
     --font-size-sm: 14px;
     --font-size-md: 16px;
     --font-size-lg: 20px;
@@ -41,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 
     --space-xs: 4px;
     --space-sm: 8px;
+    --space-smd: 12px;
     --space-md: 16px;
     --space-lg: 24px;
 
