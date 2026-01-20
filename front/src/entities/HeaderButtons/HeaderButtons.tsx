@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from '../../shared/ui/button/button';
+import { ButtonIcon } from '../../shared/ui/buttonIcon/ButtonIcon';
 import {
   ButtonsWrapper,
   LoginButtonContainer,
   RegisterButtonContainer,
   ThemeButtonContainer,
-  ThemeIcon,
 } from './styled';
 import moonIcon from '../../shared/img/icon/moon.svg';
 
@@ -23,27 +23,10 @@ export const HeaderButtons: React.FC<HeaderButtonsProps> = ({
   onThemeToggle,
   className,
 }) => {
-  const themeButtonToggle = () => {
-    if (onThemeToggle) {
-      onThemeToggle();
-    } else {
-      // кнопка-заглушка
-      console.log('Toggle theme button clicked');
-    }
-  };
   return (
     <ButtonsWrapper className={className}>
       <ThemeButtonContainer>
-        <button onClick={themeButtonToggle} type="button">
-          <ThemeIcon>
-            <img
-              src={moonIcon}
-              alt="Иконка переключения темы"
-              width="20"
-              height="20"
-            />
-          </ThemeIcon>
-        </button>
+        <ButtonIcon iconSrc={moonIcon} onClick={onThemeToggle} />
       </ThemeButtonContainer>
       <LoginButtonContainer>
         <Button variant="white" onClick={onLoginClick}>
