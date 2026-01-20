@@ -4,15 +4,15 @@ import type { UsersResponse } from '../../widgets/ListCard/types/users-response'
 import { GetUsers } from '../../shared/api/req/getCategories';
 
 export const CatalogPage: FC = () => {
-  const [users, setUsers] = useState<UsersResponse>({
-    popular: [],
-    new: [],
-    recommended: [],
-  });
+  const [users, setUsers] = useState<UsersResponse | null>(null);
 
   useEffect(() => {
     GetUsers('/users/user').then((res) => setUsers(res.data));
   }, []);
+
+  if (!users) {
+    return <div>Загрузка...</div>;
+  }
 
   return (
     <div>
