@@ -1,6 +1,7 @@
 import { showAllPopular } from '../../features/showAllPopular/showAllPopular';
 import type { User } from './types/user';
 import { Button } from '../../shared/ui/button';
+import { Card } from '../../entities/card';
 import * as S from './ListCard.styles';
 import iconbutton from '../../shared/img/icon/button-right.svg';
 
@@ -28,18 +29,57 @@ export const ListCard = ({ users }: Props) => {
             iconPosition="right"
           />
         </S.SectionHeader>
+        <S.CardsContainer>
+          {users.popular.map((user) => (
+            <Card
+              key={user.id}
+              id={user.id}
+              name={user.name}
+              avatar={user.avatar}
+              city={user.city}
+              age={user.age}
+              liked={user.liked}
+            />
+          ))}
+        </S.CardsContainer>
       </S.Section>
 
       <S.Section>
         <S.SectionHeader>
           <S.Title>Новое</S.Title>
         </S.SectionHeader>
+        <S.CardsContainer>
+          {users.new.map((user) => (
+            <Card
+              key={user.id}
+              id={user.id}
+              name={user.name}
+              avatar={user.avatar}
+              city={user.city}
+              age={user.age}
+              liked={user.liked}
+            />
+          ))}
+        </S.CardsContainer>
       </S.Section>
 
       <S.Section>
         <S.SectionHeader>
           <S.Title>Рекомендуем</S.Title>
         </S.SectionHeader>
+        <S.CardsContainer>
+          {users.recommended.map((user) => (
+            <Card
+              key={user.id}
+              id={user.id}
+              name={user.name}
+              avatar={user.avatar}
+              city={user.city}
+              age={user.age}
+              liked={user.liked}
+            />
+          ))}
+        </S.CardsContainer>
       </S.Section>
     </S.Wrapper>
   );

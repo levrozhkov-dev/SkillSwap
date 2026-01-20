@@ -1,0 +1,1 @@
+export { handleCardLike } from './handleCardLike';
