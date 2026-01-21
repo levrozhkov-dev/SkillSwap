@@ -2,25 +2,37 @@ import { useEffect, useState, type FC } from 'react';
 import { ListCard } from '../../widgets/ListCard/ListCard';
 import type { UsersResponse } from '../../widgets/ListCard/types/users-response';
 import { GetUsers } from '../../shared/api/req/getCategories';
-import { FilterBlock } from '../../entities/filter/ui/FilterBlock';
 import { mockFilterGender, mockFilterLearn } from '../../shared/mock/filters';
+import { Filter } from '../../widgets/Filter/ui/filter';
+import * as Styled from './styled';
+import { GetUserFilter } from '../../shared/api/req/postFilter';
+import type { FilterData } from '../../widgets/Filter/ui/types';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
-
+  const [dataFilter, setDataFilter] = useState<FilterData>({
+    gender: null,
+    learn: null,
+  });
   useEffect(() => {
     GetUsers('/users/user').then((res) => setUsers(res.data));
   }, []);
 
-  if (!users) {
-    return <div>Загрузка...</div>;
-  }
+  useEffect(() => {
+    GetUserFilter('/filter', dataFilter).then((res) => setUsers(res.data));
+  }, [dataFilter]);
+
+  if (!users) return <div>Загрузка...</div>;
 
   return (
-    <div>
+    <Styled.CatalogPage>
+      <Filter
+        mockFilterLearn={mockFilterLearn}
+        mockFilterGender={mockFilterGender}
+        dataFilter={dataFilter}
+        setDataFilter={setDataFilter}
+      />
       <ListCard users={users} />
-      <FilterBlock {...mockFilterLearn} />
-      <FilterBlock {...mockFilterGender} />
-    </div>
+    </Styled.CatalogPage>
   );
 };

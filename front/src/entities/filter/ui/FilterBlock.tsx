@@ -1,71 +1,36 @@
-import { useEffect, useState } from "react";
-import { StyledFilterContainer, StyledFilterOptions, StyledFilterTitle } from "./FilterBlock.styled";
-import { RadioButton } from "../../../shared/ui/radioButton/RadioButton";
+import {
+  StyledFilterContainer,
+  StyledFilterOptions,
+  StyledFilterTitle,
+} from './FilterBlock.styled';
+import { RadioButton } from '../../../shared/ui/radioButton/RadioButton';
+import type { FilterBlockProps } from '../../../widgets/Filter/ui/types';
 
-//типы для пропсов фильтра написаны с учетом что text и value у каждой кнопки совпадают
-export interface FilterProps {
-    title: string | null;
-    type: 'radio' | 'checkbox';
-    name: string;
-    options: string[];
-}
-
-interface RadioButtonProps {
-  text: string;
-  name: string;
-  value: string;
-  checked: boolean;
-  onChange: (value: string) => void;
-}
-
-//создаем универсальный компонент для любого блока из фильтров
-export const FilterBlock: React.FC<FilterProps> = ({
+export const FilterBlock: React.FC<FilterBlockProps> = ({
   title,
-  type,
   name,
-  options
-}) => { 
-    //создаем состояние
-    const [state, setState] = useState<string|null>(null);
+  options,
+  state,
+  setState,
+}) => {
+  const onChange = (value: string) => setState(value);
 
-    useEffect(() => {
-        if (type === 'radio') {
-            setState(options[0]);
-        }
-    },[])
+  const optionsProps = options.map((option) => ({
+    text: option,
+    name,
+    value: option,
+    checked: state === option,
+    onChange,
+  }));
 
-    //логируем состояние фильтра для проверки работоспособности (убрать после отладки)
-    useEffect(() => {
-        console.log(state);
-    }, [state])
-
-    const onChange = (value: string) => {
-        setState(value);
-    }
-
-    const optionsProps: RadioButtonProps[] = [];
-
-    options.map((option, index) => {
-        optionsProps[index] = {
-            text: option,
-            name: name,
-            value: option,
-            checked: (state === option),
-            onChange: onChange
-        }
-    })
-
-    return (
-        <StyledFilterContainer>
-            {/*контейнер для названия фильтра и опций*/}
-            <StyledFilterTitle>{title}</StyledFilterTitle>
-            <StyledFilterOptions>
-                {optionsProps.map((optionProps) => (
-                    <RadioButton {...optionProps} />
-                ))}
-            </StyledFilterOptions>
-
-        </StyledFilterContainer>
-
-    );
-}
+  return (
+    <StyledFilterContainer>
+      <StyledFilterTitle>{title}</StyledFilterTitle>
+      <StyledFilterOptions>
+        {optionsProps.map((optionProps) => (
+          <RadioButton key={optionProps.value} {...optionProps} />
+        ))}
+      </StyledFilterOptions>
+    </StyledFilterContainer>
+  );
+};
