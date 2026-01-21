@@ -12,11 +12,10 @@ interface Props {
         new: User[];
         recommended: User[];
       }
-    | User[]; // для фильтра
+    | User[];
 }
 
 export const ListCard = ({ users }: Props) => {
-  // Определяем, пришел ли объект с блоками или плоский массив
   const isBlocks = (
     users: Props['users'],
   ): users is {
