@@ -23,7 +23,7 @@ export interface User {
   description: string;
   age: number;
   date: string;
-  skills: UserSkills[];
+  skills: UserSkills;
   categories: CategorySelection[];
   liked: number;
 }

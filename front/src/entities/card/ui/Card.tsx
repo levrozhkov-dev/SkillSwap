@@ -9,8 +9,13 @@ import { CardName } from './CardName';
 import { CardInfo } from './CardInfo';
 import { CardLikeButton } from './CardLikeButton';
 import { CardButton } from './CardButton';
+import { CardCategories } from './CardCategories';
 import { useCardLike } from '../../../features/card-like';
 import { useCardOpen } from '../../../features/card-open';
+import type {
+  UserSkills,
+  CategorySelection,
+} from '../../../widgets/ListCard/types/user';
 
 export interface CardProps {
   id: number;
@@ -19,6 +24,8 @@ export interface CardProps {
   city: string;
   age: number;
   liked: number;
+  skills: UserSkills[];
+  categories: CategorySelection[];
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -28,6 +35,8 @@ export const Card: React.FC<CardProps> = ({
   city,
   age,
   liked,
+  skills,
+  categories,
 }) => {
   const {
     liked: currentLiked,
@@ -50,6 +59,7 @@ export const Card: React.FC<CardProps> = ({
           <CardInfo city={city} age={age} />
         </StyledCardContent>
       </StyledCardUserDescription>
+      <CardCategories skills={skills} categories={categories} />
       <CardButton onClick={handleOpen} />
     </StyledCard>
   );
