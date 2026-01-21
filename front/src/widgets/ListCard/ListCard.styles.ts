@@ -22,6 +22,6 @@ export const Title = styled.h2`
 
 export const CardsContainer = styled.article`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(324px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, 324px);
   gap: ${({ theme }) => theme.spacing.lg};
 `;
