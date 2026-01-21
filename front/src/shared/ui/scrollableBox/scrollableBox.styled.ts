@@ -7,6 +7,8 @@ export const Container = styled.div<{ width: string; height: string }>`
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: ${theme.colors.accent} ${theme.colors.bgCard};
 
   /* Стили для WebKit (Chrome, Safari) */
   &::-webkit-scrollbar {
