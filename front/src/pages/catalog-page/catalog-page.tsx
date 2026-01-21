@@ -7,6 +7,7 @@ import { Filter } from '../../widgets/Filter/ui/filter';
 import * as Styled from './styled';
 import { GetUserFilter } from '../../shared/api/req/postFilter';
 import type { FilterData } from '../../widgets/Filter/ui/types';
+import { ScrollableBox } from '../../shared/ui/scrollableBox/scrollableBox';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
@@ -38,7 +39,9 @@ export const CatalogPage: FC = () => {
         setDataFilter={setDataFilter}
       />
 
-      <ListCard users={users} />
+      <ScrollableBox width="100%" height="750px">
+        <ListCard users={users} />
+      </ScrollableBox>
     </Styled.CatalogPage>
   );
 };
