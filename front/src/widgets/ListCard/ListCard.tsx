@@ -39,6 +39,8 @@ export const ListCard = ({ users }: Props) => {
               city={user.city}
               age={user.age}
               liked={user.liked}
+              skills={[user.skills]}
+              categories={user.categories}
             />
           ))}
         </S.CardsContainer>
@@ -58,6 +60,8 @@ export const ListCard = ({ users }: Props) => {
               city={user.city}
               age={user.age}
               liked={user.liked}
+              skills={[user.skills]}
+              categories={user.categories}
             />
           ))}
         </S.CardsContainer>
@@ -77,6 +81,8 @@ export const ListCard = ({ users }: Props) => {
               city={user.city}
               age={user.age}
               liked={user.liked}
+              skills={[user.skills]}
+              categories={user.categories}
             />
           ))}
         </S.CardsContainer>

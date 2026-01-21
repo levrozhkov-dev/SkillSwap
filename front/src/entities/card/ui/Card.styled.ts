@@ -66,6 +66,7 @@ export const StyledLikeIconWrapper = styled.div`
 
 export const StyledCardButtonWrapper = styled.div`
   width: 100%;
+  margin-top: auto;
 
   button {
     width: 100%;
@@ -75,4 +76,29 @@ export const StyledCardButtonWrapper = styled.div`
     align-items: center;
     font-size: var(--font-size-md);
   }
+`;
+
+export const StyledCardCategories = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-sm) + var(--space-xs));
+`;
+
+export const StyledCategorySection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+`;
+
+export const StyledCategoryTitle = styled.h4`
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+`;
+
+export const StyledCategoryTags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
 `;
