@@ -21,7 +21,7 @@ export const Title = styled.h2`
 `;
 
 export const CardsContainer = styled.article`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 324px);
+  display: flex;
+  flex-wrap: wrap;
   gap: ${({ theme }) => theme.spacing.lg};
 `;

@@ -7,6 +7,7 @@ export const StyledCard = styled.div`
   padding: calc(var(--space-md) + var(--space-xs));
   background-color: var(--color-bg-card);
   border-radius: var(--radius-md);
+  min-width: 324px;
 `;
 
 export const StyledCardUserDescription = styled.div`

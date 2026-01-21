@@ -10,16 +10,21 @@ import type { FilterData } from '../../widgets/Filter/ui/types';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
+
   const [dataFilter, setDataFilter] = useState<FilterData>({
     gender: null,
     learn: null,
   });
-  useEffect(() => {
-    GetUsers('/users/user').then((res) => setUsers(res.data));
-  }, []);
 
   useEffect(() => {
-    GetUserFilter('/filter', dataFilter).then((res) => setUsers(res.data));
+    const isFilterActive =
+      dataFilter.gender !== null || dataFilter.learn !== null;
+
+    if (isFilterActive) {
+      GetUserFilter('/filter', dataFilter).then((res) => setUsers(res.data));
+    } else {
+      GetUsers('/users/user').then((res) => setUsers(res.data));
+    }
   }, [dataFilter]);
 
   if (!users) return <div>Загрузка...</div>;
@@ -32,6 +37,7 @@ export const CatalogPage: FC = () => {
         dataFilter={dataFilter}
         setDataFilter={setDataFilter}
       />
+
       <ListCard users={users} />
     </Styled.CatalogPage>
   );
