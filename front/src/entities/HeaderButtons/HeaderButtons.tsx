@@ -30,12 +30,12 @@ export const HeaderButtons: React.FC<HeaderButtonsProps> = ({
       </ThemeButtonContainer>
       <LoginButtonContainer>
         <Button variant="white" onClick={onLoginClick}>
-          Вход
+          Войти
         </Button>
       </LoginButtonContainer>
       <RegisterButtonContainer>
         <Button variant="green" onClick={onRegisterClick}>
-          Регистрация
+          Зарегистрироваться
         </Button>
       </RegisterButtonContainer>
     </ButtonsWrapper>

@@ -42,6 +42,8 @@ export const InputField = styled.input<
   outline: none;
 
   &::placeholder {
+  padding-left:27px;
+  letter-spacing:0.8px;
     color: ${theme.colors.textSecondary};
   }
 
@@ -60,7 +62,7 @@ export const InputField = styled.input<
     props.hasIcon &&
     props.iconPosition === 'left' &&
     `
-    padding-left: calc(${theme.spacing.lg} + 1.5rem);
+    padding-left: calc(${theme.spacing.lg} + 1.85rem);
   `}
 
   /* Увеличить отступ справа, только если:
