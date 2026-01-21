@@ -2,16 +2,15 @@ import styled from 'styled-components';
 
 export const ButtonsWrapper = styled.div`
   display: flex;
-  gap: var(--space-sm, 8px);
+  gap: 6px;
   align-items: center;
 `;
 
 export const ThemeButtonContainer = styled.div`
-  margin-right: 32px;
+  padding-right: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  }
 `;
 
 export const LoginButtonContainer = styled.div`
@@ -21,9 +20,12 @@ export const LoginButtonContainer = styled.div`
   & > button {
     width: 100%;
     height: 100%;
+    padding-left: 22px;
+
     font-size: var(--font-size-md, 16px);
     font-weight: 400;
-    border-radius: var(--radius-sm, 12px);
+    letter-spacing: 1.5px;
+    border-radius: 12px;
   }
 `;
 
@@ -34,8 +36,10 @@ export const RegisterButtonContainer = styled.div`
   & > button {
     width: 100%;
     height: 100%;
+    padding-left: 24px;
+    letter-spacing: 1.25px;
     font-size: var(--font-size-md, 16px);
     font-weight: 400;
-    border-radius: var(--radius-sm, 12px);
+    border-radius: 12px;
   }
 `;

@@ -47,13 +47,25 @@ export const GlobalStyles = createGlobalStyle`
     --space-sm: 8px;
     --space-smd: 12px;
     --space-md: 16px;
-    --space-lg: 24px;
+    --space-lg: 16px;
 
     /* Скругления */
     
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
+  }
+
+  :root[data-theme='dark'] {
+    --color-bg-main: #12150f;
+    --color-bg-card: #1a2114;
+    --color-text-main: #eef3e7;
+    --color-text-secondary: #b7c3aa;
+    --color-accent: #8fbe56;
+    --color-button-hover: #2a361f;
+    --color-button-pressed: #abd27a;
+    --color-bg-note: #3a331a;
+    --color-bg-tag: #2a2f3e;
   }
   
   *,
