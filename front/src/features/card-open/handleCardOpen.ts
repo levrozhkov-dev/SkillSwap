@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom';
 export const useCardOpen = (id: number) => {
   const navigate = useNavigate();
 
-  //Заглушка
   const handleOpen = useCallback(() => {
-    console.log(`Переход к карточке с id: ${id}`);
-    navigate(`/card/${id}`);
+    const encodedId = encodeURIComponent(id);
+
+    navigate(`/card/${encodedId}`, {
+      state: { id }, // передаём id в state
+    });
   }, [navigate, id]);
 
   return { handleOpen };
