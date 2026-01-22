@@ -16,6 +16,7 @@ export const CatalogPage: FC = () => {
     gender: null,
     learn: null,
     categories: {},
+    cities: [],
   });
 
   useEffect(() => {

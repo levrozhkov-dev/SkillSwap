@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import type { CategoryCheckboxProps } from '../../../../shared/ui/checkbox/type';
+import * as Styled from './styled';
 
 export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
   categoryData,
@@ -56,15 +57,17 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
   };
 
   return (
-    <div>
-      <Checkbox
-        label={categoryData.title}
-        checked={categoryChecked}
-        onChange={handleCategoryClick}
-      />
+    <>
+      <Styled.CheckboxContainer className={isOpen ? 'open' : ''}>
+        <Checkbox
+          label={categoryData.title}
+          checked={categoryChecked}
+          onChange={handleCategoryClick}
+        />
+      </Styled.CheckboxContainer>
 
       {isOpen && (
-        <div style={{ marginLeft: '20px', marginTop: '10px' }}>
+        <Styled.CheckboxListContainer>
           {categoryData.subCategories.map((sub, index) => (
             <Checkbox
               key={sub.id}
@@ -73,8 +76,8 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
               onChange={(checked) => handleSubChange(index, checked)}
             />
           ))}
-        </div>
+        </Styled.CheckboxListContainer>
       )}
-    </div>
+    </>
   );
 };
