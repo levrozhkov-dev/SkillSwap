@@ -1,4 +1,4 @@
-import type { FilterProps } from "../../entities/filter/ui/FilterBlock"
+import type { FilterProps } from "../../entities/filter/ui/FilterBlock";
 
 export const mockFilterLearn: FilterProps = {
     "title": null,
@@ -9,7 +9,7 @@ export const mockFilterLearn: FilterProps = {
         "Хочу научиться",
         "Могу научить"
     ]
-}
+};
 
 export const mockFilterGender: FilterProps = {
     "title": "Пол автора",
@@ -20,4 +20,4 @@ export const mockFilterGender: FilterProps = {
         "Мужской",
         "Женский"
     ]
-}
+};
