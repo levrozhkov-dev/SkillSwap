@@ -15,7 +15,7 @@ export const Header = () => {
   const skillsMenuRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
 
-  const categories = useSelector((state: RootState) => state.category);
+  const categories = useSelector((state: RootState) => state.category.items);
 
   const flatSkills = useMemo(() => {
     const skills: { id: number; name: string }[] = [];
