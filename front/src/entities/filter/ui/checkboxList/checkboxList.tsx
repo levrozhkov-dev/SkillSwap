@@ -12,10 +12,12 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
 
   const subIds = categoryData.subCategories.map((sub) => sub.id);
 
-  const categoryChecked = Object.prototype.hasOwnProperty.call(
-    selectedCategories,
-    categoryData.id,
-  );
+  // верхний чекбокс считается выбранным, если:
+  // - категория есть в selectedCategories
+  // - или если категория открыта
+  const categoryChecked =
+    Object.prototype.hasOwnProperty.call(selectedCategories, categoryData.id) ||
+    isOpen;
 
   // вычисляем подкатегории
   const subChecked = subIds.map(
@@ -28,13 +30,13 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
     setIsOpen(newIsOpen);
 
     if (!categoryChecked) {
-      // если категории еще нет в selectedCategories — создаем пустой массив
+      // создаем пустой массив при первом открытии
       setSelectedCategories({
         ...selectedCategories,
         [categoryData.id]: [],
       });
     } else if (categoryChecked && newIsOpen === false) {
-      // если снимаем категорию то удаляем из стейта
+      // закрытие категории → удаляем категорию из состояния
       const newSelected = { ...selectedCategories };
       delete newSelected[categoryData.id];
       setSelectedCategories(newSelected);
@@ -50,8 +52,13 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
     if (checked) catSubs = [...catSubs, subId];
     else catSubs = catSubs.filter((id) => id !== subId);
 
-    if (catSubs.length === 0) delete newSelected[categoryData.id];
-    else newSelected[categoryData.id] = catSubs;
+    if (catSubs.length === 0) {
+      // не удаляем категорию пока она открыта
+      if (!isOpen) delete newSelected[categoryData.id];
+      else newSelected[categoryData.id] = [];
+    } else {
+      newSelected[categoryData.id] = catSubs;
+    }
 
     setSelectedCategories(newSelected);
   };

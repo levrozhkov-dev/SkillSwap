@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { GetUsersFilterDto } from './filterDTO';
 import datauser from '../db/users.json';
+import citiesFromApi from '../db/city.json';
 
 type UserSkills = {
   id: number;
@@ -23,7 +24,7 @@ export type Userprops = {
   email: string;
   password: string;
   avatar: string;
-  city: string;
+  city: string; // название города
   description: string;
   age: number;
   gender: string;
@@ -36,7 +37,9 @@ export type Userprops = {
 @Injectable()
 export class FilterService {
   getUsers(filterDto: GetUsersFilterDto): Userprops[] {
-    const { gender, learn, categories: filterCategories } = filterDto;
+    const { gender, learn, categories: filterCategories, cities } = filterDto;
+
+    const cityNameToId = new Map(citiesFromApi.map((c) => [c.name, c.id]));
 
     return datauser.filter((user) => {
       let matches = true;
@@ -45,48 +48,48 @@ export class FilterService {
         matches = matches && user.gender.toLowerCase() === gender.toLowerCase();
       }
 
-      if (learn && learn !== 'Не имеет значения') {
-        if (learn === 'Могу научить') {
-          const hasSkill =
-            user.skills != null &&
-            typeof user.skills === 'object' &&
-            Object.keys(user.skills).length > 0;
+      if (cities && cities.length > 0) {
+        const userCityId = cityNameToId.get(user.city);
+        if (!userCityId) return false;
+        matches = matches && cities.includes(userCityId);
+      }
 
-          if (!hasSkill) return false;
+      if (filterCategories && Object.keys(filterCategories).length > 0) {
+        const filterCatIds = Object.keys(filterCategories).map(Number);
 
-          if (filterCategories && Object.keys(filterCategories).length > 0) {
-            const skillCatId = user.skills.category;
-            const skillSubId = user.skills.subcategory;
+        const categoryMatch = filterCatIds.every((catId) => {
+          const subIds = filterCategories[catId] || [];
 
-            const allCatsMatch = Object.entries(filterCategories).every(
-              ([catId, subIds]) =>
-                Number(catId) === skillCatId &&
-                (subIds as number[]).includes(skillSubId),
+          const isAllSub = subIds.length === 0;
+
+          if ((learn === 'Могу научить' || learn === 'Всё') && user.skills) {
+            if (isAllSub) return user.skills.category === catId;
+            return (
+              user.skills.category === catId &&
+              subIds.includes(user.skills.subcategory)
             );
-
-            matches = matches && allCatsMatch;
           }
-        } else if (learn === 'Хочу научиться') {
-          if (!Array.isArray(user.categories) || user.categories.length === 0)
-            return false;
 
-          if (filterCategories && Object.keys(filterCategories).length > 0) {
-            const allCatsMatch = Object.entries(filterCategories).every(
-              ([catId, subIds]) => {
-                const userCat = user.categories.find(
-                  (c) => c.idCategory === Number(catId),
-                );
-                if (!userCat) return false;
+          if (
+            (learn === 'Хочу научиться' || learn === 'Всё') &&
+            user.categories
+          ) {
+            const userCat = user.categories.find((c) => c.idCategory === catId);
+            if (!userCat) return false;
 
-                return (subIds as number[]).every((subId) =>
-                  userCat.idSubCategory.includes(subId),
-                );
-              },
+            if (isAllSub) return userCat.idSubCategory.length > 0;
+            return subIds.every((subId) =>
+              userCat.idSubCategory.includes(subId),
             );
-
-            matches = matches && allCatsMatch;
           }
-        }
+
+          return false;
+        });
+
+        matches = matches && categoryMatch;
+      } else {
+        if ((!user.categories || user.categories.length === 0) && !user.skills)
+          return false;
       }
 
       return matches;

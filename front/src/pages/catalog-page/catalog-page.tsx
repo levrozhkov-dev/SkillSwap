@@ -21,13 +21,22 @@ export const CatalogPage: FC = () => {
 
   useEffect(() => {
     console.log('dataFilter', dataFilter);
+
+    // формируем payload для запроса
+    const filterToSend = {
+      ...dataFilter,
+      gender: dataFilter.gender ?? 'Не имеет значения',
+      learn: dataFilter.learn ?? 'Всё',
+    };
+
     const isFilterActive =
-      dataFilter.gender !== null ||
-      dataFilter.learn !== null ||
-      Object.keys(dataFilter.categories).length > 0;
+      filterToSend.gender !== 'Не имеет значения' ||
+      filterToSend.learn !== 'Всё' ||
+      Object.keys(filterToSend.categories).length > 0 ||
+      (filterToSend.cities && filterToSend.cities.length > 0);
 
     if (isFilterActive) {
-      GetUserFilter('/filter', dataFilter).then((res) => setUsers(res.data));
+      GetUserFilter('/filter', filterToSend).then((res) => setUsers(res.data));
     } else {
       GetUsers('/users/user').then((res) => setUsers(res.data));
     }
