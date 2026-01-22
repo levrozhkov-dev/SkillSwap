@@ -15,11 +15,16 @@ export const CatalogPage: FC = () => {
   const [dataFilter, setDataFilter] = useState<FilterData>({
     gender: null,
     learn: null,
+    categories: {},
+    cities: [],
   });
 
   useEffect(() => {
+    console.log('dataFilter', dataFilter);
     const isFilterActive =
-      dataFilter.gender !== null || dataFilter.learn !== null;
+      dataFilter.gender !== null ||
+      dataFilter.learn !== null ||
+      Object.keys(dataFilter.categories).length > 0;
 
     if (isFilterActive) {
       GetUserFilter('/filter', dataFilter).then((res) => setUsers(res.data));

@@ -28,7 +28,7 @@ export type Userprops = {
   age: number;
   gender: string;
   date: string;
-  skills: UserSkills; // теперь объект
+  skills: UserSkills;
   categories: CategorySelection[];
   liked: number;
 };
@@ -36,26 +36,56 @@ export type Userprops = {
 @Injectable()
 export class FilterService {
   getUsers(filterDto: GetUsersFilterDto): Userprops[] {
-    const { gender, learn } = filterDto;
+    const { gender, learn, categories: filterCategories } = filterDto;
 
     return datauser.filter((user) => {
       let matches = true;
 
-      // фильтр по полу
       if (gender && gender !== 'Не имеет значения') {
         matches = matches && user.gender.toLowerCase() === gender.toLowerCase();
       }
 
-      // фильтр по learn
       if (learn && learn !== 'Не имеет значения') {
-        if (learn === 'хочу научить') {
-          matches =
-            matches && Array.isArray(user.skills) && user.skills.length > 0;
-        } else if (learn === 'хочу научиться') {
-          matches =
-            matches &&
-            Array.isArray(user.categories) &&
-            user.categories.length > 0;
+        if (learn === 'Могу научить') {
+          const hasSkill =
+            user.skills != null &&
+            typeof user.skills === 'object' &&
+            Object.keys(user.skills).length > 0;
+
+          if (!hasSkill) return false;
+
+          if (filterCategories && Object.keys(filterCategories).length > 0) {
+            const skillCatId = user.skills.category;
+            const skillSubId = user.skills.subcategory;
+
+            const allCatsMatch = Object.entries(filterCategories).every(
+              ([catId, subIds]) =>
+                Number(catId) === skillCatId &&
+                (subIds as number[]).includes(skillSubId),
+            );
+
+            matches = matches && allCatsMatch;
+          }
+        } else if (learn === 'Хочу научиться') {
+          if (!Array.isArray(user.categories) || user.categories.length === 0)
+            return false;
+
+          if (filterCategories && Object.keys(filterCategories).length > 0) {
+            const allCatsMatch = Object.entries(filterCategories).every(
+              ([catId, subIds]) => {
+                const userCat = user.categories.find(
+                  (c) => c.idCategory === Number(catId),
+                );
+                if (!userCat) return false;
+
+                return (subIds as number[]).every((subId) =>
+                  userCat.idSubCategory.includes(subId),
+                );
+              },
+            );
+
+            matches = matches && allCatsMatch;
+          }
         }
       }
 

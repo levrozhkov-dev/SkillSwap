@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from 'class-validator';
+import { IsObject, IsOptional, IsString } from 'class-validator';
 
 export class GetUsersFilterDto {
   @IsOptional()
@@ -7,4 +7,7 @@ export class GetUsersFilterDto {
   @IsOptional()
   @IsString()
   learn?: string;
+  @IsOptional()
+  @IsObject()
+  categories?: Record<number, number[]>;
 }
