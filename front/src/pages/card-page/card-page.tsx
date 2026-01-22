@@ -1,4 +1,4 @@
-import { use, useEffect, useState, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import { GetUser } from '../../shared/api/req/getCategories';
 import type { User } from '../../widgets/ListCard/types/user';
