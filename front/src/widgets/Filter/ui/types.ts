@@ -2,6 +2,7 @@
 export type FilterData = {
   gender: string | null;
   learn: string | null;
+  categories: Record<number, number[]>;
 };
 
 // Тип функции для обновления состояния фильтра
