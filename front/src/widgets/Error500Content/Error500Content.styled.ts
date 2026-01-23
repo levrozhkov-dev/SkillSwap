@@ -16,7 +16,7 @@ export const H2 = styled.h2`
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
-    margin-bottom: 4px;`;
+    margin-bottom: var(--space-xs);`;
 
 export const P = styled.p`
     font-family: 'Roboto', sans-serif;
