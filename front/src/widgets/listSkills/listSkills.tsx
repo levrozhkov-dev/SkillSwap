@@ -9,7 +9,7 @@ interface ListSkillsProps {
 }
 
 export const ListSkills = ({ onSkillSelect }: ListSkillsProps) => {
-  const categories = useSelector((state: RootState) => state.category);
+  const categories = useSelector((state: RootState) => state.category.items);
 
   const groupedSkills = useMemo(() => {
     return categories.map((cat) => ({

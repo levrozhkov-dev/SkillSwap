@@ -2,7 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import categoryReducer from '../../features/slice/categoriesSlice';
 import likesReducer from '../../features/slice/likesSlice';
 import citiesReducer from './../../features/slice/citiesSlice';
-import { useDispatch, useSelector, type TypedUseSelectorHook } from 'react-redux';
+import loginReducer from './../../features/slice/loginSlice';
+
+import {
+  useDispatch,
+  useSelector,
+  type TypedUseSelectorHook,
+} from 'react-redux';
 
 export const store = configureStore({
   reducer: {

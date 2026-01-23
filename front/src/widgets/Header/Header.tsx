@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import * as Styled from './styled';
 import { HeaderInput } from '../../entities/header-input';
@@ -7,6 +7,8 @@ import chevronDownIcon from '../../shared/img/icon/chevron-down.svg';
 import logo from '../../shared/img/icon/logo.svg';
 import searchIcon from '../../shared/img/icon/search.svg';
 import { ListSkills } from '../listSkills/listSkills';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../providers/store/store';
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -15,7 +17,7 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const categories = useSelector((state: RootState) => state.category.items);
-
+  console.log(categories);
   const flatSkills = useMemo(() => {
     const skills: { id: number; name: string }[] = [];
     for (const cat of categories) {
