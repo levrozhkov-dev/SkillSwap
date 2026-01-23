@@ -1,12 +1,11 @@
-import { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import type { RootState, AppDispatch } from '../../providers/store/store';
+import { useCallback, useEffect, useMemo } from 'react';
 import { setLike, toggleLike } from '../slice/likesSlice';
+import { useAppDispatch, useAppSelector } from '../../providers/store/store';
 
 export const useCardLike = (id: number, initialLiked: number) => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
-  const likeItem = useSelector((state: RootState) =>
+  const likeItem = useAppSelector((state) =>
     state.likes.items.find((item) => item.id === id),
   );
 
@@ -27,9 +26,10 @@ export const useCardLike = (id: number, initialLiked: number) => {
     dispatch(toggleLike({ id }));
   }, [dispatch, id]);
 
-  return {
+  // Часто используется используем UseMemo
+  return useMemo(() => ({
     liked,
     isLiked,
     handleToggleLike,
-  };
+  }), [liked, isLiked, handleToggleLike]);
 };

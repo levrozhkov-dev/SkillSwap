@@ -13,7 +13,7 @@ export function Filter({
   dataFilter,
   setDataFilter,
 }: FilterComponentProps) {
-  const categories = useSelector((state: RootState) => state.category);
+  const categories = useSelector((state: RootState) => state.category.items);
   const citiesFromApi = useSelector((state: RootState) => state.cities);
 
   console.log(categories);

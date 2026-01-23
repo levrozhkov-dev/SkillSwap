@@ -14,6 +14,18 @@ export const Header = () => {
   const skillsMenuRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
 
+  const categories = useSelector((state: RootState) => state.category.items);
+
+  const flatSkills = useMemo(() => {
+    const skills: { id: number; name: string }[] = [];
+    for (const cat of categories) {
+      for (const sub of cat.subCategories ?? []) {
+        skills.push({ id: sub.id, name: sub.name });
+      }
+    }
+    return skills;
+  }, [categories]);
+
   const handleSearchChange = (value: string) => {
     setSearchValue(value);
   };

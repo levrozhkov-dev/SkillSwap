@@ -22,7 +22,7 @@ export const CardCategories: React.FC<CardCategoriesProps> = ({
   skills,
   categories,
 }) => {
-  const allCategories = useSelector((state: RootState) => state.category);
+  const allCategories = useSelector((state: RootState) => state.category.items);
 
   // Категории "Может научить" из skills
   const getCanTeachCategories = () => {

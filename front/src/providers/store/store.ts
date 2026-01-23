@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import categoryReducer from '../../features/slice/categoriesSlice';
 import likesReducer from '../../features/slice/likesSlice';
 import citiesReducer from './../../features/slice/citiesSlice';
-import loginReducer from '../../features/slice/loginSlice';
+import { useDispatch, useSelector, type TypedUseSelectorHook } from 'react-redux';
 
 export const store = configureStore({
   reducer: {
@@ -15,3 +15,7 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+// Типизация хуков
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
