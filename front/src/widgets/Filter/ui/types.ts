@@ -2,10 +2,14 @@
 export type FilterData = {
   gender: string | null;
   learn: string | null;
+  categories: Record<number, number[]>;
+  cities: number[];
 };
 
 // Тип функции для обновления состояния фильтра
-export type UpdateFilter = (newFilter: FilterData) => void;
+export type UpdateFilter = (
+  updater: FilterData | ((prev: FilterData) => FilterData),
+) => void;
 
 // Пропсы отдельного блока фильтра (радио или чекбокс)
 export interface FilterBlockProps {

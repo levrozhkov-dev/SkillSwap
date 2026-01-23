@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import { theme } from '../../shared/styles/theme';
 
 export const HeaderWrapper = styled.header`
   width: 100%;
   padding: 36px 38px 32px 40px;
   box-sizing: border-box;
   background-color: var(--color-bg-main);
+  position: relative;
 `;
 
 export const HeaderInner = styled.div`
@@ -109,7 +111,6 @@ export const ThemeProjectContainer = styled.div`
 `;
 
 export const SkillsMenu = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
 `;
@@ -141,41 +142,41 @@ export const SkillsButton = styled.button`
 
 export const SkillsDropdown = styled.div`
   position: absolute;
-  top: calc(100% + 12px);
-  left: 0;
-  min-width: 260px;
-  max-width: 360px;
-  max-height: 380px;
-  overflow: auto;
-  padding: 8px;
-  background: var(--color-bg-card);
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(37, 48, 23, 0.12);
+  top: 94px;
+  left: 36px;
   z-index: 10;
 `;
 
-export const SkillsItem = styled.button`
-  width: 100%;
-  text-align: left;
-  padding: 10px 12px;
+export const SkillsDropdownCloseButton = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   border: none;
-  background: transparent;
-  border-radius: 12px;
-  font: inherit;
-  color: var(--color-text-main);
+  border-radius: 50%;
+  background-color: ${theme.colors.bgCard};
+  color: ${theme.colors.textSecondary};
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
+  z-index: 20;
 
   &:hover {
-    background: var(--color-button-hover);
+    background-color: ${theme.colors.buttonHover};
+    color: ${theme.colors.textMain};
   }
 
   &:active {
-    background: var(--color-button-pressed);
+    background-color: ${theme.colors.buttonPressed};
     color: #fff;
   }
-`;
 
-export const SkillsEmpty = styled.div`
-  padding: 10px 12px;
-  color: var(--color-text-secondary);
+  &:focus-visible {
+    outline: 2px solid ${theme.colors.buttonPressed};
+    outline-offset: 2px;
+  }
 `;

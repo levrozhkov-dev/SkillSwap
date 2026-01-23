@@ -7,6 +7,7 @@ import { Filter } from '../../widgets/Filter/ui/filter';
 import * as Styled from './styled';
 import { GetUserFilter } from '../../shared/api/req/postFilter';
 import type { FilterData } from '../../widgets/Filter/ui/types';
+import { ScrollableBox } from '../../shared/ui/scrollableBox/scrollableBox';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
@@ -14,14 +15,28 @@ export const CatalogPage: FC = () => {
   const [dataFilter, setDataFilter] = useState<FilterData>({
     gender: null,
     learn: null,
+    categories: {},
+    cities: [],
   });
 
   useEffect(() => {
+    console.log('dataFilter', dataFilter);
+
+    // формируем payload для запроса
+    const filterToSend = {
+      ...dataFilter,
+      gender: dataFilter.gender ?? 'Не имеет значения',
+      learn: dataFilter.learn ?? 'Всё',
+    };
+
     const isFilterActive =
-      dataFilter.gender !== null || dataFilter.learn !== null;
+      filterToSend.gender !== 'Не имеет значения' ||
+      filterToSend.learn !== 'Всё' ||
+      Object.keys(filterToSend.categories).length > 0 ||
+      (filterToSend.cities && filterToSend.cities.length > 0);
 
     if (isFilterActive) {
-      GetUserFilter('/filter', dataFilter).then((res) => setUsers(res.data));
+      GetUserFilter('/filter', filterToSend).then((res) => setUsers(res.data));
     } else {
       GetUsers('/users/user').then((res) => setUsers(res.data));
     }
@@ -38,7 +53,9 @@ export const CatalogPage: FC = () => {
         setDataFilter={setDataFilter}
       />
 
-      <ListCard users={users} />
+      <ScrollableBox width="100%" height="750px">
+        <ListCard users={users} />
+      </ScrollableBox>
     </Styled.CatalogPage>
   );
 };
