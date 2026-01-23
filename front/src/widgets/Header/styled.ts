@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
   width: 100%;
-  padding: 36px 38px 32px 40px ;
+  padding: 36px 38px 32px 40px;
   box-sizing: border-box;
   background-color: var(--color-bg-main);
 `;

@@ -81,7 +81,9 @@ export const Header = () => {
                 aria-expanded={isSkillsOpen}
                 onClick={() => setIsSkillsOpen((v) => !v)}
               >
-                <Styled.ThemeProjectContainer>Все навыки</Styled.ThemeProjectContainer>
+                <Styled.ThemeProjectContainer>
+                  Все навыки
+                </Styled.ThemeProjectContainer>
                 <Styled.NavChevron $open={isSkillsOpen}>
                   <img src={chevronDownIcon} alt="" aria-hidden="true" />
                 </Styled.NavChevron>
