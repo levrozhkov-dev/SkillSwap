@@ -9,6 +9,7 @@ export const store = configureStore({
     category: categoryReducer,
     likes: likesReducer,
     cities: citiesReducer,
+    login: loginReducer,
   },
 });
 

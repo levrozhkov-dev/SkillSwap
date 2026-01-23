@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     --font-main: 'Jost', system-ui, sans-serif;
 
     /* Размеры шрифта */
-    --font-zize-xs: 12px;
+    --font-size-xs: 12px;
     --font-size-sm: 14px;
     --font-size-md: 16px;
     --font-size-lg: 20px;

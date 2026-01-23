@@ -1,13 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import * as Styled from './styled';
 import { HeaderInput } from '../../entities/header-input';
 import { HeaderButtons } from '../../entities/HeaderButtons';
 import chevronDownIcon from '../../shared/img/icon/chevron-down.svg';
 import logo from '../../shared/img/icon/logo.svg';
 import searchIcon from '../../shared/img/icon/search.svg';
-import type { RootState } from '../../providers/store/store';
+import { ListSkills } from '../listSkills/listSkills';
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -81,7 +80,9 @@ export const Header = () => {
                 aria-expanded={isSkillsOpen}
                 onClick={() => setIsSkillsOpen((v) => !v)}
               >
-                <Styled.ThemeProjectContainer>Все навыки</Styled.ThemeProjectContainer>
+                <Styled.ThemeProjectContainer>
+                  Все навыки
+                </Styled.ThemeProjectContainer>
                 <Styled.NavChevron $open={isSkillsOpen}>
                   <img src={chevronDownIcon} alt="" aria-hidden="true" />
                 </Styled.NavChevron>
@@ -89,25 +90,19 @@ export const Header = () => {
 
               {isSkillsOpen && (
                 <Styled.SkillsDropdown role="menu" aria-label="Все навыки">
-                  {flatSkills.length === 0 ? (
-                    <Styled.SkillsEmpty role="menuitem" tabIndex={-1}>
-                      Нет категорий
-                    </Styled.SkillsEmpty>
-                  ) : (
-                    flatSkills.slice(0, 30).map((s) => (
-                      <Styled.SkillsItem
-                        key={s.id}
-                        type="button"
-                        role="menuitem"
-                        onClick={() => {
-                          setSearchValue(s.name);
-                          setIsSkillsOpen(false);
-                        }}
-                      >
-                        {s.name}
-                      </Styled.SkillsItem>
-                    ))
-                  )}
+                  <Styled.SkillsDropdownCloseButton
+                    type="button"
+                    aria-label="Закрыть меню навыков"
+                    onClick={() => setIsSkillsOpen(false)}
+                  >
+                    ×
+                  </Styled.SkillsDropdownCloseButton>
+                  <ListSkills
+                    onSkillSelect={(value) => {
+                      setSearchValue(value);
+                      setIsSkillsOpen(false);
+                    }}
+                  />
                 </Styled.SkillsDropdown>
               )}
             </Styled.SkillsMenu>
