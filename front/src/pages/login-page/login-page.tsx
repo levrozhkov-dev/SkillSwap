@@ -1,5 +1,10 @@
 import type { FC } from 'react';
+import { AuthForm } from '../../widgets/AuthForm/ui';
 
 export const LoginPage: FC = () => {
-  return <div>Это страница входа (LoginPage)</div>;
+  return (
+    <div>
+      <AuthForm />
+    </div>
+  );
 };

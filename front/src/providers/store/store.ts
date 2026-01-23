@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import categoryReducer from '../../features/slice/categoriesSlice';
 import likesReducer from '../../features/slice/likesSlice';
 import citiesReducer from './../../features/slice/citiesSlice';
+import loginReducer from '../../features/slice/loginSlice';
 
 export const store = configureStore({
   reducer: {
     category: categoryReducer,
     likes: likesReducer,
     cities: citiesReducer,
+    login: loginReducer,
   },
 });
 
