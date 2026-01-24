@@ -1,38 +1,38 @@
 import { useEffect, useState, type FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { GetUser } from '../../shared/api/req/getCategories';
 import type { User } from '../../widgets/ListCard/types/user';
 
-type CardPageState = {
-  id?: number;
+type RouteParams = {
+  id?: string;
 };
 
 export const CardPage: FC = () => {
-  const location = useLocation();
-  const state = location.state as CardPageState | null;
+  const { id } = useParams<RouteParams>();
+  const numericId = id ? Number(id) : undefined;
 
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (!state?.id) return;
+    if (!numericId) return;
 
-    const run = async () => {
+    const fetchUser = async () => {
       try {
         setIsLoading(true);
-        const userResponse = await GetUser(`/users/${state.id}`);
+        const userResponse = await GetUser(`/users/${numericId}`);
         console.log('User data:', userResponse.data);
-        setUser(userResponse.data);          // сохраняем user в состоянии
+        setUser(userResponse.data);
       } finally {
         setIsLoading(false);
       }
     };
 
-    void run();
-  }, [state?.id]);
+    void fetchUser();
+  }, [numericId]);
 
-  if (!state?.id) {
-    return <div>Не передан id пользователя</div>;
+  if (!numericId) {
+    return <div>Некорректный id в адресной строке</div>;
   }
 
   if (isLoading || !user) {

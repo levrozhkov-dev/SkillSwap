@@ -7,9 +7,7 @@ export const useCardOpen = (id: number) => {
   const handleOpen = useCallback(() => {
     const encodedId = encodeURIComponent(id);
 
-    navigate(`/card/${encodedId}`, {
-      state: { id }, // передаём id в state
-    });
+    navigate(`/card/${encodedId}`);
   }, [navigate, id]);
 
   return { handleOpen };
