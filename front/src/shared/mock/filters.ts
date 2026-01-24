@@ -1,4 +1,11 @@
-import type { FilterProps } from "../../entities/filter/ui/FilterBlock"
+import type { FilterData, FilterProps } from "../../widgets/Filter/ui/types"
+
+export const mockInitialFiltersValue: FilterData = {
+    gender: null,
+    learn: null,
+    categories: {},
+    cities: []
+}
 
 export const mockFilterLearn: FilterProps = {
     "title": null,

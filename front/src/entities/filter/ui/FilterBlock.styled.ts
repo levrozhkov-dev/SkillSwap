@@ -4,6 +4,7 @@ export const StyledFilterContainer = styled.div`
   width: 284px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 `;
 
 export const StyledFilterTitle = styled.h3`
@@ -15,4 +16,6 @@ export const StyledFilterTitle = styled.h3`
 export const StyledFilterOptions = styled.div`
   display: flex;
   flex-direction: column;
+  gap: var(--space-smd, 12px);
+  align-items: start;
 `;

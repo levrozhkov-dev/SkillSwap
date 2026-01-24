@@ -3,7 +3,7 @@ import categoryReducer from '../../features/slice/categoriesSlice';
 import likesReducer from '../../features/slice/likesSlice';
 import citiesReducer from './../../features/slice/citiesSlice';
 import loginReducer from './../../features/slice/loginSlice';
-
+import usedFiltersReducer from './../../features/slice/usedFiltersSlice';
 import {
   useDispatch,
   useSelector,
@@ -16,6 +16,7 @@ export const store = configureStore({
     likes: likesReducer,
     cities: citiesReducer,
     login: loginReducer,
+    usedFilters: usedFiltersReducer
   },
 });
 

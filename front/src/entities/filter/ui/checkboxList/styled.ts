@@ -53,5 +53,8 @@ export const ButtonAll = styled.button`
 `;
 
 export const CheckboxListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-smd, 12px);
   margin-left: 14px;
 `;
