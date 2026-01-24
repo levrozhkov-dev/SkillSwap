@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import type { CategoryCheckboxProps } from '../../../../shared/ui/checkbox/type';
 import * as Styled from './styled';
+import { useAppDispatch } from '../../../../providers/store/store';
+import { addFilter, deleteFilter } from '../../../../features/slice/usedFiltersSlice';
 
 export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
   categoryData,
   selectedCategories,
   setSelectedCategories,
 }) => {
+  const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   const subIds = categoryData.subCategories.map((sub) => sub.id);
@@ -44,13 +47,19 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
   };
 
   // клик по субкатегории
-  const handleSubChange = (index: number, checked: boolean) => {
+  const handleSubChange = (index: number, checked: boolean, name: string) => {
     const subId = subIds[index];
     const newSelected = { ...selectedCategories };
     let catSubs = newSelected[categoryData.id] ?? [];
 
-    if (checked) catSubs = [...catSubs, subId];
-    else catSubs = catSubs.filter((id) => id !== subId);
+    if (checked) {
+      catSubs = [...catSubs, subId];
+      dispatch(addFilter(name));
+    }
+    else {
+      catSubs = catSubs.filter((id) => id !== subId);
+      dispatch(deleteFilter(name));
+    }
 
     if (catSubs.length === 0) {
       // не удаляем категорию пока она открыта
@@ -80,7 +89,7 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
               key={sub.id}
               label={sub.name}
               checked={subChecked[index]}
-              onChange={(checked) => handleSubChange(index, checked)}
+              onChange={(checked) => handleSubChange(index, checked, sub.name)}
             />
           ))}
         </Styled.CheckboxListContainer>

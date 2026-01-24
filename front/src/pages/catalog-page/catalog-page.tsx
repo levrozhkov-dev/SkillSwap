@@ -8,16 +8,20 @@ import * as Styled from './styled';
 import { GetUserFilter } from '../../shared/api/req/postFilter';
 import type { FilterData } from '../../widgets/Filter/ui/types';
 import { ScrollableBox } from '../../shared/ui/scrollableBox/scrollableBox';
+import { UsedFilters } from '../../widgets/UsedFilters/UsedFilters';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
 
-  const [dataFilter, setDataFilter] = useState<FilterData>({
+  const initialState = {
     gender: null,
     learn: null,
     categories: {},
     cities: [],
-  });
+  };
+  const [dataFilter, setDataFilter] = useState<FilterData>(initialState);
+
+  const clearDataFilter = () => setDataFilter(initialState);
 
   useEffect(() => {
     console.log('dataFilter', dataFilter);
@@ -51,11 +55,14 @@ export const CatalogPage: FC = () => {
         mockFilterGender={mockFilterGender}
         dataFilter={dataFilter}
         setDataFilter={setDataFilter}
+        clearDataFilter={clearDataFilter}
       />
-
-      <ScrollableBox width="100%" height="750px">
-        <ListCard users={users} />
-      </ScrollableBox>
+      <div>
+        <UsedFilters setDataFilter={setDataFilter} dataFilter={dataFilter}/>
+        <ScrollableBox width="100%" height="750px">
+          <ListCard users={users} />
+        </ScrollableBox>
+      </div>
     </Styled.CatalogPage>
   );
 };
