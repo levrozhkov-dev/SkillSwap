@@ -12,6 +12,7 @@ registerLocale('ru', ru);
 export function DatePicker() {
   const [value, setValue] = useState<Date | null>(null);
   const [draftDate, setDraftDate] = useState<Date | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (date: Date | null) => {
     setDraftDate(date);
@@ -20,10 +21,12 @@ export function DatePicker() {
   const handleCancel = () => {
     setDraftDate(null);
     setValue(null);
+    setIsOpen(false);
   };
 
   const handleApply = () => {
     setValue(draftDate);
+    setIsOpen(false);
   };
 
   return (
@@ -32,6 +35,12 @@ export function DatePicker() {
         <DatePickerLib
           selected={draftDate}
           onChange={handleChange}
+          open={isOpen}
+          onClickOutside={() => setIsOpen(false)}
+          onInputClick={() => {
+            setDraftDate(value);
+            setIsOpen(true);
+          }}
           customInput={<DateInput />}
           locale="ru"
           dateFormat="dd.MM.yyyy"
