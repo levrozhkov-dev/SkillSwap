@@ -1,16 +1,12 @@
-import { useState, type FC } from 'react';
+import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Button } from '../../../shared/ui/button';
 import { Input } from '../../../shared/ui/input';
-import { LoginDecorativeBlock } from '../../../shared/ui/AuthCard/DecorativeBlock';
 import * as S from './RegisterFormStepOne.styled';
 import googleIcon from '../../../shared/img/icon/Google.svg';
 import appleIcon from '../../../shared/img/icon/Apple.svg';
 import lightBulb from '../../../shared/img/illustration/light-bulb.svg';
-import eyeOpen from '../../../shared/img/icon/eye-open.svg';
-import eyeClosed from '../../../shared/img/icon/eye-closed.svg';
 
 const schema = yup.object({
   email: yup
@@ -30,8 +26,6 @@ interface RegisterFormStepOneProps {
 }
 
 export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) => {
-  const [showPassword, setShowPassword] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -46,10 +40,6 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
 
   const handleAppleClick = () => {
     console.log('Продолжить с Apple');
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -82,20 +72,11 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
 
             <S.PasswordWrapper>
               <Input
-                type={showPassword ? 'text' : 'password'}
+                type="password"
                 nameLabel="Пароль"
                 placeholder="Придумайте надёжный пароль"
                 error={!!errors.password}
                 errorText={errors.password?.message}
-                icon={
-                  <S.EyeButton type="button" onClick={togglePasswordVisibility}>
-                    <img
-                      src={showPassword ? eyeClosed : eyeOpen}
-                      alt={showPassword ? 'Скрыть пароль' : 'Показать пароль'}
-                    />
-                  </S.EyeButton>
-                }
-                iconPosition="right"
                 {...register('password')}
               />
               {!errors.password && (
@@ -103,20 +84,21 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
               )}
             </S.PasswordWrapper>
 
-            <Button type="submit" variant="green">
+            <S.SubmitButton type="submit" variant="green">
               Далее
-            </Button>
+            </S.SubmitButton>
           </form>
         </S.FormBlock>
 
-        <LoginDecorativeBlock image={lightBulb}>
+        <S.DecorativeBlock>
+          <S.DecorativeImage src={lightBulb} alt="Лампочка" />
           <S.DecorativeContent>
             <S.DecorativeTitle>Добро пожаловать в SkillSwap!</S.DecorativeTitle>
             <S.DecorativeText>
               Присоединяйтесь к SkillSwap и обменивайтесь знаниями и навыками с другими людьми
             </S.DecorativeText>
           </S.DecorativeContent>
-        </LoginDecorativeBlock>
+        </S.DecorativeBlock>
       </S.FormWrapper>
     </S.FormContainer>
   );

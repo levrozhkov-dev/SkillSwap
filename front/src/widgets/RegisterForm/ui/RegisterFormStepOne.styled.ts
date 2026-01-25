@@ -38,6 +38,12 @@ export const SocialButton = styled(Button)`
   justify-content: center;
   gap: 8px;
   border: 1px solid var(--color-text-secondary);
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 `;
 
 export const Divider = styled.div`
@@ -69,14 +75,27 @@ export const PasswordHint = styled.span`
   color: var(--color-text-secondary);
 `;
 
-export const EyeButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+export const SubmitButton = styled(Button)`
+  width: 100%;
+  justify-content: center;
+`;
+
+export const DecorativeBlock = styled.div`
+  width: 100%;
+  max-width: 556px;
+  padding: 40px;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+export const DecorativeImage = styled.img`
+  width: 280px;
+  height: 280px;
+  margin-bottom: 24px;
 `;
 
 export const DecorativeContent = styled.div`
