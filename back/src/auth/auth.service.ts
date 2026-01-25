@@ -1,31 +1,36 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import * as fs from 'fs';
 import { join } from 'path';
+import { promises as fs } from 'fs';
 
 export interface User {
-  id: number;
-  name: string;
   email: string;
   password: string;
-  city: string;
-  age: number;
-  liked: number;
-  avatar: string;
-  description: string;
-  skills: any;
 }
 
 @Injectable()
 export class AuthService {
-  private filePath = join(process.cwd(), 'db', 'users.json');
+  private filePath = join(__dirname, '../db/users.json');
 
-  private readUsers(): User[] {
-    return JSON.parse(fs.readFileSync(this.filePath, 'utf8'));
+  // Асинхронное чтение всех пользователей
+  private async readUsers(): Promise<User[]> {
+    const data = await fs.readFile(this.filePath, 'utf8');
+    return JSON.parse(data);
   }
 
-  findUserByEmailAndPassword(email: string, password: string): User {
-    const users = this.readUsers();
-    const user = users.find((u) => u.email === email && u.password === password);
+  // Получить всех пользователей (на будущее)
+  async getAllUsers(): Promise<User[]> {
+    return this.readUsers();
+  }
+
+  // Проверка email и пароля
+  async findUserByEmailAndPassword(
+    email: string,
+    password: string,
+  ): Promise<User> {
+    const users = await this.readUsers();
+    const user = users.find(
+      (u) => u.email === email && u.password === password,
+    );
 
     if (!user) {
       throw new UnauthorizedException('Неверный email или пароль');

@@ -9,6 +9,8 @@ import googleIcon from '../../../shared/img/icon/Google.svg';
 import appleIcon from '../../../shared/img/icon/Apple.svg';
 import eyeVisible from '../../../shared/img/icon/eyeVisible.svg';
 import eyeInvisible from '../../../shared/img/icon/eyeInvisible.svg';
+import { fetchLogin } from '../../../features/slice/loginSlice';
+import { useAppDispatch } from '../../../providers/store/store';
 
 interface AuthFormData {
   email: string;
@@ -18,6 +20,7 @@ interface AuthFormData {
 // компонент формы авторизации
 export const AuthForm: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const {
@@ -45,8 +48,9 @@ export const AuthForm: React.FC = () => {
   };
 
   const onSubmit = (data: AuthFormData) => {
-    console.log('Вход выполнен', data);
-    navigate('/');
+    dispatch(fetchLogin(data)).then(() => {
+      navigate('/');
+    });
   };
 
   const PasswordIcon = (
@@ -151,8 +155,8 @@ export const AuthForm: React.FC = () => {
               alt="Изображение лампочки"
             />
             <Styled.DecorativeText>
-              <h2>С возвращением в SkillSwap!</h2>
-              <p>Обменивайтесь знаниями и навыками с другими людьми</p>
+              <h2>С возвращением в SkillSwap!</h2>
+              <p>Обменивайтесь знаниями и навыками с другими людьми</p>
             </Styled.DecorativeText>
           </LoginDecorativeBlock>
         </Styled.AuthWrapper>
