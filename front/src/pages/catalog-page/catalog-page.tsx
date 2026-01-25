@@ -57,7 +57,7 @@ export const CatalogPage: FC = () => {
         setDataFilter={setDataFilter}
         clearDataFilter={clearDataFilter}
       />
-      <div>
+      <div style={{ width: '100%' }}>
         <UsedFilters setDataFilter={setDataFilter} dataFilter={dataFilter}/>
         <ScrollableBox width="100%" height="750px">
           <ListCard users={users} />

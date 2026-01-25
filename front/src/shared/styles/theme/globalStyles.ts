@@ -47,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
     --space-sm: 8px;
     --space-smd: 12px;
     --space-md: 16px;
-    --space-lg: 16px;
+    --space-lg: 20px;
 
     /* Скругления */
     
