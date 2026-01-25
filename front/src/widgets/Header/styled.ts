@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../shared/styles/theme';
+import { Button } from '../../shared/ui/button';
 
 export const HeaderWrapper = styled.header`
   width: 100%;
@@ -179,4 +180,15 @@ export const SkillsDropdownCloseButton = styled.button`
     outline: 2px solid ${theme.colors.buttonPressed};
     outline-offset: 2px;
   }
+`;
+
+export const AuthCloseButton = styled(Button).attrs({ variant: 'white' })`
+  width: fit-content;
+  border: none;
+  margin-right: 10px;
+  display: flex;
+  gap: ${theme.spacing.md};
+  font-size: ${theme.font.size.md};
+  line-height: 24px;
+  weight: 400;
 `;

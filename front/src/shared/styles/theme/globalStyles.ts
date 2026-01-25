@@ -31,6 +31,9 @@ export const GlobalStyles = createGlobalStyle`
     /* цвет фона тега категории, если категорий больше 2 */
     --color-bg-tag: #E8ECF7;
 
+    /* цвет разделяющей черты */ 
+    --color-bg-line: #E4E8DF;
+
 
     /* Основной шрифт приложения */
     --font-main: 'Jost', system-ui, sans-serif;

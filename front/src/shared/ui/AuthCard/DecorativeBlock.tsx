@@ -1,5 +1,5 @@
 import React from 'react';
-import { DecorativeBlock, DecorativeImage } from './DecorativeBlock.styled';
+import * as Styled from './DecorativeBlock.styled';
 
 interface LoginDecorativeBlockProps {
   children: React.ReactNode;
@@ -13,9 +13,11 @@ export const LoginDecorativeBlock: React.FC<LoginDecorativeBlockProps> = ({
   className,
 }) => {
   return (
-    <DecorativeBlock className={className}>
-      {image && <DecorativeImage src={image} alt="Изображение лампочки" />}
+    <Styled.DecorativeBlock className={className}>
+      {image && (
+        <Styled.DecorativeImage src={image} alt="Декоративное изображение" />
+      )}
       {children}
-    </DecorativeBlock>
+    </Styled.DecorativeBlock>
   );
 };

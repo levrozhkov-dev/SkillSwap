@@ -5,6 +5,7 @@ export const theme: DefaultTheme = {
     bgMain: 'var(--color-bg-main)',
     bgCard: 'var(--color-bg-card)',
     bgNote: 'var(--color-bg-note)',
+    bgLine: 'var( --color-bg-line)',
 
     textMain: 'var(--color-text-main)',
     textSecondary: 'var(--color-text-secondary)',
@@ -19,7 +20,7 @@ export const theme: DefaultTheme = {
     size: {
       sm: 'var(--font-size-sm)',
       md: 'var(--font-size-md)',
-      lg: 'var(--font-size-lg)',
+      lg: 'var(--font-size-lg)'
     },
   },
 
