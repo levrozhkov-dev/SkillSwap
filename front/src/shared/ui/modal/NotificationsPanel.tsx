@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
-import * as S from './NotificationsPanel.styled';
+import * as Styled from './NotificationsPanel.styled';
 import ideaIcon from '../../img/icon/idea.svg';
 
 export interface Notification {
@@ -42,32 +42,34 @@ export const NotificationsPanel: React.FC<NotificationsPanelProps> = ({
       maxWidth="600px"
       {...modalProps}
     >
-      <S.NotificationsContent>
+      <Styled.NotificationsContent>
         {newNotifications.length > 0 && (
-          <S.NotificationsSection>
-            <S.SectionHeader>
-              <S.SectionTitle>Новые уведомления</S.SectionTitle>
+          <Styled.NotificationsSection>
+            <Styled.SectionHeader>
+              <Styled.SectionTitle>Новые уведомления</Styled.SectionTitle>
               {onReadAll && (
-                <S.ActionLink onClick={onReadAll}>Прочитать все</S.ActionLink>
+                <Styled.ActionLink onClick={onReadAll}>
+                  Прочитать все
+                </Styled.ActionLink>
               )}
-            </S.SectionHeader>
-            <S.NotificationsList>
+            </Styled.SectionHeader>
+            <Styled.NotificationsList>
               {newNotifications.map((notification) => (
-                <S.NotificationItem key={notification.id}>
-                  <S.NotificationIconWrapper>
+                <Styled.NotificationItem key={notification.id}>
+                  <Styled.NotificationIconWrapper>
                     <img
                       src={notification.icon || ideaIcon}
                       alt=""
                       aria-hidden="true"
                     />
-                  </S.NotificationIconWrapper>
-                  <S.NotificationContent>
-                    <S.NotificationTitle>
+                  </Styled.NotificationIconWrapper>
+                  <Styled.NotificationContent>
+                    <Styled.NotificationTitle>
                       {notification.title}
-                    </S.NotificationTitle>
-                    <S.NotificationDescription>
+                    </Styled.NotificationTitle>
+                    <Styled.NotificationDescription>
                       {notification.description}
-                    </S.NotificationDescription>
+                    </Styled.NotificationDescription>
                     {notification.actionButtonText && (
                       <Button
                         variant="green"
@@ -77,51 +79,57 @@ export const NotificationsPanel: React.FC<NotificationsPanelProps> = ({
                         {notification.actionButtonText}
                       </Button>
                     )}
-                  </S.NotificationContent>
-                  <S.NotificationTime>{notification.time}</S.NotificationTime>
-                </S.NotificationItem>
+                  </Styled.NotificationContent>
+                  <Styled.NotificationTime>
+                    {notification.time}
+                  </Styled.NotificationTime>
+                </Styled.NotificationItem>
               ))}
-            </S.NotificationsList>
-          </S.NotificationsSection>
+            </Styled.NotificationsList>
+          </Styled.NotificationsSection>
         )}
 
         {viewedNotifications.length > 0 && (
-          <S.NotificationsSection>
-            <S.SectionHeader>
-              <S.SectionTitle>Просмотренные</S.SectionTitle>
+          <Styled.NotificationsSection>
+            <Styled.SectionHeader>
+              <Styled.SectionTitle>Просмотренные</Styled.SectionTitle>
               {onClearViewed && (
-                <S.ActionLink onClick={onClearViewed}>Очистить</S.ActionLink>
+                <Styled.ActionLink onClick={onClearViewed}>
+                  Очистить
+                </Styled.ActionLink>
               )}
-            </S.SectionHeader>
-            <S.NotificationsList>
+            </Styled.SectionHeader>
+            <Styled.NotificationsList>
               {viewedNotifications.map((notification) => (
-                <S.NotificationItem key={notification.id} $viewed>
-                  <S.NotificationIconWrapper>
+                <Styled.NotificationItem key={notification.id} $viewed>
+                  <Styled.NotificationIconWrapper>
                     <img
                       src={notification.icon || ideaIcon}
                       alt=""
                       aria-hidden="true"
                     />
-                  </S.NotificationIconWrapper>
-                  <S.NotificationContent>
-                    <S.NotificationTitle>
+                  </Styled.NotificationIconWrapper>
+                  <Styled.NotificationContent>
+                    <Styled.NotificationTitle>
                       {notification.title}
-                    </S.NotificationTitle>
-                    <S.NotificationDescription>
+                    </Styled.NotificationTitle>
+                    <Styled.NotificationDescription>
                       {notification.description}
-                    </S.NotificationDescription>
-                  </S.NotificationContent>
-                  <S.NotificationTime>{notification.time}</S.NotificationTime>
-                </S.NotificationItem>
+                    </Styled.NotificationDescription>
+                  </Styled.NotificationContent>
+                  <Styled.NotificationTime>
+                    {notification.time}
+                  </Styled.NotificationTime>
+                </Styled.NotificationItem>
               ))}
-            </S.NotificationsList>
-          </S.NotificationsSection>
+            </Styled.NotificationsList>
+          </Styled.NotificationsSection>
         )}
 
         {newNotifications.length === 0 && viewedNotifications.length === 0 && (
-          <S.EmptyState>Нет уведомлений</S.EmptyState>
+          <Styled.EmptyState>Нет уведомлений</Styled.EmptyState>
         )}
-      </S.NotificationsContent>
+      </Styled.NotificationsContent>
     </Modal>
   );
 };

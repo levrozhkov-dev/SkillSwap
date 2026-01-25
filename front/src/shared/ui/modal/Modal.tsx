@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import * as S from './Modal.styled';
+import * as Styled from './Modal.styled';
 import crossIcon from '../../img/icon/cross.svg';
 
 export interface ModalProps {
@@ -63,26 +63,25 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <S.ModalOverlay onClick={handleOverlayClick}>
-      <S.ModalContent $maxWidth={maxWidth}>
+    <Styled.ModalOverlay onClick={handleOverlayClick}>
+      <Styled.ModalContent $maxWidth={maxWidth}>
         {(title || showCloseButton) && (
-          <S.ModalHeader>
-            {title && <S.ModalTitle>{title}</S.ModalTitle>}
+          <Styled.ModalHeader>
+            {title && <Styled.ModalTitle>{title}</Styled.ModalTitle>}
             {showCloseButton && (
-              <S.CloseButton
+              <Styled.CloseButton
                 type="button"
                 onClick={onClose}
                 aria-label="Закрыть модальное окно"
               >
                 <img src={crossIcon} alt="" aria-hidden="true" />
-              </S.CloseButton>
+              </Styled.CloseButton>
             )}
-          </S.ModalHeader>
+          </Styled.ModalHeader>
         )}
-        <S.ModalBody $centered={centered}>{children}</S.ModalBody>
-        {footer && <S.ModalFooter>{footer}</S.ModalFooter>}
-      </S.ModalContent>
-    </S.ModalOverlay>
+        <Styled.ModalBody $centered={centered}>{children}</Styled.ModalBody>
+        {footer && <Styled.ModalFooter>{footer}</Styled.ModalFooter>}
+      </Styled.ModalContent>
+    </Styled.ModalOverlay>
   );
 };
-

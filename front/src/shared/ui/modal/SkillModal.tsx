@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, type ModalProps } from './Modal';
-import * as S from './SkillModal.styled';
+import * as Styled from './SkillModal.styled';
 
 export interface SkillModalProps extends Omit<ModalProps, 'children'> {
   skillName?: string;
@@ -25,16 +25,18 @@ export const SkillModal: React.FC<SkillModalProps> = ({
       {...modalProps}
     >
       {children || (
-        <S.SkillContent>
+        <Styled.SkillContent>
           {skillDescription && (
-            <S.SkillDescription>{skillDescription}</S.SkillDescription>
+            <Styled.SkillDescription>
+              {skillDescription}
+            </Styled.SkillDescription>
           )}
           {!skillDescription && (
-            <S.SkillDescription>
+            <Styled.SkillDescription>
               Здесь будет отображаться информация о навыке после регистрации.
-            </S.SkillDescription>
+            </Styled.SkillDescription>
           )}
-        </S.SkillContent>
+        </Styled.SkillContent>
       )}
     </Modal>
   );

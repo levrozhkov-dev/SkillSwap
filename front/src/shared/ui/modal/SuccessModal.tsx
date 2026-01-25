@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
-import * as S from './SuccessModal.styled';
+import * as Styled from './SuccessModal.styled';
 import DoneIcon from '../../img/icon/Done.svg';
 
 export interface SuccessModalProps extends Omit<
@@ -39,18 +39,18 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
       showCloseButton={false}
       {...modalProps}
     >
-      <S.SuccessIcon>
+      <Styled.SuccessIcon>
         <img src={DoneIcon} alt="" aria-hidden="true" />
-      </S.SuccessIcon>
-      <S.SuccessTitle>{title}</S.SuccessTitle>
+      </Styled.SuccessIcon>
+      <Styled.SuccessTitle>{title}</Styled.SuccessTitle>
       {description && (
-        <S.SuccessDescription>{description}</S.SuccessDescription>
+        <Styled.SuccessDescription>{description}</Styled.SuccessDescription>
       )}
-      <S.SuccessButtonWrapper>
+      <Styled.SuccessButtonWrapper>
         <Button variant="green" onClick={handleButtonClick}>
           {buttonText}
         </Button>
-      </S.SuccessButtonWrapper>
+      </Styled.SuccessButtonWrapper>
     </Modal>
   );
 };

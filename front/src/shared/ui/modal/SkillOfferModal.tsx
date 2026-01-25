@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
-import * as S from './SkillOfferModal.styled';
+import * as Styled from './SkillOfferModal.styled';
 import editIcon from '../../img/icon/edit.svg';
 
 export interface SkillImage {
@@ -56,7 +56,7 @@ export const SkillOfferModal: React.FC<SkillOfferModalProps> = ({
       title="Ваше предложение"
       maxWidth="800px"
       footer={
-        <S.ModalFooterContent>
+        <Styled.ModalFooterContent>
           {onEdit && (
             <Button
               variant="white"
@@ -70,51 +70,53 @@ export const SkillOfferModal: React.FC<SkillOfferModalProps> = ({
           <Button variant="green" onClick={handleDone}>
             {doneButtonText}
           </Button>
-        </S.ModalFooterContent>
+        </Styled.ModalFooterContent>
       }
       {...modalProps}
     >
-      <S.SkillOfferContent>
-        <S.SkillOfferHeader>
-          <S.SkillOfferSubtitle>
+      <Styled.SkillOfferContent>
+        <Styled.SkillOfferHeader>
+          <Styled.SkillOfferSubtitle>
             Пожалуйста, проверьте и подтвердите правильность данных
-          </S.SkillOfferSubtitle>
-        </S.SkillOfferHeader>
+          </Styled.SkillOfferSubtitle>
+        </Styled.SkillOfferHeader>
 
-        <S.SkillOfferMain>
-          <S.SkillOfferText>
-            <S.SkillOfferTitle>{skillName}</S.SkillOfferTitle>
+        <Styled.SkillOfferMain>
+          <Styled.SkillOfferText>
+            <Styled.SkillOfferTitle>{skillName}</Styled.SkillOfferTitle>
             {category && (
-              <S.SkillOfferCategory>{category}</S.SkillOfferCategory>
+              <Styled.SkillOfferCategory>{category}</Styled.SkillOfferCategory>
             )}
-            <S.SkillOfferDescription>{description}</S.SkillOfferDescription>
-          </S.SkillOfferText>
+            <Styled.SkillOfferDescription>
+              {description}
+            </Styled.SkillOfferDescription>
+          </Styled.SkillOfferText>
 
           {images.length > 0 && (
-            <S.SkillOfferImages>
+            <Styled.SkillOfferImages>
               {mainImage && (
-                <S.MainImage>
+                <Styled.MainImage>
                   <img src={mainImage.url} alt={mainImage.alt || skillName} />
-                </S.MainImage>
+                </Styled.MainImage>
               )}
               {additionalImages.length > 0 && (
-                <S.AdditionalImages>
+                <Styled.AdditionalImages>
                   {additionalImages.map((image) => (
-                    <S.AdditionalImage key={image.id}>
+                    <Styled.AdditionalImage key={image.id}>
                       <img src={image.url} alt={image.alt || skillName} />
-                    </S.AdditionalImage>
+                    </Styled.AdditionalImage>
                   ))}
                   {remainingCount > 0 && (
-                    <S.AdditionalImage $overlay>
-                      <S.OverlayText>+{remainingCount}</S.OverlayText>
-                    </S.AdditionalImage>
+                    <Styled.AdditionalImage $overlay>
+                      <Styled.OverlayText>+{remainingCount}</Styled.OverlayText>
+                    </Styled.AdditionalImage>
                   )}
-                </S.AdditionalImages>
+                </Styled.AdditionalImages>
               )}
-            </S.SkillOfferImages>
+            </Styled.SkillOfferImages>
           )}
-        </S.SkillOfferMain>
-      </S.SkillOfferContent>
+        </Styled.SkillOfferMain>
+      </Styled.SkillOfferContent>
     </Modal>
   );
 };
