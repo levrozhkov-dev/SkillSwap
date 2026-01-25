@@ -20,7 +20,7 @@ export const routeObjects: RouteObject[] = [
         element: <CatalogPage />,
       },
       {
-        path: '/card',
+        path: '/card/:id',
         element: <CardPage />,
       },
       {
