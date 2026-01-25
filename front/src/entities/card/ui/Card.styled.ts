@@ -3,17 +3,18 @@ import styled from 'styled-components';
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-md) + var(--space-xs));
-  padding: calc(var(--space-md) + var(--space-xs));
+  gap: var(--space-lg);
+  padding: var(--space-lg);
   background-color: var(--color-bg-card);
   border-radius: var(--radius-md);
-  min-width: 324px;
+  width: 324px;
+  flex-shrink: 0;
 `;
 
 export const CardUserDescription = styled.div`
   display: flex;
   align-items: stretch;
-  gap: calc(var(--space-sm) + var(--space-xs));
+  gap: var(--space-smd);
 `;
 
 export const Avatar = styled.img`
@@ -71,6 +72,7 @@ export const CardButtonWrapper = styled.div`
 
   button {
     width: 100%;
+    padding: 12px 0;
     font-weight: 400;
     display: flex;
     justify-content: center;
@@ -82,7 +84,7 @@ export const CardButtonWrapper = styled.div`
 export const CardCategories = styled.div`
   display: flex;
   flex-direction: column;
-  gap: calc(var(--space-sm) + var(--space-xs));
+  gap: var(--space-smd);
 `;
 
 export const CategorySection = styled.div`
@@ -99,6 +101,8 @@ export const CategoryTitle = styled.h4`
 `;
 
 export const CategoryTags = styled.div`
+export const StyledCategoryTags = styled.div`
+  font-size: var(--font-size-xs);
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);

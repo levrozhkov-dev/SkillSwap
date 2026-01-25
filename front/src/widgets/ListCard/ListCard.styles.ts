@@ -23,5 +23,5 @@ export const Title = styled.h2`
 export const CardsContainer = styled.article`
   display: flex;
   flex-wrap: wrap;
-  gap: ${({ theme }) => theme.spacing.lg};
+  gap: ${({ theme }) => theme.spacing.md};
 `;
