@@ -4,7 +4,7 @@ import { Header } from '../../widgets/Header';
 import { Footer } from '../../widgets/Footer';
 import { StepProgress } from '../../shared/ui/StepProgress';
 import { RegisterFormStepOne } from '../../widgets/RegisterForm/ui';
-import * as S from './register-page.styled';
+import * as Styled from './register-page.styled';
 
 export const RegisterPage: FC = () => {
   const navigate = useNavigate();
@@ -23,15 +23,15 @@ export const RegisterPage: FC = () => {
   };
 
   return (
-    <S.PageWrapper>
+    <Styled.PageWrapper>
       <Header />
-      <S.MainContent>
-        <S.StepProgressWrapper>
+      <Styled.MainContent>
+        <Styled.StepProgressWrapper>
           <StepProgress currentStep={1} totalSteps={3} />
-        </S.StepProgressWrapper>
+        </Styled.StepProgressWrapper>
         <RegisterFormStepOne onSubmit={handleStepOneSubmit} />
-      </S.MainContent>
+      </Styled.MainContent>
       <Footer />
-    </S.PageWrapper>
+    </Styled.PageWrapper>
   );
 };

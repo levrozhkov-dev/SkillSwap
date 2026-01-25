@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Input } from '../../../shared/ui/input';
-import * as S from './RegisterFormStepOne.styled';
+import * as Styled from './RegisterFormStepOne.styled';
 import googleIcon from '../../../shared/img/icon/Google.svg';
 import appleIcon from '../../../shared/img/icon/Apple.svg';
 import lightBulb from '../../../shared/img/illustration/light-bulb.svg';
@@ -43,23 +43,23 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
   };
 
   return (
-    <S.FormContainer>
-      <S.FormWrapper>
-        <S.FormBlock>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <S.SocialButton type="button" variant="white" onClick={handleGoogleClick}>
+    <Styled.FormContainer>
+      <Styled.FormWrapper>
+        <Styled.FormBlock>
+          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <Styled.SocialButton type="button" variant="white" onClick={handleGoogleClick}>
               <img src={googleIcon} alt="Google" width={24} height={24} />
               Продолжить с Google
-            </S.SocialButton>
+            </Styled.SocialButton>
 
-            <S.SocialButton type="button" variant="white" onClick={handleAppleClick}>
+            <Styled.SocialButton type="button" variant="white" onClick={handleAppleClick}>
               <img src={appleIcon} alt="Apple" width={24} height={24} />
               Продолжить с Apple
-            </S.SocialButton>
+            </Styled.SocialButton>
 
-            <S.Divider>
+            <Styled.Divider>
               <span>или</span>
-            </S.Divider>
+            </Styled.Divider>
 
             <Input
               type="email"
@@ -70,7 +70,7 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
               {...register('email')}
             />
 
-            <S.PasswordWrapper>
+            <Styled.PasswordWrapper>
               <Input
                 type="password"
                 nameLabel="Пароль"
@@ -80,26 +80,26 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
                 {...register('password')}
               />
               {!errors.password && (
-                <S.PasswordHint>Пароль должен содержать не менее 8 знаков</S.PasswordHint>
+                <Styled.PasswordHint>Пароль должен содержать не менее 8 знаков</Styled.PasswordHint>
               )}
-            </S.PasswordWrapper>
+            </Styled.PasswordWrapper>
 
-            <S.SubmitButton type="submit" variant="green">
+            <Styled.SubmitButton type="submit" variant="green">
               Далее
-            </S.SubmitButton>
+            </Styled.SubmitButton>
           </form>
-        </S.FormBlock>
+        </Styled.FormBlock>
 
-        <S.DecorativeBlock>
-          <S.DecorativeImage src={lightBulb} alt="Лампочка" />
-          <S.DecorativeContent>
-            <S.DecorativeTitle>Добро пожаловать в SkillSwap!</S.DecorativeTitle>
-            <S.DecorativeText>
+        <Styled.DecorativeBlock>
+          <Styled.DecorativeImage src={lightBulb} alt="Лампочка" />
+          <Styled.DecorativeContent>
+            <Styled.DecorativeTitle>Добро пожаловать в SkillSwap!</Styled.DecorativeTitle>
+            <Styled.DecorativeText>
               Присоединяйтесь к SkillSwap и обменивайтесь знаниями и навыками с другими людьми
-            </S.DecorativeText>
-          </S.DecorativeContent>
-        </S.DecorativeBlock>
-      </S.FormWrapper>
-    </S.FormContainer>
+            </Styled.DecorativeText>
+          </Styled.DecorativeContent>
+        </Styled.DecorativeBlock>
+      </Styled.FormWrapper>
+    </Styled.FormContainer>
   );
 };
