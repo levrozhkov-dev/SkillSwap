@@ -38,11 +38,17 @@ export const GlobalStyles = createGlobalStyle`
     /* Основной шрифт приложения */
     --font-main: 'Jost', system-ui, sans-serif;
 
+    /* Размеры высоты шрифта */
+    --line-height-sm: 16px; 
+    --line-height-md: 24px;
+    --line-height-lg: 28px;
+
     /* Размеры шрифта */
     --font-size-xs: 12px;
     --font-size-sm: 14px;
     --font-size-md: 16px;
     --font-size-lg: 20px;
+    --font-size-xl: 24px;
 
     /*  Отступы */
 
@@ -51,6 +57,8 @@ export const GlobalStyles = createGlobalStyle`
     --space-smd: 12px;
     --space-md: 16px;
     --space-lg: 20px;
+    --space-xl: 24px;
+    --space-xxl: 32px;
 
     /* Скругления */
     
