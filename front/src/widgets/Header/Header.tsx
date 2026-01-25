@@ -21,7 +21,6 @@ export const Header = () => {
     location.pathname === '/login' || location.pathname === '/register';
 
   const categories = useSelector((state: RootState) => state.category.items);
-  console.log(categories);
   const flatSkills = useMemo(() => {
     const skills: { id: number; name: string }[] = [];
     for (const cat of categories) {
