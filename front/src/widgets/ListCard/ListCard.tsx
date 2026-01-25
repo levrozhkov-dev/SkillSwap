@@ -2,7 +2,7 @@ import { showAllPopular } from '../../features/showAllPopular/showAllPopular';
 import type { User } from './types/user';
 import { Button } from '../../shared/ui/button';
 import { Card } from '../../entities/card';
-import * as S from './ListCard.styles';
+import * as Styled from './ListCard.styles';
 import iconbutton from '../../shared/img/icon/button-right.svg';
 
 interface Props {
@@ -28,10 +28,10 @@ export const ListCard = ({ users }: Props) => {
 
   if (isBlocks(users)) {
     return (
-      <S.Wrapper>
-        <S.Section>
-          <S.SectionHeader>
-            <S.Title>Популярное</S.Title>
+      <Styled.Wrapper>
+        <Styled.Section>
+          <Styled.SectionHeader>
+            <Styled.Title>Популярное</Styled.Title>
             <Button
               variant="white"
               onClick={showAllPopular}
@@ -39,8 +39,8 @@ export const ListCard = ({ users }: Props) => {
               icon={<img src={iconbutton} />}
               iconPosition="right"
             />
-          </S.SectionHeader>
-          <S.CardsContainer>
+          </Styled.SectionHeader>
+          <Styled.CardsContainer>
             {users.popular.map((user) => (
               <Card
                 key={user.id}
@@ -54,14 +54,14 @@ export const ListCard = ({ users }: Props) => {
                 categories={user.categories}
               />
             ))}
-          </S.CardsContainer>
-        </S.Section>
+          </Styled.CardsContainer>
+        </Styled.Section>
 
-        <S.Section>
-          <S.SectionHeader>
-            <S.Title>Новое</S.Title>
-          </S.SectionHeader>
-          <S.CardsContainer>
+        <Styled.Section>
+          <Styled.SectionHeader>
+            <Styled.Title>Новое</Styled.Title>
+          </Styled.SectionHeader>
+          <Styled.CardsContainer>
             {users.new.map((user) => (
               <Card
                 key={user.id}
@@ -75,14 +75,14 @@ export const ListCard = ({ users }: Props) => {
                 categories={user.categories}
               />
             ))}
-          </S.CardsContainer>
-        </S.Section>
+          </Styled.CardsContainer>
+        </Styled.Section>
 
-        <S.Section>
-          <S.SectionHeader>
-            <S.Title>Рекомендуем</S.Title>
-          </S.SectionHeader>
-          <S.CardsContainer>
+        <Styled.Section>
+          <Styled.SectionHeader>
+            <Styled.Title>Рекомендуем</Styled.Title>
+          </Styled.SectionHeader>
+          <Styled.CardsContainer>
             {users.recommended.map((user) => (
               <Card
                 key={user.id}
@@ -96,17 +96,17 @@ export const ListCard = ({ users }: Props) => {
                 categories={user.categories}
               />
             ))}
-          </S.CardsContainer>
-        </S.Section>
-      </S.Wrapper>
+          </Styled.CardsContainer>
+        </Styled.Section>
+      </Styled.Wrapper>
     );
   }
 
   // если пришел плоский массив (фильтр)
   return (
-    <S.Wrapper>
-      <S.Section>
-        <S.CardsContainer>
+    <Styled.Wrapper>
+      <Styled.Section>
+        <Styled.CardsContainer>
           {users.map((user) => (
             <Card
               key={user.id}
@@ -120,8 +120,8 @@ export const ListCard = ({ users }: Props) => {
               categories={user.categories}
             />
           ))}
-        </S.CardsContainer>
-      </S.Section>
-    </S.Wrapper>
+        </Styled.CardsContainer>
+      </Styled.Section>
+    </Styled.Wrapper>
   );
 };

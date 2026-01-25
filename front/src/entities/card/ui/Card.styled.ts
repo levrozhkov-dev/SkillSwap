@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledCard = styled.div`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-md) + var(--space-xs));
@@ -10,38 +10,38 @@ export const StyledCard = styled.div`
   min-width: 324px;
 `;
 
-export const StyledCardUserDescription = styled.div`
+export const CardUserDescription = styled.div`
   display: flex;
   align-items: stretch;
   gap: calc(var(--space-sm) + var(--space-xs));
 `;
 
-export const StyledAvatar = styled.img`
+export const Avatar = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
 `;
 
-export const StyledName = styled.h3`
+export const Name = styled.h3`
   font-size: var(--font-size-lg);
   font-weight: 600;
   color: var(--color-text-main);
 `;
 
-export const StyledInfo = styled.p`
+export const Info = styled.p`
   font-size: var(--font-size-sm);
   color: var(--color-text-main);
   margin: 0;
 `;
 
-export const StyledCardContent = styled.div`
+export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-export const StyledLikeContainer = styled.div`
+export const LikeContainer = styled.div`
   display: flex;
   align-items: center;
   align-self: flex-start;
@@ -50,13 +50,13 @@ export const StyledLikeContainer = styled.div`
   flex-shrink: 0;
 `;
 
-export const StyledLikeCount = styled.span`
+export const LikeCount = styled.span`
   font-size: var(--font-size-md);
   font-weight: 500;
   color: var(--color-text-main);
 `;
 
-export const StyledLikeIconWrapper = styled.div`
+export const LikeIconWrapper = styled.div`
   width: 24px;
   height: 24px;
   display: flex;
@@ -65,7 +65,7 @@ export const StyledLikeIconWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-export const StyledCardButtonWrapper = styled.div`
+export const CardButtonWrapper = styled.div`
   width: 100%;
   margin-top: auto;
 
@@ -79,26 +79,26 @@ export const StyledCardButtonWrapper = styled.div`
   }
 `;
 
-export const StyledCardCategories = styled.div`
+export const CardCategories = styled.div`
   display: flex;
   flex-direction: column;
   gap: calc(var(--space-sm) + var(--space-xs));
 `;
 
-export const StyledCategorySection = styled.div`
+export const CategorySection = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
 `;
 
-export const StyledCategoryTitle = styled.h4`
+export const CategoryTitle = styled.h4`
   font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--color-text-main);
   margin: 0;
 `;
 
-export const StyledCategoryTags = styled.div`
+export const CategoryTags = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);

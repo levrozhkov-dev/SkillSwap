@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  StyledCard,
-  StyledCardUserDescription,
-  StyledCardContent,
-} from './Card.styled';
+import * as Styled from './Card.styled';
 import { CardAvatar } from './CardAvatar';
 import { CardName } from './CardName';
 import { CardInfo } from './CardInfo';
@@ -46,10 +42,10 @@ export const Card: React.FC<CardProps> = ({
   const { handleOpen } = useCardOpen(id);
 
   return (
-    <StyledCard>
-      <StyledCardUserDescription>
+    <Styled.Card>
+      <Styled.CardUserDescription>
         <CardAvatar src={avatar} alt={`${name} avatar`} />
-        <StyledCardContent>
+        <Styled.CardContent>
           <CardLikeButton
             liked={currentLiked}
             isLiked={isLiked}
@@ -57,10 +53,10 @@ export const Card: React.FC<CardProps> = ({
           />
           <CardName name={name} />
           <CardInfo city={city} age={age} />
-        </StyledCardContent>
-      </StyledCardUserDescription>
+        </Styled.CardContent>
+      </Styled.CardUserDescription>
       <CardCategories skills={skills} categories={categories} />
       <CardButton onClick={handleOpen} />
-    </StyledCard>
+    </Styled.Card>
   );
 };

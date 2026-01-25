@@ -20,7 +20,7 @@ export const UsedFilter = styled.div`
   font-weight: 400;
   border-radius: 12px;
   background-color: var(--color-bg-card, #ffffff)
-`
+`;
 
 export const CrossContainer = styled.button`
   width: 24px;
@@ -31,4 +31,4 @@ export const CrossContainer = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-`
+`;

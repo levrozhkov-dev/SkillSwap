@@ -1,4 +1,4 @@
-import * as Styled from "./styled"
+import * as Styled from "./styled";
 import cross from '../../shared/img/icon/cross.svg';
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../providers/store/store";
@@ -33,16 +33,16 @@ export const UsedFilters: React.FC<UsedFilterProps> = ({
                 const newCities = dataFilter.cities.filter(id => id !== city.id);
                 setDataFilter({...dataFilter, cities: newCities});
             }
-        })
+        });
         categories.map((category) => {
             category.subCategories.map((subCategory) => {
                 if(subCategory.name === value) {
                     const newSubCategories = dataFilter.categories[category.id].filter(id => id !== subCategory.id);
                     setDataFilter({...dataFilter, cities: newSubCategories});
                 }
-            })
-        })
-    }
+            });
+        });
+    };
 
     return (
         <Styled.UsedFiltersWrapper>
@@ -55,5 +55,5 @@ export const UsedFilters: React.FC<UsedFilterProps> = ({
                 </Styled.UsedFilter>
             ))}
         </Styled.UsedFiltersWrapper>
-    )
-}
+    );
+};

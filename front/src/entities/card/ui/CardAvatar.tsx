@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledAvatar } from './Card.styled';
+import * as Styled from './Card.styled';
 
 interface CardAvatarProps {
   src: string;
@@ -10,5 +10,5 @@ export const CardAvatar: React.FC<CardAvatarProps> = ({
   src,
   alt = 'User avatar',
 }) => {
-  return <StyledAvatar src={src} alt={alt} />;
+  return <Styled.Avatar src={src} alt={alt} />;
 };

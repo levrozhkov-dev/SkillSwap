@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import logo from '../../shared/img/icon/Error404.svg';
-import { ButtonContainer, Container, Description, ErrorButton, IconImage, Title } from './error404.styled';
+import * as Styled from './error404.styled';
 
 
 export const Error404 = () => {
@@ -9,18 +9,18 @@ export const Error404 = () => {
         nav('/');
     };
     const handleErrorReport = () => {
-        console.log('Информация об ошибке')
-    }
+        console.log('Информация об ошибке');
+    };
     return (
-        <Container>
-            <IconImage src={logo} alt="Check icon"/>
-            <Title>Страница не найдена</Title>
-            <Description>К сожалению, эта страница недоступна. Вернитесь <br />
-                на главную страницу или попробуйте позже</Description>
-            <ButtonContainer>
-                <ErrorButton onClick={handleErrorReport} variant='white'>Сообщить об ошибке</ErrorButton>
-                <ErrorButton onClick={handleHome} variant='green'>На главную</ErrorButton>
-            </ButtonContainer>
-        </Container>
+        <Styled.Container>
+            <Styled.IconImage src={logo} alt="Check icon"/>
+            <Styled.Title>Страница не найдена</Styled.Title>
+            <Styled.Description>К сожалению, эта страница недоступна. Вернитесь <br />
+                на главную страницу или попробуйте позже</Styled.Description>
+            <Styled.ButtonContainer>
+                <Styled.ErrorButton onClick={handleErrorReport} variant='white'>Сообщить об ошибке</Styled.ErrorButton>
+                <Styled.ErrorButton onClick={handleHome} variant='green'>На главную</Styled.ErrorButton>
+            </Styled.ButtonContainer>
+        </Styled.Container>
     );
 };
