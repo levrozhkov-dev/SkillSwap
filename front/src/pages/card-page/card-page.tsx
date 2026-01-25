@@ -1,5 +1,48 @@
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
+import { useParams } from 'react-router-dom';
+import { GetUser } from '../../shared/api/req/getCategories';
+import type { User } from '../../widgets/ListCard/types/user';
+
+type RouteParams = {
+  id?: string;
+};
 
 export const CardPage: FC = () => {
-  return <div>Это страница c карточкой (CardPage)</div>;
+  const { id } = useParams<RouteParams>();
+  const numericId = id ? Number(id) : undefined;
+
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (!numericId) return;
+
+    const fetchUser = async () => {
+      try {
+        setIsLoading(true);
+        const userResponse = await GetUser(`/users/${numericId}`);
+        console.log('User data:', userResponse.data);
+        setUser(userResponse.data);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    void fetchUser();
+  }, [numericId]);
+
+  if (!numericId) {
+    return <div>Некорректный id в адресной строке</div>;
+  }
+
+  if (isLoading || !user) {
+    return <div>Загрузка пользователя...</div>;
+  }
+
+  return (
+    <>
+      <div>Это страница c карточкой (CardPage)</div>
+      <div>Пользователь - {user.name}. ID - {user.id}</div>
+    </>
+  );
 };
