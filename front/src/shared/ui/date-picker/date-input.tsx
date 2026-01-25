@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Input } from './date-input.styled';
+import * as Styled from './date-input.styled';
 
 type Props = {
   value?: string;
@@ -8,7 +8,7 @@ type Props = {
 
 export const DateInput = forwardRef<HTMLInputElement, Props>(
   ({ value, onClick }, ref) => (
-    <Input
+    <Styled.Input
       ref={ref}
       value={value}
       onClick={onClick}

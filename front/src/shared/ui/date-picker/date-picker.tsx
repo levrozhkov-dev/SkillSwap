@@ -2,10 +2,9 @@ import { useState } from 'react';
 import DatePickerLib, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ru } from 'date-fns/locale/ru';
-
-import { PickerWrapper, CalendarStyles, Footer } from './date-picker.styled';
 import { DateInput } from './date-input';
 import { Button } from '../button';
+import * as Styled from './date-picker.styled';
 
 registerLocale('ru', ru);
 
@@ -30,8 +29,8 @@ export function DatePicker() {
   };
 
   return (
-    <PickerWrapper>
-      <CalendarStyles>
+    <Styled.PickerWrapper>
+      <Styled.CalendarStyles>
         <DatePickerLib
           selected={draftDate}
           onChange={handleChange}
@@ -52,7 +51,7 @@ export function DatePicker() {
           disabledKeyboardNavigation
           placeholderText="дд.мм.гггг"
         >
-          <Footer>
+          <Styled.Footer>
             <Button variant="white" onClick={handleCancel}>
               Отменить
             </Button>
@@ -60,9 +59,9 @@ export function DatePicker() {
             <Button variant="green" onClick={handleApply} disabled={!draftDate}>
               Выбрать
             </Button>
-          </Footer>
+          </Styled.Footer>
         </DatePickerLib>
-      </CalendarStyles>
-    </PickerWrapper>
+      </Styled.CalendarStyles>
+    </Styled.PickerWrapper>
   );
 }
