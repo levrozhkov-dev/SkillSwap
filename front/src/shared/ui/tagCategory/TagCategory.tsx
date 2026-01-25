@@ -1,4 +1,4 @@
-import { StyledTagCategory } from './TagCategory.styled';
+import * as Styled from './TagCategory.styled';
 
 interface TagCategoryProps {
   color?: string;
@@ -14,9 +14,9 @@ const TagCategory: React.FC<TagCategoryProps> = ({
   tooltip,
 }) => {
   return (
-    <StyledTagCategory color={color} key={id} title={tooltip}>
+    <Styled.TagCategory color={color} key={id} title={tooltip}>
       {value}
-    </StyledTagCategory>
+    </Styled.TagCategory>
   );
 };
 

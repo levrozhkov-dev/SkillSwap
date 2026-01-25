@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,12 +17,12 @@ export const StyledLabel = styled.label`
   font-weight: 400;
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   position: absolute;
   visibility: hidden;
 `;
 
-export const StyledRadioIndicator = styled.div<{ checked: boolean }>`
+export const RadioIndicator = styled.div<{ checked: boolean }>`
   width: 20px;
   height: 20px;
 

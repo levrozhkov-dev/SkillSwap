@@ -1,12 +1,5 @@
 import React, { type InputHTMLAttributes, type ReactNode } from 'react';
-import {
-  InputWrapper,
-  InputLabel,
-  InputField,
-  InputContainer,
-  InputIcon,
-  InputErrorText,
-} from './input.styled';
+import * as Styled from './input.styled';
 
 export interface InputProps extends Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -34,15 +27,15 @@ export const Input: React.FC<InputProps> = ({
   const hasIcon = !!icon; // Флаг: есть ли иконка?
 
   return (
-    <InputWrapper error={error}>
-      {nameLabel && <InputLabel htmlFor={inputId}>{nameLabel}</InputLabel>}
+    <Styled.InputWrapper error={error}>
+      {nameLabel && <Styled.InputLabel htmlFor={inputId}>{nameLabel}</Styled.InputLabel>}
 
-      <InputContainer>
+      <Styled.InputContainer>
         {hasIcon && iconPosition === 'left' && (
-          <InputIcon iconPosition="left">{icon}</InputIcon>
+          <Styled.InputIcon iconPosition="left">{icon}</Styled.InputIcon>
         )}
 
-        <InputField
+        <Styled.InputField
           id={inputId}
           type={type}
           placeholder={placeholder}
@@ -54,11 +47,11 @@ export const Input: React.FC<InputProps> = ({
         />
 
         {icon && iconPosition === 'right' && (
-          <InputIcon iconPosition="right">{icon}</InputIcon>
+          <Styled.InputIcon iconPosition="right">{icon}</Styled.InputIcon>
         )}
-      </InputContainer>
+      </Styled.InputContainer>
 
-      {error && errorText && <InputErrorText>{errorText}</InputErrorText>}
-    </InputWrapper>
+      {error && errorText && <Styled.InputErrorText>{errorText}</Styled.InputErrorText>}
+    </Styled.InputWrapper>
   );
 };

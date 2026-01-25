@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export { FilterOptions } from '../FilterBlock.styled';
+
 export const CheckboxContainer = styled.div`
   position: relative;
   &::after {

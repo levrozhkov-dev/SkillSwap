@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export { FilterContainer, FilterOptions, FilterTitle } from '../../../entities/filter/ui/FilterBlock.styled';
+
 export const ContainerBlock = styled.div`
   background-color: #ffffff;
   border-radius: 12px;
@@ -16,7 +18,7 @@ export const FilterHeader = styled.div`
   gap: 40px;
   justify-content: space-between;
   margin-bottom: 8px;
-`
+`;
 
 export const FilterHeaderTitle = styled.h2`
   font-size: 24px;
@@ -47,4 +49,4 @@ export const CrossContainer = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-`
+`;

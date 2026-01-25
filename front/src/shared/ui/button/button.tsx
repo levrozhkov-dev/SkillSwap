@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './styled';
+import * as Styled from './styled';
 
 export type ButtonVariant = 'green' | 'white';
 
@@ -24,37 +24,37 @@ export const Button: React.FC<ButtonProps> = (props) => {
   switch (variant) {
     case 'green':
       return (
-        <S.ButtonGreen onClick={onClick} {...restProps}>
+        <Styled.ButtonGreen onClick={onClick} {...restProps}>
           {icon && iconPosition === 'left' && (
-            <S.IconWrapper>{icon}</S.IconWrapper>
+            <Styled.IconWrapper>{icon}</Styled.IconWrapper>
           )}
 
           <span>{children}</span>
 
           {icon && iconPosition === 'right' && (
-            <S.IconWrapper>{icon}</S.IconWrapper>
+            <Styled.IconWrapper>{icon}</Styled.IconWrapper>
           )}
-        </S.ButtonGreen>
+        </Styled.ButtonGreen>
       );
     case 'white':
       return (
-        <S.ButtonWhite onClick={onClick} {...restProps}>
+        <Styled.ButtonWhite onClick={onClick} {...restProps}>
           {icon && iconPosition === 'left' && (
-            <S.IconWrapper>{icon}</S.IconWrapper>
+            <Styled.IconWrapper>{icon}</Styled.IconWrapper>
           )}
 
           <span>{children}</span>
 
           {icon && iconPosition === 'right' && (
-            <S.IconWrapper>{icon}</S.IconWrapper>
+            <Styled.IconWrapper>{icon}</Styled.IconWrapper>
           )}
-        </S.ButtonWhite>
+        </Styled.ButtonWhite>
       );
     default:
       return (
-        <S.ButtonGreen onClick={onClick} {...restProps}>
+        <Styled.ButtonGreen onClick={onClick} {...restProps}>
           {children}
-        </S.ButtonGreen>
+        </Styled.ButtonGreen>
       );
   }
 };

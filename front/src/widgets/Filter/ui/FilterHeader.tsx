@@ -17,7 +17,7 @@ export const FilterHeader: React.FC<FilterHeaderProps> = ({
     const resetFilters = () => {
         dispatch(clearFilters());
         clearState();
-    }
+    };
 
     return (
         <Styled.FilterHeader>
@@ -29,5 +29,5 @@ export const FilterHeader: React.FC<FilterHeaderProps> = ({
                 </Styled.CrossContainer>
             </Styled.ResetButton>
         </Styled.FilterHeader>
-    )
-}
+    );
+};

@@ -2,12 +2,7 @@ import React from 'react';
 import checkbox from '../../../shared/img/icon/checkbox.svg';
 import checkboxActive from '../../../shared/img/icon/checkbox-active.svg';
 
-import {
-  StyledInput,
-  StyledLabel,
-  StyledCheckboxIndicator,
-  IconImage,
-} from './checkbox.styled';
+import * as Styled from './checkbox.styled';
 
 interface CheckboxProps {
   label: string;
@@ -26,8 +21,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
 }) => {
   return (
-    <StyledLabel>
-      <StyledInput
+    <Styled.Label>
+      <Styled.Input
         type="checkbox"
         name={name}
         id={id}
@@ -37,14 +32,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         }
       />
 
-      <StyledCheckboxIndicator checked={checked}>
+      <Styled.CheckboxIndicator checked={checked}>
         {checked ? (
-          <IconImage src={checkboxActive} alt="Check icon" />
+          <Styled.IconImage src={checkboxActive} alt="Check icon" />
         ) : (
-          <IconImage src={checkbox} alt="Check icon" />
+          <Styled.IconImage src={checkbox} alt="Check icon" />
         )}
-      </StyledCheckboxIndicator>
+      </Styled.CheckboxIndicator>
       {label}
-    </StyledLabel>
+    </Styled.Label>
   );
 };

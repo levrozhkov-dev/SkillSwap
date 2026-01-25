@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledInfo } from './Card.styled';
+import * as Styled  from './Card.styled';
 import { CardAge } from './CardAge';
 
 interface CardInfoProps {
@@ -9,8 +9,8 @@ interface CardInfoProps {
 
 export const CardInfo: React.FC<CardInfoProps> = ({ city, age }) => {
   return (
-    <StyledInfo>
+    <Styled.Info>
       {city}, <CardAge age={age} />
-    </StyledInfo>
+    </Styled.Info>
   );
 };
