@@ -101,7 +101,6 @@ export const CategoryTitle = styled.h4`
 `;
 
 export const CategoryTags = styled.div`
-export const StyledCategoryTags = styled.div`
   font-size: var(--font-size-xs);
   display: flex;
   flex-wrap: wrap;
