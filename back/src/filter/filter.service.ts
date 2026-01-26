@@ -59,29 +59,33 @@ export class FilterService {
 
         const categoryMatch = filterCatIds.every((catId) => {
           const subIds = filterCategories[catId] || [];
-
           const isAllSub = subIds.length === 0;
 
-          if ((learn === 'Могу научить' || learn === 'Всё') && user.skills) {
-            if (isAllSub) return user.skills.category === catId;
-            return (
-              user.skills.category === catId &&
-              subIds.includes(user.skills.subcategory)
-            );
-          }
+          const teachMatch =
+            user.skills &&
+            (isAllSub
+              ? user.skills.category === catId
+              : user.skills.category === catId &&
+                subIds.includes(user.skills.subcategory));
 
-          if (
-            (learn === 'Хочу научиться' || learn === 'Всё') &&
-            user.categories
-          ) {
-            const userCat = user.categories.find((c) => c.idCategory === catId);
-            if (!userCat) return false;
+          const learnMatch =
+            user.categories &&
+            (() => {
+              const userCat = user.categories.find(
+                (c) => c.idCategory === catId,
+              );
+              if (!userCat) return false;
 
-            if (isAllSub) return userCat.idSubCategory.length > 0;
-            return subIds.every((subId) =>
-              userCat.idSubCategory.includes(subId),
-            );
-          }
+              if (isAllSub) return userCat.idSubCategory.length > 0;
+
+              return subIds.some((subId) =>
+                userCat.idSubCategory.includes(subId),
+              );
+            })();
+
+          if (learn === 'Могу научить') return !!teachMatch;
+          if (learn === 'Хочу научиться') return !!learnMatch;
+          if (learn === 'Всё') return !!teachMatch || !!learnMatch;
 
           return false;
         });
