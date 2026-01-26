@@ -34,6 +34,7 @@ declare module 'styled-components' {
 
     radius: {
       sm: string;
+      smd: string;
       md: string;
       lg: string;
     };

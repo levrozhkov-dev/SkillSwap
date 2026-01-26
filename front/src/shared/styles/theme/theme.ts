@@ -33,6 +33,7 @@ export const theme: DefaultTheme = {
 
   radius: {
     sm: 'var(--radius-sm)',
+    smd: 'var(--radius-smd)',
     md: 'var(--radius-md)',
     lg: 'var(--radius-lg)',
   },

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../shared/ui/button';
 import { theme } from '../../../shared/styles/theme';
-import { Input } from '../../../shared/ui/input';
+import { Input } from '../../../shared/ui/form-fields/';
 
 export const AuthContainer = styled.div`
   display: flex;

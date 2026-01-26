@@ -1,5 +1,6 @@
 import React, { type InputHTMLAttributes, type ReactNode } from 'react';
-import * as Styled from './input.styled';
+import { InputField } from './input.styled';
+import * as Styled from '../../form-fields/shared.styled';
 
 export interface InputProps extends Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -27,15 +28,17 @@ export const Input: React.FC<InputProps> = ({
   const hasIcon = !!icon; // Флаг: есть ли иконка?
 
   return (
-    <Styled.InputWrapper error={error}>
-      {nameLabel && <Styled.InputLabel htmlFor={inputId}>{nameLabel}</Styled.InputLabel>}
+    <Styled.FormFieldWrapper error={error}>
+      {nameLabel && (
+        <Styled.FormFieldLabel htmlFor={inputId}>{nameLabel}</Styled.FormFieldLabel>
+      )}
 
-      <Styled.InputContainer>
+      <Styled.FormFieldContainer>
         {hasIcon && iconPosition === 'left' && (
-          <Styled.InputIcon iconPosition="left">{icon}</Styled.InputIcon>
+          <Styled.FormFieldIcon iconPosition="left">{icon}</Styled.FormFieldIcon>
         )}
 
-        <Styled.InputField
+        <InputField
           id={inputId}
           type={type}
           placeholder={placeholder}
@@ -47,11 +50,13 @@ export const Input: React.FC<InputProps> = ({
         />
 
         {icon && iconPosition === 'right' && (
-          <Styled.InputIcon iconPosition="right">{icon}</Styled.InputIcon>
+          <Styled.FormFieldIcon iconPosition="right">{icon}</Styled.FormFieldIcon>
         )}
-      </Styled.InputContainer>
+      </Styled.FormFieldContainer>
 
-      {error && errorText && <Styled.InputErrorText>{errorText}</Styled.InputErrorText>}
-    </Styled.InputWrapper>
+      {error && errorText && (
+        <Styled.FormFieldErrorText>{errorText}</Styled.FormFieldErrorText>
+      )}
+    </Styled.FormFieldWrapper>
   );
 };
