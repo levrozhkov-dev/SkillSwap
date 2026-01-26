@@ -16,7 +16,7 @@ export const mockFilterLearn: FilterProps = {
         "Хочу научиться",
         "Могу научить"
     ]
-}
+};
 
 export const mockFilterGender: FilterProps = {
     "title": "Пол автора",
@@ -27,4 +27,4 @@ export const mockFilterGender: FilterProps = {
         "Мужской",
         "Женский"
     ]
-}
+};
