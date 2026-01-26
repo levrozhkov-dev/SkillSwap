@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export { FilterContainer, FilterOptions, FilterTitle } from '../../../entities/filter/ui/FilterBlock.styled';
 
 export const ContainerBlock = styled.div`
-  background-color: #ffffff;
+  background-color: var(--color-bg-card);
   border-radius: 12px;
   margin: 32px 0 50px 0;
   padding: 20px;
@@ -33,7 +33,7 @@ export const ResetButton = styled.div`
   font-size: var(--font-size-md, 16px);
   font-weight: 400;
   color: var(--color-button-pressed);
-  font-family: 'Roboto', 'sans-serif';
+  font-family: var(--font-secondary);
   border: none;
   align-items: center;
   background: transparent;
@@ -43,10 +43,16 @@ export const ResetButton = styled.div`
 export const CrossContainer = styled.button`
   width: 24px;
   height: 24px;
+  line-height: 24px;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   color: var(--color-button-pressed);
   border: none;
   background: transparent;
   cursor: pointer;
-`;
+`
+
+export const CrossImg = styled.img`
+  vertical-align: middle;
+
+`
