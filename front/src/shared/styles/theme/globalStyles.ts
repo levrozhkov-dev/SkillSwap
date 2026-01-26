@@ -64,6 +64,7 @@ export const GlobalStyles = createGlobalStyle`
     /* Скругления */
     
     --radius-sm: 8px;
+    --radius-smd: 12px;
     --radius-md: 16px;
     --radius-lg: 24px;
   }

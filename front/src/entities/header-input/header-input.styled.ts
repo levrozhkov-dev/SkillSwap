@@ -11,6 +11,7 @@ export const Input = styled.div`
 
   input {
     width: 100%;
+    border: none;
 
     &::placeholder {
       padding-left: 0;

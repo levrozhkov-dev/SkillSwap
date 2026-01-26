@@ -1,5 +1,5 @@
 import React, { type ReactNode } from 'react';
-import { Input } from '../../shared/ui/input';
+import { Input } from '../../shared/ui/form-fields/input';
 import * as Styled from './header-input.styled';
 
 export interface HeaderInputProps {
