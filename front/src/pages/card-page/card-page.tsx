@@ -2,6 +2,7 @@ import { useEffect, useState, type FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { GetUser } from '../../shared/api/req/getCategories';
 import type { User } from '../../widgets/ListCard/types/user';
+import { UserOffer } from '../../widgets/UserOffer/UserOfffer';
 
 type RouteParams = {
   id?: string;
@@ -41,8 +42,7 @@ export const CardPage: FC = () => {
 
   return (
     <>
-      <div>Это страница c карточкой (CardPage)</div>
-      <div>Пользователь - {user.name}. ID - {user.id}</div>
+      <UserOffer userInfo={user}  />
     </>
   );
 };

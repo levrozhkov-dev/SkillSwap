@@ -7,6 +7,7 @@ import type {
   UserSkills,
   CategorySelection,
 } from '../../../widgets/ListCard/types/user';
+import { getCanTeachCategories, getWantsToLearnCategories } from '../../../shared/lib/categories-tags/CategoriesTagsUtils';
 
 interface CardCategoriesProps {
   skills: UserSkills[];
@@ -19,63 +20,8 @@ export const CardCategories: React.FC<CardCategoriesProps> = ({
 }) => {
   const allCategories = useSelector((state: RootState) => state.category.items);
 
-  // Категории "Может научить" из skills
-  const getCanTeachCategories = () => {
-    const canTeachItems: Array<{ name: string; color: string; id: string }> =
-      [];
-
-    skills.forEach((skill) => {
-      const category = allCategories.find((cat) => cat.id === skill.category);
-      if (category) {
-        const subCategory = category.subCategories.find(
-          (sub) => sub.id === skill.subcategory,
-        );
-        if (subCategory) {
-          canTeachItems.push({
-            name: subCategory.name,
-            color: category.color,
-            id: `can-teach-${skill.id}-${subCategory.id}`,
-          });
-        }
-      }
-    });
-
-    return canTeachItems;
-  };
-
-  // Категории "Хочет научиться" из categories
-  const getWantsToLearnCategories = () => {
-    const wantsToLearnItems: Array<{
-      name: string;
-      color: string;
-      id: string;
-    }> = [];
-
-    categories.forEach((categorySelection) => {
-      const category = allCategories.find(
-        (cat) => cat.id === categorySelection.idCategory,
-      );
-      if (category) {
-        categorySelection.idSubCategory.forEach((subCategoryId) => {
-          const subCategory = category.subCategories.find(
-            (sub) => sub.id === subCategoryId,
-          );
-          if (subCategory) {
-            wantsToLearnItems.push({
-              name: subCategory.name,
-              color: category.color,
-              id: `wants-learn-${categorySelection.idCategory}-${subCategoryId}`,
-            });
-          }
-        });
-      }
-    });
-
-    return wantsToLearnItems;
-  };
-
-  const canTeachItems = getCanTeachCategories();
-  const wantsToLearnItems = getWantsToLearnCategories();
+  const canTeachItems = getCanTeachCategories(skills, allCategories);
+  const wantsToLearnItems = getWantsToLearnCategories(categories, allCategories);
 
   // Ограничиваем до (maxItems: number) категорий и добавляем "+n" если больше
   const renderCategoryTags = (

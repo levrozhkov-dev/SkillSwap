@@ -47,19 +47,28 @@ export const GlobalStyles = createGlobalStyle`
     --font-main: 'Jost', system-ui, sans-serif;
     --font-secondary: 'Roboto', system-ui, sans-serif;
 
+    /* Размеры высоты шрифта */
+    --line-height-sm: 16px; 
+    --line-height-md: 24px;
+    --line-height-lg: 28px;
+
     /* Размеры шрифта */
     --font-size-xs: 12px;
     --font-size-sm: 14px;
     --font-size-md: 16px;
     --font-size-lg: 20px;
+    --font-size-xl: 24px;
 
     /*  Отступы */
 
     --space-xs: 4px;
     --space-sm: 8px;
     --space-smd: 12px;
+    --space-smmd: 14px;
     --space-md: 16px;
     --space-lg: 20px;
+    --space-xl: 24px;
+    --space-xxl: 32px;
 
     /* Скругления */
     
