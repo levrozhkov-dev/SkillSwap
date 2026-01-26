@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import * as Styled from './styled';
 import { HeaderInput } from '../../entities/header-input';
@@ -8,8 +8,6 @@ import logo from '../../shared/img/icon/logo.svg';
 import searchIcon from '../../shared/img/icon/search.svg';
 import cross from '../../shared/img/icon/cross.svg';
 import { ListSkills } from '../listSkills/listSkills';
-import { useSelector } from 'react-redux';
-import type { RootState } from '../../providers/store/store';
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -19,17 +17,6 @@ export const Header = () => {
   const location = useLocation();
   const authPage =
     location.pathname === '/login' || location.pathname === '/register';
-
-  const categories = useSelector((state: RootState) => state.category.items);
-  const flatSkills = useMemo(() => {
-    const skills: { id: number; name: string }[] = [];
-    for (const cat of categories) {
-      for (const sub of cat.subCategories ?? []) {
-        skills.push({ id: sub.id, name: sub.name });
-      }
-    }
-    return skills;
-  }, [categories]);
 
   const handleSearchChange = (value: string) => {
     setSearchValue(value);
