@@ -45,15 +45,20 @@ export const UsedFilters: React.FC<UsedFilterProps> = ({
     }
 
     return (
-        <Styled.UsedFiltersWrapper>
-            {filtersList.map((value) => (
-                <Styled.UsedFilter>
-                    <span>{value}</span>
-                    <Styled.CrossContainer onClick={() => onDelete(value)}>
-                        <img src={cross} alt="" aria-hidden="true" />
-                    </Styled.CrossContainer>
-                </Styled.UsedFilter>
-            ))}
-        </Styled.UsedFiltersWrapper>
+        <>
+        {(filtersList.length !== 0) && 
+            <Styled.UsedFiltersWrapper>
+                {filtersList.map((value) => (
+                    <Styled.UsedFilter>
+                        <span>{value}</span>
+                        <Styled.CrossContainer onClick={() => onDelete(value)}>
+                            <img src={cross} alt="" aria-hidden="true" />
+                        </Styled.CrossContainer>
+                    </Styled.UsedFilter>
+                ))}
+            </Styled.UsedFiltersWrapper>
+        }
+        </>
+        
     )
 }

@@ -10,9 +10,7 @@ import type { FilterHeaderProps } from './types';
 export const FilterHeader: React.FC<FilterHeaderProps> = ({
     clearState
 }) => {
-    const currentFilters = useSelector((state: RootState) => state.usedFilters.filters);
     const filterNumber = useSelector((state: RootState) => state.usedFilters.filters.length);
-    console.log('currentFilters:', currentFilters);
     const dispatch = useDispatch<AppDispatch>();
     const resetFilters = () => {
         dispatch(clearFilters());
@@ -21,11 +19,12 @@ export const FilterHeader: React.FC<FilterHeaderProps> = ({
 
     return (
         <Styled.FilterHeader>
-            <Styled.FilterHeaderTitle>Фильтры ({filterNumber}) </Styled.FilterHeaderTitle>
+            {(filterNumber === 0) && <Styled.FilterHeaderTitle>Фильтры</Styled.FilterHeaderTitle>}
+            {(filterNumber !== 0) && <Styled.FilterHeaderTitle>Фильтры ({filterNumber}) </Styled.FilterHeaderTitle>}
             <Styled.ResetButton onClick={resetFilters}>
                 <span>Сбросить</span>
                 <Styled.CrossContainer>
-                    <img src={cross} alt="" aria-hidden="true" />
+                    <Styled.CrossImg src={cross} alt="" aria-hidden="true" />
                 </Styled.CrossContainer>
             </Styled.ResetButton>
         </Styled.FilterHeader>

@@ -15,7 +15,7 @@ export const UsedFilter = styled.div`
   gap: 8px;
   padding: 12px 24px;
   justify-content: space-between;
-  font-family: 'Roboto', 'sans-serif';
+  font-family: var(--font-secondary);
   font-size: var(--font-size-md, 16px);
   font-weight: 400;
   border-radius: 12px;
