@@ -2,12 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../providers/store/store';
 import TagCategory from '../../../shared/ui/tagCategory/TagCategory';
-import {
-  StyledCardCategories,
-  StyledCategorySection,
-  StyledCategoryTitle,
-  StyledCategoryTags,
-} from './Card.styled';
+import * as Styled from './Card.styled';
 import type {
   UserSkills,
   CategorySelection,
@@ -22,7 +17,7 @@ export const CardCategories: React.FC<CardCategoriesProps> = ({
   skills,
   categories,
 }) => {
-  const allCategories = useSelector((state: RootState) => state.category);
+  const allCategories = useSelector((state: RootState) => state.category.items);
 
   // Категории "Может научить" из skills
   const getCanTeachCategories = () => {
@@ -108,7 +103,7 @@ export const CardCategories: React.FC<CardCategoriesProps> = ({
     };
 
     return (
-      <StyledCategoryTags>
+      <Styled.CategoryTags>
         {visibleItems.map((item) => (
           <TagCategory
             key={item.id}
@@ -134,30 +129,30 @@ export const CardCategories: React.FC<CardCategoriesProps> = ({
             value={`+${remainingCount}`}
           />
         )}
-      </StyledCategoryTags>
+      </Styled.CategoryTags>
     );
   };
 
   return (
-    <StyledCardCategories>
+    <Styled.CardCategories>
       {canTeachItems.length > 0 && (
-        <StyledCategorySection>
-          <StyledCategoryTitle>Может научить:</StyledCategoryTitle>
+        <Styled.CategorySection>
+          <Styled.CategoryTitle>Может научить:</Styled.CategoryTitle>
           {renderCategoryTags(canTeachItems)}
-        </StyledCategorySection>
+        </Styled.CategorySection>
       )}
       {/* Настройки отображения тегов:
         truncateLimit - ограничение по длине;
         enableTooltip - тултип. */}
       {wantsToLearnItems.length > 0 && (
-        <StyledCategorySection>
-          <StyledCategoryTitle>Хочет научиться:</StyledCategoryTitle>
+        <Styled.CategorySection>
+          <Styled.CategoryTitle>Хочет научиться:</Styled.CategoryTitle>
           {renderCategoryTags(wantsToLearnItems, 2, {
             truncateLimit: 16,
             enableTooltip: true,
           })}
-        </StyledCategorySection>
+        </Styled.CategorySection>
       )}
-    </StyledCardCategories>
+    </Styled.CardCategories>
   );
 };

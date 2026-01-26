@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  StyledInput,
-  StyledLabel,
-  StyledRadioIndicator,
-} from './RadioButon.styled';
+import * as Styled from './RadioButon.styled';
 
 /* ВАЖНО: компонент контролируемый извне
     он будет корректно работать при хранении стейта в родителе и ищменении его через onChange
@@ -29,9 +25,9 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
   onChange,
 }) => {
   return (
-    <StyledLabel>
+    <Styled.Label>
       {/* настоящий инпут скрыт стилями */}
-      <StyledInput
+      <Styled.Input
         type="radio"
         name={name}
         value={value}
@@ -40,8 +36,8 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
       />
 
       {/* стилизованная радио кнопка */}
-      <StyledRadioIndicator checked={checked} />
+      <Styled.RadioIndicator checked={checked} />
       {text}
-    </StyledLabel>
+    </Styled.Label>
   );
 };

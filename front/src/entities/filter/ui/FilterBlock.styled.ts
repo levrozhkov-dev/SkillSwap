@@ -1,22 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledFilterContainer = styled.div`
+export const FilterContainer = styled.div`
   width: 284px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-
-  margin: 39px 32px; //убрать когда вставим в разметку
 `;
 
-export const StyledFilterTitle = styled.h3`
+export const FilterTitle = styled.h3`
   font-size: var(--font-size-lg, 20px);
   font-weight: 500;
   color: var(--color-text-main);
 `;
 
-export const StyledFilterOptions = styled.div`
+export const FilterOptions = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--space-smd, 12px);
+  align-items: start;
 `;

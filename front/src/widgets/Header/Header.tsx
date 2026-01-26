@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import * as Styled from './styled';
 import { HeaderInput } from '../../entities/header-input';
 import { HeaderButtons } from '../../entities/HeaderButtons';
 import chevronDownIcon from '../../shared/img/icon/chevron-down.svg';
 import logo from '../../shared/img/icon/logo.svg';
 import searchIcon from '../../shared/img/icon/search.svg';
+import cross from '../../shared/img/icon/cross.svg';
+import { ListSkills } from '../listSkills/listSkills';
+import { useSelector } from 'react-redux';
 import type { RootState } from '../../providers/store/store';
 
 export const Header = () => {
@@ -14,9 +16,11 @@ export const Header = () => {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
   const skillsMenuRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const authPage =
+    location.pathname === '/login' || location.pathname === '/register';
 
-  const categories = useSelector((state: RootState) => state.category);
-
+  const categories = useSelector((state: RootState) => state.category.items);
   const flatSkills = useMemo(() => {
     const skills: { id: number; name: string }[] = [];
     for (const cat of categories) {
@@ -61,80 +65,106 @@ export const Header = () => {
   return (
     <Styled.HeaderWrapper>
       <Styled.HeaderInner>
-        <Styled.LogoAndNav>
-          <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
-            <Styled.LogoIcon>
-              <img src={logo} alt="" aria-hidden="true" />
-            </Styled.LogoIcon>
-            <span>SkillSwap</span>
-          </Styled.Logo>
+        {authPage ? (
+          <>
+            <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
+              <Styled.LogoIcon>
+                <img src={logo} alt="" aria-hidden="true" />
+              </Styled.LogoIcon>
+              <span>SkillSwap</span>
+            </Styled.Logo>
+            <Styled.AuthCloseButton
+              type="button"
+              onClick={() => navigate('/')}
+              aria-label="Закрыть"
+              icon={
+                <img
+                  src={cross}
+                  alt=""
+                  aria-hidden="true"
+                  width={24}
+                  height={24}
+                />
+              }
+              iconPosition="right"
+            >
+              Закрыть
+            </Styled.AuthCloseButton>
+          </>
+        ) : (
+          <>
+            <Styled.LogoAndNav>
+              <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
+                <Styled.LogoIcon>
+                  <img src={logo} alt="" aria-hidden="true" />
+                </Styled.LogoIcon>
+                <span>SkillSwap</span>
+              </Styled.Logo>
 
-          <Styled.Nav>
-            <Styled.NavLinkItem as={NavLink} to="/#about">
-              О проекте
-            </Styled.NavLinkItem>
+              <Styled.Nav>
+                <Styled.NavLinkItem as={NavLink} to="/#about">
+                  О проекте
+                </Styled.NavLinkItem>
 
-            <Styled.SkillsMenu ref={skillsMenuRef}>
-              <Styled.SkillsButton
-                type="button"
-                aria-haspopup="menu"
-                aria-expanded={isSkillsOpen}
-                onClick={() => setIsSkillsOpen((v) => !v)}
-              >
-                <Styled.ThemeProjectContainer>Все навыки</Styled.ThemeProjectContainer>
-                <Styled.NavChevron $open={isSkillsOpen}>
-                  <img src={chevronDownIcon} alt="" aria-hidden="true" />
-                </Styled.NavChevron>
-              </Styled.SkillsButton>
+                <Styled.SkillsMenu ref={skillsMenuRef}>
+                  <Styled.SkillsButton
+                    type="button"
+                    aria-haspopup="menu"
+                    aria-expanded={isSkillsOpen}
+                    onClick={() => setIsSkillsOpen((v) => !v)}
+                  >
+                    <Styled.ThemeProjectContainer>
+                      Все навыки
+                    </Styled.ThemeProjectContainer>
+                    <Styled.NavChevron $open={isSkillsOpen}>
+                      <img src={chevronDownIcon} alt="" aria-hidden="true" />
+                    </Styled.NavChevron>
+                  </Styled.SkillsButton>
 
-              {isSkillsOpen && (
-                <Styled.SkillsDropdown role="menu" aria-label="Все навыки">
-                  {flatSkills.length === 0 ? (
-                    <Styled.SkillsEmpty role="menuitem" tabIndex={-1}>
-                      Нет категорий
-                    </Styled.SkillsEmpty>
-                  ) : (
-                    flatSkills.slice(0, 30).map((s) => (
-                      <Styled.SkillsItem
-                        key={s.id}
+                  {isSkillsOpen && (
+                    <Styled.SkillsDropdown role="menu" aria-label="Все навыки">
+                      <Styled.SkillsDropdownCloseButton
                         type="button"
-                        role="menuitem"
-                        onClick={() => {
-                          setSearchValue(s.name);
+                        aria-label="Закрыть меню навыков"
+                        onClick={() => setIsSkillsOpen(false)}
+                      >
+                        ×
+                      </Styled.SkillsDropdownCloseButton>
+                      <ListSkills
+                        onSkillSelect={(value) => {
+                          setSearchValue(value);
                           setIsSkillsOpen(false);
                         }}
-                      >
-                        {s.name}
-                      </Styled.SkillsItem>
-                    ))
+                      />
+                    </Styled.SkillsDropdown>
                   )}
-                </Styled.SkillsDropdown>
-              )}
-            </Styled.SkillsMenu>
-          </Styled.Nav>
-        </Styled.LogoAndNav>
+                </Styled.SkillsMenu>
+              </Styled.Nav>
+            </Styled.LogoAndNav>
 
-        <Styled.SearchWrapper>
-          <HeaderInput
-            value={searchValue}
-            onChange={handleSearchChange}
-            placeholder="Искать навык"
-            icon={
-              !searchValue ? (
-                <img src={searchIcon} alt="" aria-hidden="true" />
-              ) : undefined
-            }
-            iconPosition="left"
-          />
-        </Styled.SearchWrapper>
+            <Styled.SearchWrapper>
+              <HeaderInput
+                value={searchValue}
+                onChange={handleSearchChange}
+                placeholder="Искать навык"
+                icon={
+                  !searchValue ? (
+                    <img src={searchIcon} alt="" aria-hidden="true" />
+                  ) : undefined
+                }
+                iconPosition="left"
+              />
+            </Styled.SearchWrapper>
 
-        <Styled.RightSide>
-          <HeaderButtons
-            onThemeToggle={handleThemeToggle}
-            onLoginClick={() => navigate('/login')}
-            onRegisterClick={() => navigate('/register')}
-          />
-        </Styled.RightSide>
+            <Styled.RightSide>
+              <HeaderButtons
+                onThemeToggle={handleThemeToggle}
+                onLoginClick={() => navigate('/login')}
+                onRegisterClick={() => navigate('/register')}
+              />
+            </Styled.RightSide>
+          </>
+        )}
       </Styled.HeaderInner>
     </Styled.HeaderWrapper>
   );

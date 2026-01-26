@@ -1,40 +1,31 @@
-import React from 'react';
-import {
-  StyledFooter,
-  LogoContainer,
-  LinksContainer,
-  Title,
-  FooterBottom,
-  LogoLink,
-  LiElement
-} from './Footer.styled';
+import * as Styled from './Footer.styled';
 import logo from '../../shared/img/icon/logo.svg';
 
 export const Footer = () => {
   return (
-    <StyledFooter>
-      <LogoContainer>
-        <LogoLink to={'/'}>
+    <Styled.Footer>
+      <Styled.LogoContainer>
+        <Styled.LogoLink to={'/'}>
           <img
             src={logo}
             alt="Логотип SkillSwap"
             width={'40px'}
             height={'40px'}
           />
-          <Title>SkillSwap</Title>
-        </LogoLink>
-      </LogoContainer>
+          <Styled.Title>SkillSwap</Styled.Title>
+        </Styled.LogoLink>
+      </Styled.LogoContainer>
 
-      <LinksContainer>
-        <LiElement>О проекте</LiElement>
-        <LiElement>Контакты</LiElement>
-        <LiElement>Политика конфиденциальности</LiElement>
-        <LiElement>Все навыки</LiElement>
-        <LiElement>Блог</LiElement>
-        <LiElement>Пользовательское соглашение</LiElement>
-      </LinksContainer>
+      <Styled.LinksContainer>
+        <Styled.LiElement>О проекте</Styled.LiElement>
+        <Styled.LiElement>Контакты</Styled.LiElement>
+        <Styled.LiElement>Политика конфиденциальности</Styled.LiElement>
+        <Styled.LiElement>Все навыки</Styled.LiElement>
+        <Styled.LiElement>Блог</Styled.LiElement>
+        <Styled.LiElement>Пользовательское соглашение</Styled.LiElement>
+      </Styled.LinksContainer>
 
-      <FooterBottom>SkillSwap - 2025</FooterBottom>
-    </StyledFooter>
+      <Styled.FooterBottom>SkillSwap - 2025</Styled.FooterBottom>
+    </Styled.Footer>
   );
 };
