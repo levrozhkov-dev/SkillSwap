@@ -55,6 +55,7 @@ export const GlobalStyles = createGlobalStyle`
     --space-xs: 4px;
     --space-sm: 8px;
     --space-smd: 12px;
+    --space-smmd: 14px;
     --space-md: 16px;
     --space-lg: 20px;
     --space-xl: 24px;

@@ -1,9 +1,8 @@
 import type { FC } from "react";
-import { CardAge, CardAvatar } from "../../entities/card";
+import { CardAge, CardAvatar } from "../card";
 import * as Styled from "./UserCardProfile.styled";
-import { CardUserDescription } from "../../entities/card/ui/Card.styled";
-import type { CategorySelection, UserSkills } from "../ListCard/types/user";
-import { CardCategories } from "../../entities/card/ui/CardCategories";
+import type { CategorySelection, UserSkills } from "../../widgets/ListCard/types/user";
+import { UserCardCategories } from "./UserCardCategories";
 
 type UserCardProfileProps = {
   avatarUrl: string;
@@ -26,7 +25,7 @@ export const UserCardProfile: FC<UserCardProfileProps> = ({
 }) => {
   return (
     <Styled.UserCardProfile>
-      <CardUserDescription>
+      <Styled.UserInfoWrapper>
         <CardAvatar src={avatarUrl} alt={`${name} avatar`} />
         <Styled.UserInfo>
           <Styled.UserNameProfile>{name}</Styled.UserNameProfile>
@@ -34,9 +33,9 @@ export const UserCardProfile: FC<UserCardProfileProps> = ({
             {city}, <CardAge age={age} />
           </Styled.UserInfoData>
         </Styled.UserInfo>
-      </CardUserDescription>
+      </Styled.UserInfoWrapper>
       <Styled.UserDescription>{description}</Styled.UserDescription>
-      <CardCategories skills={skills} categories={categories} />
+      <UserCardCategories skills={skills} categories={categories} />
     </Styled.UserCardProfile>
   );
 };

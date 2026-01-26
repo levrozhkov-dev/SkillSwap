@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { Card, CardContent, Info, Name } from "../../entities/card/ui/Card.styled";
+import { Card, CardCategories, CardContent, CardUserDescription, CategorySection, CategoryTags, CategoryTitle, Info, Name } from "../card/ui/Card.styled";
 
 export const UserCardProfile = styled(Card)`
-  gap: var(--space-xl);
+  gap: 0;
   padding: var(--space-xxl);
 `;
+
+export const UserInfoWrapper = styled(CardUserDescription)``;
 
 export const UserInfo = styled(CardContent)`
   justify-content: center;
@@ -22,7 +24,22 @@ export const UserInfoData = styled(Info)`
 `;
 
 export const UserDescription = styled.p`
+  margin: 20px 0 24px;
   font-size: var(--font-size-md);
   line-height: var(--line-height-md);
   font-weight: 400;
+`;
+
+export const UserCardCategories = styled(CardCategories)`
+  gap: var(--space-xl);
+`;
+
+export const UserCardCategorySection = styled(CategorySection)`
+  gap: var(--space-smmd);
+`;
+
+export const UserCardCategoryTitle = styled(CategoryTitle)``;
+
+export const UserCardCategoryTags = styled(CategoryTags)`
+  gap: var(--space-sm);
 `;
