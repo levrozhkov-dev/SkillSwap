@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledFooter = styled.footer`
+export const Footer = styled.footer`
     width: 100%;
 
     padding: 32px 36px;

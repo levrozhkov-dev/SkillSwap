@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
+export { FilterContainer, FilterOptions, FilterTitle } from '../../../entities/filter/ui/FilterBlock.styled';
+
 export const ContainerBlock = styled.div`
   background-color: var(--color-bg-card);
   border-radius: 12px;
-  margin: 32px 24px 50px 36px;
+  margin: 32px 0 50px 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -16,7 +18,7 @@ export const FilterHeader = styled.div`
   gap: 40px;
   justify-content: space-between;
   margin-bottom: 8px;
-`
+`;
 
 export const FilterHeaderTitle = styled.h2`
   font-size: 24px;

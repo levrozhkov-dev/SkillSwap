@@ -1,5 +1,5 @@
 import { type FC, type ReactNode } from 'react';
-import * as S from './scrollableBox.styled';
+import * as Styled from './scrollableBox.styled';
 
 interface ScrollableBoxProps {
   width: string;
@@ -9,8 +9,8 @@ interface ScrollableBoxProps {
 
 export const ScrollableBox: FC<ScrollableBoxProps> = ({ width, height, children }) => {
   return (
-    <S.Container width={width} height={height}>
+    <Styled.Container width={width} height={height}>
       {children}
-    </S.Container>
+    </Styled.Container>
   );
 };

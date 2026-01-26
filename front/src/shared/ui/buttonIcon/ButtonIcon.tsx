@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButton, IconImage } from './ButtonIcon.styled';
+import * as Styled from './ButtonIcon.styled';
 
 interface ButtonIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   iconSrc: string; // Принимаем готовый путь к иконке
@@ -12,8 +12,8 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   ...props
 }) => {
   return (
-    <StyledButton onClick={onClick} {...props}>
-      <IconImage src={iconSrc} alt="Button icon" />
-    </StyledButton>
+    <Styled.Button onClick={onClick} {...props}>
+      <Styled.IconImage src={iconSrc} alt="Button icon" />
+    </Styled.Button>
   );
 };

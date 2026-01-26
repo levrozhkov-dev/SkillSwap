@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,12 +17,12 @@ export const StyledLabel = styled.label`
   font-weight: 400;
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   position: absolute;
   visibility: hidden;
 `;
 
-export const StyledCheckboxIndicator = styled.div<{ checked: boolean }>`
+export const CheckboxIndicator = styled.div<{ checked: boolean }>`
 `;
 
 export const IconImage = styled.img`

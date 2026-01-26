@@ -5,7 +5,6 @@ import type { RootState } from '../../../providers/store/store';
 import { CategoryCheckbox } from '../../../entities/filter/ui/checkboxList/checkboxList';
 import { CityCheckboxList } from '../../../entities/filter/ui/checkboxList/cityList';
 import * as Styled from './styled';
-import { StyledFilterContainer, StyledFilterOptions, StyledFilterTitle } from '../../../entities/filter/ui/FilterBlock.styled';
 import { FilterHeader } from './FilterHeader';
 
 export function Filter({
@@ -27,9 +26,9 @@ export function Filter({
         state={dataFilter.learn}
         setState={(val) => setDataFilter({ ...dataFilter, learn: val })}
       />
-      <StyledFilterContainer>
-        <StyledFilterTitle>Навыки</StyledFilterTitle>
-        <StyledFilterOptions>
+      <Styled.FilterContainer>
+        <Styled.FilterTitle>Навыки</Styled.FilterTitle>
+        <Styled.FilterOptions>
           {categories.map((category) => (
           <CategoryCheckbox
             categoryData={category}
@@ -39,16 +38,16 @@ export function Filter({
             }
           />
         ))}
-        </StyledFilterOptions>
-      </StyledFilterContainer>
+        </Styled.FilterOptions>
+      </Styled.FilterContainer>
 
       <FilterBlock
         {...mockFilterGender}
         state={dataFilter.gender}
         setState={(val) => setDataFilter({ ...dataFilter, gender: val })}
       />
-      <StyledFilterContainer>
-        <StyledFilterTitle>Города</StyledFilterTitle>
+      <Styled.FilterContainer>
+        <Styled.FilterTitle>Города</Styled.FilterTitle>
         <CityCheckboxList
           cities={citiesFromApi}
           selectedCities={dataFilter.cities}
@@ -59,7 +58,7 @@ export function Filter({
             }))
           }
         />
-      </StyledFilterContainer>
+      </Styled.FilterContainer>
     </Styled.ContainerBlock>
   );
 }

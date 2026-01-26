@@ -4,7 +4,7 @@ interface TagCategoryProps {
   color?: string;
 }
 
-export const StyledTagCategory = styled.div<TagCategoryProps>`
+export const TagCategory = styled.div<TagCategoryProps>`
   display: inline-flex;
   align-items: center;
   padding: var(--space-sm) var(--space-smd);

@@ -1,12 +1,7 @@
 import React from 'react';
 import { Button } from '../../shared/ui/button/button';
 import { ButtonIcon } from '../../shared/ui/buttonIcon/ButtonIcon';
-import {
-  ButtonsWrapper,
-  LoginButtonContainer,
-  RegisterButtonContainer,
-  ThemeButtonContainer,
-} from './styled';
+import * as Styled from './styled';
 import moonIcon from '../../shared/img/icon/moon.svg';
 
 interface HeaderButtonsProps {
@@ -24,20 +19,20 @@ export const HeaderButtons: React.FC<HeaderButtonsProps> = ({
   className,
 }) => {
   return (
-    <ButtonsWrapper className={className}>
-      <ThemeButtonContainer>
+    <Styled.ButtonsWrapper className={className}>
+      <Styled.ThemeButtonContainer>
         <ButtonIcon iconSrc={moonIcon} onClick={onThemeToggle} />
-      </ThemeButtonContainer>
-      <LoginButtonContainer>
+      </Styled.ThemeButtonContainer>
+      <Styled.LoginButtonContainer>
         <Button variant="white" onClick={onLoginClick}>
           Войти
         </Button>
-      </LoginButtonContainer>
-      <RegisterButtonContainer>
+      </Styled.LoginButtonContainer>
+      <Styled.RegisterButtonContainer>
         <Button variant="green" onClick={onRegisterClick}>
           Зарегистрироваться
         </Button>
-      </RegisterButtonContainer>
-    </ButtonsWrapper>
+      </Styled.RegisterButtonContainer>
+    </Styled.ButtonsWrapper>
   );
 };

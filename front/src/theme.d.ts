@@ -6,6 +6,7 @@ declare module 'styled-components' {
       bgMain: string;
       bgCard: string;
       bgNote: string;
+      bgLine: string;
 
       textMain: string;
       textSecondary: string;

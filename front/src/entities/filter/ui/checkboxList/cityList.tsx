@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import * as Styled from './styled';
-import { StyledFilterOptions } from '../FilterBlock.styled';
 import { useAppDispatch } from '../../../../providers/store/store';
 import { addFilter, deleteFilter } from '../../../../features/slice/usedFiltersSlice';
 export interface City {
@@ -35,7 +34,7 @@ export const CityCheckboxList: React.FC<CityCheckboxListProps> = ({
   };
 
   return (
-    <StyledFilterOptions>
+    <Styled.FilterOptions>
       {visibleCities.map((city) => (
         <Checkbox
           key={city.id}
@@ -53,6 +52,6 @@ export const CityCheckboxList: React.FC<CityCheckboxListProps> = ({
           {showAll ? 'Скрыть' : 'Все города'}
         </Styled.ButtonAll>
       )}
-    </StyledFilterOptions>
+    </Styled.FilterOptions>
   );
 };
