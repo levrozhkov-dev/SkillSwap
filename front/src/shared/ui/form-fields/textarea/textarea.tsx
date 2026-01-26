@@ -1,11 +1,5 @@
 import React, { type TextareaHTMLAttributes, type ReactNode } from 'react';
-import {
-  FormFieldWrapper,
-  FormFieldLabel,
-  FormFieldContainer,
-  FormFieldIcon,
-  FormFieldErrorText,
-} from '../shared.styled';
+import * as Styled from '../shared.styled';
 import { TextareaField } from './textarea.styled';
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -29,12 +23,12 @@ export const Textarea: React.FC<TextareaProps> = ({
   const hasIcon = !!icon;
 
   return (
-    <FormFieldWrapper error={error}>
-      {nameLabel && <FormFieldLabel htmlFor={textareaId}>{nameLabel}</FormFieldLabel>}
+    <Styled.FormFieldWrapper error={error}>
+      {nameLabel && <Styled.FormFieldLabel htmlFor={textareaId}>{nameLabel}</Styled.FormFieldLabel>}
 
-      <FormFieldContainer>
+      <Styled.FormFieldContainer>
         {hasIcon && iconPosition === 'left' && (
-          <FormFieldIcon iconPosition="left">{icon}</FormFieldIcon>
+          <Styled.FormFieldIcon iconPosition="left">{icon}</Styled.FormFieldIcon>
         )}
 
         <TextareaField
@@ -48,11 +42,11 @@ export const Textarea: React.FC<TextareaProps> = ({
         />
 
         {icon && iconPosition === 'right' && (
-          <FormFieldIcon iconPosition="right">{icon}</FormFieldIcon>
+          <Styled.FormFieldIcon iconPosition="right">{icon}</Styled.FormFieldIcon>
         )}
-      </FormFieldContainer>
+      </Styled.FormFieldContainer>
 
-      {error && errorText && <FormFieldErrorText>{errorText}</FormFieldErrorText>}
-    </FormFieldWrapper>
+      {error && errorText && <Styled.FormFieldErrorText>{errorText}</Styled.FormFieldErrorText>}
+    </Styled.FormFieldWrapper>
   );
 };

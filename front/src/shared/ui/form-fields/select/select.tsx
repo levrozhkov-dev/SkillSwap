@@ -1,9 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  FormFieldWrapper,
-  FormFieldLabel,
-  FormFieldErrorText,
-} from '../shared.styled';
+import * as Styled from '../shared.styled';
 import {
   SelectContainer,
   SelectTrigger,
@@ -151,9 +147,9 @@ export const Select: React.FC<SelectProps> = ({
     : !!value && value !== '';
 
   return (
-    <FormFieldWrapper error={error}>
+    <Styled.FormFieldWrapper error={error}>
       {nameLabel && (
-        <FormFieldLabel htmlFor={selectId}>{nameLabel}</FormFieldLabel>
+        <Styled.FormFieldLabel htmlFor={selectId}>{nameLabel}</Styled.FormFieldLabel>
       )}
 
       <SelectContainer ref={selectRef}>
@@ -217,8 +213,8 @@ export const Select: React.FC<SelectProps> = ({
       </SelectContainer>
 
       {error && errorText && (
-        <FormFieldErrorText>{errorText}</FormFieldErrorText>
+        <Styled.FormFieldErrorText>{errorText}</Styled.FormFieldErrorText>
       )}
-    </FormFieldWrapper>
+    </Styled.FormFieldWrapper>
   );
 };
