@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../../fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     /* Цвета */
 
@@ -37,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Основной шрифт приложения */
     --font-main: 'Jost', system-ui, sans-serif;
+    --font-secondary: 'Roboto', system-ui, sans-serif;
 
     /* Размеры шрифта */
     --font-size-xs: 12px;

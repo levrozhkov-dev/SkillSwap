@@ -1,0 +1,1 @@
+export { Error500Content } from './Error500Content';
