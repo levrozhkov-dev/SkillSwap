@@ -9,6 +9,7 @@ import {
   RegisterPage,
 } from '../../pages';
 import { Layout } from '../ui/layout';
+import { GuardRoute } from './GuardRoute';
 
 export const routeObjects: RouteObject[] = [
   // Основные страницы — рендерятся внутри Layout (через Outlet)
@@ -23,23 +24,30 @@ export const routeObjects: RouteObject[] = [
         path: '/card/:id',
         element: <CardPage />,
       },
+    ],
+  },
+
+  // Защищённые маршруты (только для авторизованных)
+  {
+    element: <GuardRoute type="protected" />,
+    children: [
       {
-        path: '/profile',
-        element: <ProfilePage />,
+        element: <Layout />,
+        children: [
+          { path: '/profile', element: <ProfilePage /> },
+        ],
       },
     ],
   },
 
   // Отдельные страницы
   {
-    path: '/register',
-    element: <RegisterPage />,
+    element: <GuardRoute type="public-only" redirectTo="/" />,
+    children: [
+      { path: '/register', element: <RegisterPage /> },
+      { path: '/login', element: <LoginPage /> },
+    ],
   },
-  {
-    path: '/login',
-    element: <LoginPage />,
-  },
-
   // Страницы ошибок
   {
     path: '/error404',
