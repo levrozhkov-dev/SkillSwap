@@ -4,6 +4,7 @@ import { Button } from '../../shared/ui/button';
 import { Card } from '../../entities/card';
 import * as Styled from './ListCard.styles';
 import iconbutton from '../../shared/img/icon/button-right.svg';
+import { showAllNew } from '../../features/showAllNew.ts/showAllNew';
 
 interface Props {
   users:
@@ -60,6 +61,13 @@ export const ListCard = ({ users }: Props) => {
         <Styled.Section>
           <Styled.SectionHeader>
             <Styled.Title>Новое</Styled.Title>
+            <Button
+              variant="white"
+              onClick={showAllNew}
+              children="Смотреть все"
+              icon={<img src={iconbutton} />}
+              iconPosition="right"
+            />
           </Styled.SectionHeader>
           <Styled.CardsContainer>
             {users.new.map((user) => (
