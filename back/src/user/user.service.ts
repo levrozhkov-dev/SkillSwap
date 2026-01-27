@@ -34,7 +34,7 @@ export class UserService {
       .filter((u) => !excludedIds.has(u.id))
       .slice(0, 9);
 
-    return {  
+    return {
       popular: popularUsers,
       new: newUsers,
       recommended: recommendedUsers,
@@ -44,5 +44,24 @@ export class UserService {
   getUserById(id: number): object {
     const user = datauser.find((user) => user.id === id);
     return user || {};
+  }
+
+  getUserNew(): object {
+    const users = [...datauser];
+    const sortedByDate = [...users].sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+    return sortedByDate;
+  }
+
+  getUsersByLikes() {
+    const users = [...datauser];
+
+    // Сортировка по количеству лайков (от большего к меньшему)
+    const sortedByLikes = users.sort((a, b) => {
+      return b.liked - a.liked;
+    });
+
+    return sortedByLikes;
   }
 }

@@ -10,7 +10,7 @@ export class UserController {
     return this.appService.getUser();
   }
   // Популярные пользователи,новые пользователи и рекомендации
-  @Get("user")
+  @Get('user')
   getUsers() {
     return this.appService.getUsers();
   }
@@ -18,5 +18,13 @@ export class UserController {
   @Get(':id')
   getUserById(@Param('id', ParseIntPipe) id: number) {
     return this.appService.getUserById(id);
+  }
+  @Get('new')
+  getUserNew() {
+    return this.appService.getUserNew();
+  }
+  @Get('likes')
+  getUsersByLikes() {
+    return this.appService.getUsersByLikes();
   }
 }
