@@ -1,4 +1,4 @@
-import React, { type InputHTMLAttributes, type ReactNode } from 'react';
+import React, { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react';
 import { InputField } from './input.styled';
 import * as Styled from '../../form-fields/shared.styled';
 
@@ -14,16 +14,20 @@ export interface InputProps extends Omit<
   iconPosition?: 'left' | 'right';
 }
 
-export const Input: React.FC<InputProps> = ({
-  type = 'text',
-  nameLabel,
-  error,
-  errorText,
-  placeholder,
-  icon,
-  iconPosition = 'right',
-  ...rest
-}) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      type = 'text',
+      nameLabel,
+      error,
+      errorText,
+      placeholder,
+      icon,
+      iconPosition = 'right',
+      ...rest
+    },
+    ref,
+  ) => {
   const inputId = nameLabel || React.useId();
   const hasIcon = !!icon; // Флаг: есть ли иконка?
 
@@ -39,6 +43,7 @@ export const Input: React.FC<InputProps> = ({
         )}
 
         <InputField
+          ref={ref}
           id={inputId}
           type={type}
           placeholder={placeholder}
@@ -58,5 +63,5 @@ export const Input: React.FC<InputProps> = ({
         <Styled.FormFieldErrorText>{errorText}</Styled.FormFieldErrorText>
       )}
     </Styled.FormFieldWrapper>
-  );
-};
+   );
+});

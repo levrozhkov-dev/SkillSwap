@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PickerWrapper = styled.div`
-  width: 208px;
+  width: 100%;
 
   .react-datepicker-wrapper,
   .react-datepicker__input-container {
