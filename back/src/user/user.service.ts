@@ -69,8 +69,10 @@ export class UserService {
     const users = [...datauser];
 
     // Фильтруем пользователей по наличию категории в skills
-    const filteredUsers = users.filter((user) =>
-      user.skills.some((skill) => skill.category === categoryId),
+    const filteredUsers = users.filter(
+      (user) =>
+        Array.isArray(user.skills) &&
+        user.skills.some((skill) => skill.category === categoryId),
     );
 
     // Сортировка по количеству лайков (от большего к меньшему)
