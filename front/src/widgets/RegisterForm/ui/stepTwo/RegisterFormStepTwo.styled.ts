@@ -116,7 +116,3 @@ export const DecorativeText = styled.p`
   line-height: 24px;
   color: ${theme.colors.textSecondary};
 `;
-
-export const DatePickerWrapper = styled.div``;
-
-export const Label = styled.label``;

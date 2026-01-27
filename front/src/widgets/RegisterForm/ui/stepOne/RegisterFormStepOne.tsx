@@ -1,28 +1,15 @@
 import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { Input } from '../../../../shared/ui/form-fields/input';
 import * as Styled from './RegisterFormStepOne.styled';
 import googleIcon from '../../../../shared/img/icon/Google.svg';
 import appleIcon from '../../../../shared/img/icon/Apple.svg';
 import lightBulb from '../../../../shared/img/illustration/light-bulb.svg';
-
-const schema = yup.object({
-  email: yup
-    .string()
-    .required('Email обязателен')
-    .email('Введите корректный email'),
-  password: yup
-    .string()
-    .required('Пароль обязателен')
-    .min(8, 'Пароль должен содержать не менее 8 знаков'),
-});
-
-type FormData = yup.InferType<typeof schema>;
+import { registerStepOneSchema, type RegisterStepOneFormData } from '../../lib';
 
 interface RegisterFormStepOneProps {
-  onSubmit: (data: FormData) => void;
+  onSubmit: (data: RegisterStepOneFormData) => void;
 }
 
 export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) => {
@@ -30,8 +17,8 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) 
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: yupResolver(schema),
+  } = useForm<RegisterStepOneFormData>({
+    resolver: yupResolver(registerStepOneSchema),
   });
 
   const handleGoogleClick = () => {

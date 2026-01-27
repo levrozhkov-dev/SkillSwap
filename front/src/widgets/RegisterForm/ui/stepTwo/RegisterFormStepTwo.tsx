@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState, type FC } from 'react';
 import * as Styled from './RegisterFormStepTwo.styled';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import imageUserInfo from '../../../../shared/img/illustration/user-info.svg';
 import iconPhoto from '../../../../shared/img/icon/user-circle.svg';
 import iconAddPhoto from '../../../../shared/img/icon/add.svg';
@@ -15,43 +14,10 @@ import type {
   ICategory,
   ISubCategory,
 } from '../../../../features/slice/categoriesSlice';
-
-const schema = yup.object({
-  name: yup
-    .string()
-    .required('Имя обязательно')
-    .min(2, 'Имя должно быть не менее 2 символов')
-    .max(50, 'Имя слишком длинное'),
-  avatar: yup
-    .mixed<FileList>()
-    .required('Обязательно выберите фото')
-    .test('fileType', 'Разрешены только изображения', (value) => {
-      if (!value?.length) return true;
-      return ['image/jpeg', 'image/png', 'image/webp'].includes(value[0].type);
-    })
-    .test('fileSize', 'Файл слишком большой (макс. 5 МБ)', (value) => {
-      if (!value?.length) return true;
-      return value[0].size <= 5 * 1024 * 1024;
-    }),
-  birthDate: yup
-    .date()
-    .required('Дата рождения обязательна')
-    .nullable()
-    .typeError('Введите корректную дату')
-    .max(new Date(), 'Дата рождения не может быть в будущем'),
-  gender: yup
-    .string()
-    .required('Пол обязателен')
-    .oneOf(['male', 'female'], 'Выберите корректный пол'),
-  city: yup.string().required('Город обязателен'),
-  category: yup.string().required('Категория обязательна'),
-  subCategory: yup.string().required('Подкатегория обязательна'),
-});
-
-type FormData = yup.InferType<typeof schema>;
+import { registerStepTwoSchema, type RegisterStepTwoFormData } from '../../lib';
 
 interface RegisterFormStepTwoProps {
-  onSubmit: (data: FormData) => void;
+  onSubmit: (data: RegisterStepTwoFormData) => void;
   onBack: () => void;
 }
 
@@ -66,8 +32,8 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
     formState: { errors },
     watch,
     setValue,
-  } = useForm<FormData>({
-    resolver: yupResolver(schema),
+  } = useForm<RegisterStepTwoFormData>({
+    resolver: yupResolver(registerStepTwoSchema),
   });
 
   const cities = useSelector((state: RootState) => state.cities);
@@ -78,7 +44,7 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
     [cities],
   );
 
-  const categoryOptions = useMemo(
+  const categoriesOptions = useMemo(
     () =>
       categories.map((cat: ICategory) => ({
         value: cat.id.toString(),
@@ -88,14 +54,14 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
   );
 
   const selectedCategoryId = watch('category');
-  const [subCategories, setSubCategories] = useState<ISubCategory[]>([]);
+  const [subCategoriesOptions, setSubCategoriesOptions] = useState<ISubCategory[]>([]);
 
   useEffect(() => {
     if (selectedCategoryId) {
       const category = categories.find(
         (cat) => cat.id.toString() === selectedCategoryId,
       );
-      setSubCategories(category?.subCategories || []);
+      setSubCategoriesOptions(category?.subCategories || []);
     }
   }, [selectedCategoryId, categories]);
 
@@ -227,7 +193,7 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
                 placeholder="Выберите категорию"
                 error={!!error}
                 errorText={error?.message}
-                options={categoryOptions}
+                options={categoriesOptions}
                 value={value ?? undefined}
                 onChange={(val) => {
                   onChange(val);
@@ -244,7 +210,7 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
                 placeholder="Выберите подкатегорию"
                 error={!!error}
                 errorText={error?.message}
-                options={subCategories.map((sub) => ({
+                options={subCategoriesOptions.map((sub) => ({
                   value: sub.id.toString(),
                   label: sub.name,
                 }))}
