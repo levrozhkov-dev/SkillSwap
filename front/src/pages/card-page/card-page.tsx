@@ -42,7 +42,7 @@ export const CardPage: FC = () => {
 
   return (
     <>
-      <UserOffer userInfo={user}  />
+      <UserOffer userInfo={user} />
     </>
   );
 };

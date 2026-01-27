@@ -64,4 +64,18 @@ export class UserService {
 
     return sortedByLikes;
   }
+
+  getUsersByCategory(categoryId) {
+    const users = [...datauser];
+
+    // Фильтруем пользователей по наличию категории в skills
+    const filteredUsers = users.filter((user) =>
+      user.skills.some((skill) => skill.category === categoryId),
+    );
+
+    // Сортировка по количеству лайков (от большего к меньшему)
+    const sortedByLikes = filteredUsers.sort((a, b) => b.liked - a.liked);
+
+    return sortedByLikes;
+  }
 }

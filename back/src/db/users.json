@@ -23,7 +23,7 @@
       "category": 1,
       "subcategory": 4,
       "description": "Консультации по построению личного бренда и подготовке резюме и портфолио.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -51,7 +51,7 @@
       "category": 2,
       "subcategory": 2,
       "description": "Обучаю базовой и продвинутой фотографии, а также видеомонтажу для соцсетей.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -78,7 +78,7 @@
       "category": 3,
       "subcategory": 7,
       "description": "Подготовка к международным экзаменам и развитие разговорного английского.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -106,7 +106,7 @@
       "category": 6,
       "subcategory": 2,
       "description": "Работаю с питанием, режимом дня и балансом жизни и работы.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -133,7 +133,7 @@
       "category": 1,
       "subcategory": 2,
       "description": "Настройка рекламных кампаний и аналитика эффективности.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -160,7 +160,7 @@
       "category": 1,
       "subcategory": 3,
       "description": "Тренинги по переговорам и техникам закрытия сделок.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -188,7 +188,7 @@
       "category": 2,
       "subcategory": 6,
       "description": "Работа с художественными и коммерческими текстами.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -216,7 +216,7 @@
       "category": 4,
       "subcategory": 4,
       "description": "Обучение скорочтению и приёмам запоминания информации.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -243,7 +243,7 @@
       "category": 5,
       "subcategory": 1,
       "description": "Системы хранения и оптимизация пространства.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -270,7 +270,7 @@
       "category": 1,
       "subcategory": 7,
       "description": "Внедрение agile-практик и управление рисками.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -297,7 +297,7 @@
       "category": 2,
       "subcategory": 1,
       "description": "Обучаю основам академического и цифрового рисунка.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -324,7 +324,7 @@
       "category": 2,
       "subcategory": 4,
       "description": "Создание аранжировок и базовый саунд-дизайн.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -351,7 +351,7 @@
       "category": 2,
       "subcategory": 7,
       "description": "Применяю арт-техники для работы со стрессом и выгоранием.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -378,7 +378,7 @@
       "category": 3,
       "subcategory": 3,
       "description": "Живой разговорный испанский и практика через кейсы.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -405,7 +405,7 @@
       "category": 3,
       "subcategory": 5,
       "description": "Комбинирую разговорную практику и изучение иероглифов.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -434,7 +434,7 @@
       "category": 4,
       "subcategory": 6,
       "description": "Работаю с целями, мотивацией и поддержкой изменений.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -461,7 +461,7 @@
       "category": 4,
       "subcategory": 2,
       "description": "Техники конспектирования, планирования и повторения материала.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -489,7 +489,7 @@
       "category": 5,
       "subcategory": 3,
       "description": "Рецепты на каждый день и базовые техники готовки.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -517,7 +517,7 @@
       "category": 5,
       "subcategory": 5,
       "description": "Базовый ремонт и создание уютных интерьеров.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -545,7 +545,7 @@
       "category": 6,
       "subcategory": 1,
       "description": "Мягкие практики для расслабления и концентрации.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -573,7 +573,7 @@
       "category": 6,
       "subcategory": 5,
       "description": "Составляю безопасные программы тренировок для разных уровней.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -601,7 +601,7 @@
       "category": 6,
       "subcategory": 3,
       "description": "Практики поддержки, работа со стрессом и выгоранием.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -629,7 +629,7 @@
       "category": 1,
       "subcategory": 6,
       "description": "Инструменты планирования и приоритизации задач.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -656,7 +656,7 @@
       "category": 5,
       "subcategory": 2,
       "description": "Учимся планировать расходы и формировать подушку безопасности.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -684,7 +684,7 @@
       "category": 1,
       "subcategory": 8,
       "description": "Разбираем бизнес-модели, риски и гипотезы.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -711,7 +711,7 @@
       "category": 3,
       "subcategory": 4,
       "description": "Практика разговорного немецкого и грамматики через диалоги.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -738,7 +738,7 @@
       "category": 2,
       "subcategory": 5,
       "description": "Работа над голосом, телом и вниманием на сцене.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -765,7 +765,7 @@
       "category": 5,
       "subcategory": 4,
       "description": "Ухаживаем за растениями и создаём зелёные уголки.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -793,7 +793,7 @@
       "category": 6,
       "subcategory": 6,
       "description": "Составляем режим, который подходит именно вам.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -821,7 +821,7 @@
       "category": 2,
       "subcategory": 8,
       "description": "Делаем аксессуары и декор для дома своими руками.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -849,7 +849,7 @@
       "category": 1,
       "subcategory": 3,
       "description": "Практические кейсы по сложным переговорам.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -876,7 +876,7 @@
       "category": 3,
       "subcategory": 2,
       "description": "Разговорный французский с опорой на реальные ситуации.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -903,7 +903,7 @@
       "category": 6,
       "subcategory": 7,
       "description": "Помогаю выстраивать границы и планировать нагрузку.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -931,7 +931,7 @@
       "category": 4,
       "subcategory": 5,
       "description": "Помогаю выстраивать уроки и удерживать внимание учеников.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -958,7 +958,7 @@
       "category": 4,
       "subcategory": 3,
       "description": "Структурирую контент и связываю темы в целостную программу.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -985,7 +985,7 @@
       "category": 2,
       "subcategory": 2,
       "description": "Учимся снимать и обрабатывать фото на смартфон.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -1012,7 +1012,7 @@
       "category": 6,
       "subcategory": 4,
       "description": "Простые практики присутствия в повседневной жизни.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -1039,7 +1039,7 @@
       "category": 5,
       "subcategory": 4,
       "description": "Подбор текстиля, декора и расстановки мебели.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -1066,7 +1066,7 @@
       "category": 1,
       "subcategory": 1,
       "description": "Построение процессов, one-to-one и обратная связь.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -1093,7 +1093,7 @@
       "category": 3,
       "subcategory": 1,
       "description": "Разработка SPA-приложений на React с использованием хуков и контекста.",
-      "imgs": []
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   }
 ]

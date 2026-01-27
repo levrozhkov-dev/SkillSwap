@@ -1,4 +1,11 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 
 @Controller('users') // Базовый путь: /users
@@ -26,5 +33,9 @@ export class UserController {
   @Get('likes')
   getUsersByLikes() {
     return this.appService.getUsersByLikes();
+  }
+  @Post('category')
+  getUsersByCategory(@Body('categoryId') categoryId: number) {
+    return this.appService.getUsersByCategory(categoryId);
   }
 }
