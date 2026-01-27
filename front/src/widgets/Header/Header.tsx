@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import * as Styled from './styled';
 import { HeaderInput } from '../../entities/header-input';
 import { HeaderButtons } from '../../entities/HeaderButtons';
+import { HeaderUser } from '../../entities/HeaderUser';
 import chevronDownIcon from '../../shared/img/icon/chevron-down.svg';
 import logo from '../../shared/img/icon/logo.svg';
 import searchIcon from '../../shared/img/icon/search.svg';
 import cross from '../../shared/img/icon/cross.svg';
 import { ListSkills } from '../listSkills/listSkills';
+import type { RootState } from '../../providers/store/store';
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -17,6 +20,9 @@ export const Header = () => {
   const location = useLocation();
   const authPage =
     location.pathname === '/login' || location.pathname === '/register';
+
+  const isLogged = useSelector((state: RootState) => state.login.isLogged);
+  const user = useSelector((state: RootState) => state.login.user);
 
   const handleSearchChange = (value: string) => {
     setSearchValue(value);
@@ -144,11 +150,15 @@ export const Header = () => {
             </Styled.SearchWrapper>
 
             <Styled.RightSide>
-              <HeaderButtons
-                onThemeToggle={handleThemeToggle}
-                onLoginClick={() => navigate('/login')}
-                onRegisterClick={() => navigate('/register')}
-              />
+              {isLogged && user ? (
+                <HeaderUser userName={user.name} userAvatar={user.avatar} />
+              ) : (
+                <HeaderButtons
+                  onThemeToggle={handleThemeToggle}
+                  onLoginClick={() => navigate('/login')}
+                  onRegisterClick={() => navigate('/register')}
+                />
+              )}
             </Styled.RightSide>
           </>
         )}
