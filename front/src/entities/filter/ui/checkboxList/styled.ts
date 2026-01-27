@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export { FilterOptions } from '../FilterBlock.styled';
 
 export const CheckboxContainer = styled.div`
+  width: 285px;
   position: relative;
   &::after {
     content: url('iconCheckbox.svg');
     position: absolute;
-    right: 15px;
+    right: 4px;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
     transition:
