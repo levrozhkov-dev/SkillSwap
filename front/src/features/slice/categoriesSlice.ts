@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { GetCategories } from '../../shared/api/req/getCategories';
 import axios from 'axios';
 
-interface ISubCategory {
+export interface ISubCategory {
   id: number;
   name: string;
 }

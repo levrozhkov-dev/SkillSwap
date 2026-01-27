@@ -12,29 +12,39 @@ type FormData = {
   password: string;
   name: string;
   avatar: FileList | null;
+  birthDate: Date | null;
+  gender: string;
+  city: string;
+  category: string;
+  subCategory: string;
 };
 
 export const RegisterPage: FC = () => {
-
-const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
-const [formData, setFormData] = useState<FormData>({
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
+  const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
     name: '',
     avatar: null,
+    birthDate: null,
+    gender: 'male',
+    city: '',
+    category: '',
+    subCategory: '',
   });
-  
+
   const handleStepOneSubmit = (data: { email: string; password: string }) => {
-    setFormData(prev => ({ ...prev, ...data }));
+    setFormData((prev) => ({ ...prev, ...data }));
     setCurrentStep(2);
   };
 
-  const handleStepTwoSubmit = (data: { name: string; avatar: FileList }) => {4
-    setFormData(prev => ({ ...prev, ...data }));
+  const handleStepTwoSubmit = (data: Omit<FormData, 'email' | 'password'>) => {
+    setFormData((prev) => ({ ...prev, ...data }));
     setCurrentStep(3);
   };
 
   // TODO: handleStepThreeSubmit отправка данных на сервер, перенаправление со страницы регистрации
+  console.log('formData -', formData);
 
   return (
     <Styled.PageWrapper>
@@ -47,14 +57,12 @@ const [formData, setFormData] = useState<FormData>({
           <RegisterFormStepOne onSubmit={handleStepOneSubmit} />
         )}
         {currentStep === 2 && (
-          <RegisterFormStepTwo 
+          <RegisterFormStepTwo
             onSubmit={handleStepTwoSubmit}
             onBack={() => setCurrentStep(1)}
           />
         )}
-        {currentStep === 3 && (
-          <div>Регистрация. Третий шаг.</div>
-        )}
+        {currentStep === 3 && <div>Регистрация. Третий шаг.</div>}
       </Styled.MainContent>
       <Footer />
     </Styled.PageWrapper>

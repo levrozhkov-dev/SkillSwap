@@ -16,7 +16,7 @@ export const FormBlock = styled.div`
   width: 100%;
   max-width: 556px;
   padding: 40px 60px;
-  background: ${theme.colors.bgCard} ;
+  background: ${theme.colors.bgCard};
   border-radius: 12px;
 
   form {
@@ -57,7 +57,7 @@ export const AddPhoto = styled.div`
   right: ${theme.spacing.sm};
   width: 16px;
   height: 16px;
-  background:${theme.colors.accent};
+  background: ${theme.colors.accent};
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -69,7 +69,7 @@ export const IconAddPhoto = styled.img`
   height: 9px;
 `;
 
-export const FileErrorText = styled.div`
+export const ErrorText = styled.div`
   font-size: 0.75rem;
   line-height: 1rem;
   margin-top: -0.2rem;
@@ -78,6 +78,7 @@ export const FileErrorText = styled.div`
 
 // Блок дата рождения и пол
 export const BirthdateAndGenderBlock = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 24px;
@@ -115,3 +116,7 @@ export const DecorativeText = styled.p`
   line-height: 24px;
   color: ${theme.colors.textSecondary};
 `;
+
+export const DatePickerWrapper = styled.div``;
+
+export const Label = styled.label``;
