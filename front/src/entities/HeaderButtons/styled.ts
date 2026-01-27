@@ -6,13 +6,6 @@ export const ButtonsWrapper = styled.div`
   align-items: center;
 `;
 
-export const ThemeButtonContainer = styled.div`
-  padding-right: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const LoginButtonContainer = styled.div`
   width: 92px;
   height: 48px;

@@ -5,10 +5,12 @@ import * as Styled from './styled';
 import { HeaderInput } from '../../entities/header-input';
 import { HeaderButtons } from '../../entities/HeaderButtons';
 import { HeaderUser } from '../../entities/HeaderUser';
+import { ButtonIcon } from '../../shared/ui/buttonIcon/ButtonIcon';
 import chevronDownIcon from '../../shared/img/icon/chevron-down.svg';
 import logo from '../../shared/img/icon/logo.svg';
 import searchIcon from '../../shared/img/icon/search.svg';
 import cross from '../../shared/img/icon/cross.svg';
+import moonIcon from '../../shared/img/icon/moon.svg';
 import { ListSkills } from '../listSkills/listSkills';
 import type { RootState } from '../../providers/store/store';
 
@@ -150,11 +152,11 @@ export const Header = () => {
             </Styled.SearchWrapper>
 
             <Styled.RightSide>
+              <ButtonIcon iconSrc={moonIcon} onClick={handleThemeToggle} />
               {isLogged && user ? (
                 <HeaderUser userName={user.name} userAvatar={user.avatar} />
               ) : (
                 <HeaderButtons
-                  onThemeToggle={handleThemeToggle}
                   onLoginClick={() => navigate('/login')}
                   onRegisterClick={() => navigate('/register')}
                 />
