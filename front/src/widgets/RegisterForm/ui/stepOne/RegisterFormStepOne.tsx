@@ -2,11 +2,11 @@ import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Input } from '../../../shared/ui/form-fields/input';
+import { Input } from '../../../../shared/ui/input';
 import * as Styled from './RegisterFormStepOne.styled';
-import googleIcon from '../../../shared/img/icon/Google.svg';
-import appleIcon from '../../../shared/img/icon/Apple.svg';
-import lightBulb from '../../../shared/img/illustration/light-bulb.svg';
+import googleIcon from '../../../../shared/img/icon/Google.svg';
+import appleIcon from '../../../../shared/img/icon/Apple.svg';
+import lightBulb from '../../../../shared/img/illustration/light-bulb.svg';
 
 const schema = yup.object({
   email: yup
