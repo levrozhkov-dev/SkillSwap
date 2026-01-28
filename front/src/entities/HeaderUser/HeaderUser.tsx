@@ -8,21 +8,19 @@ import { NotificationsPanel } from '../../shared/ui/modal/NotificationsPanel';
 interface HeaderUserProps {
   userName: string;
   userAvatar: string;
+  onClickUser: () => void;
 }
 
 export const HeaderUser: React.FC<HeaderUserProps> = ({
   userName,
   userAvatar,
+  onClickUser,
 }) => {
   const navigate = useNavigate();
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
   const handleFavoritesClick = () => {
     navigate('/favorites');
-  };
-
-  const handleProfileClick = () => {
-    navigate('/profile');
   };
 
   return (
@@ -44,7 +42,7 @@ export const HeaderUser: React.FC<HeaderUserProps> = ({
           <img src={likeIcon} alt="" aria-hidden="true" />
         </Styled.IconButton>
 
-        <Styled.UserInfo onClick={handleProfileClick} aria-label="Профиль">
+        <Styled.UserInfo onClick={onClickUser} aria-label="Профиль">
           <Styled.UserName>{userName}</Styled.UserName>
           <Styled.UserAvatar src={userAvatar} alt={userName} />
         </Styled.UserInfo>

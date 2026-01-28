@@ -192,3 +192,15 @@ export const AuthCloseButton = styled(Button).attrs({ variant: 'white' })`
   line-height: 24px;
   weight: 400;
 `;
+
+export const ModalProfileMenu = styled.div`
+  position: absolute;
+  top: 104px;
+  right: 36px;
+  z-index: 10;
+`;
+
+export const UserMenu = styled.div`
+  display: flex;
+  align-items: center;
+`;
