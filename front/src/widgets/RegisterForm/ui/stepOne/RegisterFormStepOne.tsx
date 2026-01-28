@@ -10,15 +10,20 @@ import { registerStepOneSchema, type RegisterStepOneFormData } from '../../lib';
 
 interface RegisterFormStepOneProps {
   onSubmit: (data: RegisterStepOneFormData) => void;
+  defaultValues?: Partial<RegisterStepOneFormData>;
 }
 
-export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({ onSubmit }) => {
+export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({
+  onSubmit,
+  defaultValues,
+}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterStepOneFormData>({
     resolver: yupResolver(registerStepOneSchema),
+    defaultValues,
   });
 
   const handleGoogleClick = () => {

@@ -40,9 +40,50 @@ export const registerStepTwoSchema = yup.object({
     .oneOf(['male', 'female'], 'Выберите корректный пол'),
   city: yup.string().required('Город обязателен'),
   category: yup.string().required('Категория обязательна'),
-  subCategory: yup.string().required('Подкатегория обязательна'),
+  subCategory: yup
+    .array()
+    .of(yup.string().required())
+    .min(1, 'Выберите хотя бы одну подкатегорию')
+    .required('Подкатегория обязательна'),
+});
+
+export const registerStepThreeSchema = yup.object({
+  skillTitle: yup
+    .string()
+    .required('Название навыка обязательно')
+    .min(2, 'Название должно быть не менее 2 символов')
+    .max(100, 'Название слишком длинное'),
+  skillCategory: yup.string().required('Категория навыка обязательна'),
+  skillSubCategory: yup
+    .string()
+    .required('Подкатегория обязательна'),
+  skillDescription: yup
+    .string()
+    .required('Описание обязательно')
+    .min(10, 'Описание должно быть не короче 10 символов')
+    .max(1000, 'Описание слишком длинное'),
+  skillImages: yup
+    .mixed<FileList>()
+    .nullable()
+    .defined()
+    .test('minFiles', 'Загрузите минимум 4 изображения', (value) => {
+      if (!value) return false;
+      return value.length >= 4;
+    })
+    .test('fileType', 'Разрешены только изображения', (value) => {
+      if (!value?.length) return true;
+      return Array.from(value).every((file) =>
+        ['image/jpeg', 'image/png', 'image/webp'].includes(file.type),
+      );
+    })
+    .test('fileSize', 'Каждый файл должен быть не больше 5 МБ', (value) => {
+      if (!value?.length) return true;
+      return Array.from(value).every((file) => file.size <= 5 * 1024 * 1024);
+    })
+    ,
 });
 
 // Типы
 export type RegisterStepOneFormData = yup.InferType<typeof registerStepOneSchema>;
 export type RegisterStepTwoFormData = yup.InferType<typeof registerStepTwoSchema>;
+export type RegisterStepThreeFormData = yup.InferType<typeof registerStepThreeSchema>;

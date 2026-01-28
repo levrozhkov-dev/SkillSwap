@@ -5,7 +5,6 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
   background: var(--color-bg-main);
 `;
 
@@ -20,7 +19,7 @@ export const FormWrapper = styled.div`
 export const FormBlock = styled.div`
   width: 100%;
   max-width: 556px;
-  padding: 40px;
+  padding: 120px 60px;
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
 
@@ -77,13 +76,13 @@ export const PasswordHint = styled.span`
 
 export const SubmitButton = styled(Button)`
   width: 100%;
+  padding: 12px;
   justify-content: center;
 `;
-
 export const DecorativeBlock = styled.div`
   width: 100%;
   max-width: 556px;
-  padding: 40px;
+  padding: 60px;
   background: var(--color-bg-card);
   border-radius: var(--radius-lg);
   display: flex;
@@ -103,7 +102,7 @@ export const DecorativeContent = styled.div`
 `;
 
 export const DecorativeTitle = styled.h2`
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   color: var(--color-text-main);
   margin-bottom: 12px;
   font-weight: 500;

@@ -5,6 +5,12 @@ import { StepProgress } from '../../shared/ui/StepProgress';
 import { RegisterFormStepOne } from '../../widgets/RegisterForm/ui/stepOne';
 import * as Styled from './register-page.styled';
 import { RegisterFormStepTwo } from '../../widgets/RegisterForm/ui/stepTwo';
+import { RegisterFormStepThree } from '../../widgets/RegisterForm/ui/stepThree/RegisterFormStepThree';
+import type {
+  RegisterStepOneFormData,
+  RegisterStepTwoFormData,
+  RegisterStepThreeFormData,
+} from '../../widgets/RegisterForm/lib';
 
 //TODO: Временно, до создания слайса с данными формы
 type FormData = {
@@ -16,7 +22,12 @@ type FormData = {
   gender: string;
   city: string;
   category: string;
-  subCategory: string;
+  subCategory: string[];
+  skillTitle: string;
+  skillCategory: string;
+  skillSubCategory: string;
+  skillDescription: string;
+  skillImages: FileList | null;
 };
 
 export const RegisterPage: FC = () => {
@@ -27,24 +38,37 @@ export const RegisterPage: FC = () => {
     name: '',
     avatar: null,
     birthDate: null,
-    gender: 'male',
+    gender: '',
     city: '',
     category: '',
-    subCategory: '',
+    subCategory: [],
+    skillTitle: '',
+    skillCategory: '',
+    skillSubCategory: '',
+    skillDescription: '',
+    skillImages: null,
   });
 
-  const handleStepOneSubmit = (data: { email: string; password: string }) => {
+  const handleStepOneSubmit = (data: RegisterStepOneFormData) => {
     setFormData((prev) => ({ ...prev, ...data }));
     setCurrentStep(2);
   };
 
-  const handleStepTwoSubmit = (data: Omit<FormData, 'email' | 'password'>) => {
-    setFormData((prev) => ({ ...prev, ...data }));
+  const handleStepTwoSubmit = (data: RegisterStepTwoFormData) => {
+    setFormData((prev) => ({
+      ...prev,
+      ...data,
+    }));
     setCurrentStep(3);
   };
 
-  // TODO: handleStepThreeSubmit отправка данных на сервер, перенаправление со страницы регистрации
-  console.log('formData -', formData);
+  const handleStepThreeSubmit = (data: RegisterStepThreeFormData) => {
+    setFormData(prev => {
+      const merged = { ...prev, ...data };
+      console.log('formData -', merged);
+      return merged;
+    });
+  };
 
   return (
     <Styled.PageWrapper>
@@ -54,15 +78,48 @@ export const RegisterPage: FC = () => {
           <StepProgress currentStep={currentStep} totalSteps={3} />
         </Styled.StepProgressWrapper>
         {currentStep === 1 && (
-          <RegisterFormStepOne onSubmit={handleStepOneSubmit} />
+          <RegisterFormStepOne
+            onSubmit={handleStepOneSubmit}
+            defaultValues={{
+              email: formData.email,
+              password: formData.password,
+            }}
+          />
         )}
         {currentStep === 2 && (
           <RegisterFormStepTwo
             onSubmit={handleStepTwoSubmit}
-            onBack={() => setCurrentStep(1)}
+            onBack={(data) => {
+              setFormData((prev) => ({ ...prev, ...data }));
+              setCurrentStep(1);
+            }}
+            defaultValues={{
+              name: formData.name,
+              birthDate: formData.birthDate,
+              gender: formData.gender || undefined,
+              city: formData.city,
+              category: formData.category,
+              subCategory: formData.subCategory,
+              avatar: formData.avatar ?? undefined,
+            }}
           />
         )}
-        {currentStep === 3 && <div>Регистрация. Третий шаг.</div>}
+        {currentStep === 3 && (
+          <RegisterFormStepThree
+            onSubmit={handleStepThreeSubmit}
+            onBack={(data) => {
+              setFormData((prev) => ({ ...prev, ...data }));
+              setCurrentStep(2);
+            }}
+            defaultValues={{
+              skillTitle: formData.skillTitle,
+              skillCategory: formData.skillCategory,
+              skillSubCategory: formData.skillSubCategory,
+              skillDescription: formData.skillDescription,
+              skillImages: formData.skillImages ?? null,
+            }}
+          />
+        )}
       </Styled.MainContent>
       <Footer />
     </Styled.PageWrapper>
