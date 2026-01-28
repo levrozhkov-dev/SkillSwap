@@ -4,3 +4,10 @@ export const CatalogPage = styled.div`
   display: flex;
   gap: var(--space-lg);
 `;
+
+export const FilterResultsTitle = styled.h2`
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg, 20px);
+  font-weight: 600;
+  margin-bottom: var(--space-md, 16px);
+`;
