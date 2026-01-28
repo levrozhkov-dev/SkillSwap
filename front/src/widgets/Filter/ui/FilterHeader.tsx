@@ -26,7 +26,7 @@ export const FilterHeader: React.FC<FilterHeaderProps> = ({ clearState }) => {
         </Styled.FilterHeaderTitle>
       )}
       <Styled.ResetButton onClick={resetFilters}>
-        <span>Сбросить</span>
+        <Styled.ButtonText>Сбросить</Styled.ButtonText>
         <Styled.CrossContainer>
           <Styled.CrossImg src={cross} alt="" aria-hidden="true" />
         </Styled.CrossContainer>

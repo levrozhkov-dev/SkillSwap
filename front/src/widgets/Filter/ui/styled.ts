@@ -42,7 +42,7 @@ export const ResetButton = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   padding-left: 8px;
 
   &:focus-visible {
@@ -51,6 +51,11 @@ export const ResetButton = styled.button`
     border-radius: ${theme.radius.sm};
   }
 `;
+
+export const ButtonText = styled.span`
+  line-height: 24px;
+  
+`
 
 export const CrossContainer = styled.button`
   width: 24px;
