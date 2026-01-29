@@ -4,22 +4,22 @@ export const StepProgressWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-smd);
 `;
 
-export const StepText = styled.span`
-  font-size: var(--font-size-md);
+export const StepText = styled.h2`
+  font-size: var(--font-size-xl);
   color: var(--color-text-main);
   font-weight: 500;
 `;
 
 export const StepSegments = styled.div`
   display: flex;
-  gap: 8px;
+  gap: var(--space-md);
 `;
 
 export const StepSegment = styled.div<{ $active: boolean }>`
-  width: 80px;
+  width: 60px;
   height: 4px;
   border-radius: 2px;
   background-color: ${({ $active }) => 

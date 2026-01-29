@@ -18,12 +18,14 @@ import { registerStepTwoSchema, type RegisterStepTwoFormData } from '../../lib';
 
 interface RegisterFormStepTwoProps {
   onSubmit: (data: RegisterStepTwoFormData) => void;
-  onBack: () => void;
+  onBack: (data: RegisterStepTwoFormData) => void;
+  defaultValues?: Partial<RegisterStepTwoFormData>;
 }
 
 export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
   onSubmit,
   onBack,
+  defaultValues,
 }) => {
   const {
     register,
@@ -32,8 +34,10 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
     formState: { errors },
     watch,
     setValue,
+    getValues,
   } = useForm<RegisterStepTwoFormData>({
     resolver: yupResolver(registerStepTwoSchema),
+    defaultValues,
   });
 
   const cities = useSelector((state: RootState) => state.cities);
@@ -62,6 +66,8 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
         (cat) => cat.id.toString() === selectedCategoryId,
       );
       setSubCategoriesOptions(category?.subCategories || []);
+    } else {
+      setSubCategoriesOptions([]);
     }
   }, [selectedCategoryId, categories]);
 
@@ -196,6 +202,7 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
                 options={categoriesOptions}
                 value={value ?? undefined}
                 onChange={(val) => {
+                  setValue('subCategory', []);
                   onChange(val);
                 }}
               />
@@ -207,21 +214,34 @@ export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <Select
                 nameLabel="Подкатегория навыка, которому хотите научиться"
-                placeholder="Выберите подкатегорию"
+                placeholder="Выберите подкатегории"
                 error={!!error}
                 errorText={error?.message}
                 options={subCategoriesOptions.map((sub) => ({
                   value: sub.id.toString(),
                   label: sub.name,
                 }))}
-                value={value ?? undefined}
-                onChange={onChange}
+                multiple
+                value={(value as string[] | undefined) ?? []}
+                onChange={(val) => {
+                  if (Array.isArray(val)) {
+                    onChange(val);
+                  } else if (typeof val === 'string') {
+                    onChange([val]);
+                  } else {
+                    onChange([]);
+                  }
+                }}
                 disabled={!selectedCategoryId}
               />
             )}
           />
           <Styled.ButtonsBlock>
-            <Styled.FormButton type="button" variant="white" onClick={onBack}>
+            <Styled.FormButton
+              type="button"
+              variant="white"
+              onClick={() => onBack(getValues())}
+            >
               Назад
             </Styled.FormButton>
             <Styled.FormButton type="submit" variant="green">
