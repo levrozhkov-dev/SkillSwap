@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const MenuItem = styled.button`
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
   align-items: center;
   width: 100%;
 
