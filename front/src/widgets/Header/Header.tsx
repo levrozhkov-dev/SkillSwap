@@ -13,6 +13,7 @@ import cross from '../../shared/img/icon/cross.svg';
 import moonIcon from '../../shared/img/icon/moon.svg';
 import { ListSkills } from '../listSkills/listSkills';
 import type { RootState } from '../../providers/store/store';
+import { ProfileMenu } from '../profileMenu';
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -22,6 +23,9 @@ export const Header = () => {
   const location = useLocation();
   const authPage =
     location.pathname === '/login' || location.pathname === '/register';
+
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
 
   const isLogged = useSelector((state: RootState) => state.login.isLogged);
   const user = useSelector((state: RootState) => state.login.user);
@@ -38,15 +42,20 @@ export const Header = () => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as Node | null;
-      if (!target) return;
+      const target = e.target as Node;
       if (skillsMenuRef.current && !skillsMenuRef.current.contains(target)) {
         setIsSkillsOpen(false);
+      }
+      if (profileMenuRef.current && !profileMenuRef.current.contains(target)) {
+        setIsProfileMenuOpen(false);
       }
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsSkillsOpen(false);
+      if (e.key === 'Escape') {
+        setIsSkillsOpen(false);
+        setIsProfileMenuOpen(false);
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
@@ -154,7 +163,21 @@ export const Header = () => {
             <Styled.RightSide>
               <ButtonIcon iconSrc={moonIcon} onClick={handleThemeToggle} />
               {isLogged && user ? (
-                <HeaderUser userName={user.name} userAvatar={user.avatar} />
+                <Styled.UserMenu ref={profileMenuRef}>
+                  <HeaderUser
+                    userName={user.name}
+                    userAvatar={user.avatar}
+                    onClickUser={() => setIsProfileMenuOpen((prev) => !prev)}
+                  />
+                  {isProfileMenuOpen && (
+                    <Styled.ModalProfileMenu
+                      role="menu"
+                      aria-label="меню профиля"
+                    >
+                      <ProfileMenu />
+                    </Styled.ModalProfileMenu>
+                  )}
+                </Styled.UserMenu>
               ) : (
                 <HeaderButtons
                   onLoginClick={() => navigate('/login')}
