@@ -23,6 +23,13 @@ export const CatalogPage: FC = () => {
 
   const clearDataFilter = () => setDataFilter(initialState);
 
+  // Вычисляем, активны ли фильтры
+  const isFilterActive =
+    dataFilter.gender !== null ||
+    dataFilter.learn !== null ||
+    Object.keys(dataFilter.categories).length > 0 ||
+    dataFilter.cities.length > 0;
+
   useEffect(() => {
     console.log('dataFilter', dataFilter);
 
@@ -33,18 +40,12 @@ export const CatalogPage: FC = () => {
       learn: dataFilter.learn ?? 'Всё',
     };
 
-    const isFilterActive =
-      filterToSend.gender !== 'Не имеет значения' ||
-      filterToSend.learn !== 'Всё' ||
-      Object.keys(filterToSend.categories).length > 0 ||
-      (filterToSend.cities && filterToSend.cities.length > 0);
-
     if (isFilterActive) {
       GetUserFilter('/filter', filterToSend).then((res) => setUsers(res.data));
     } else {
       GetUsers('/users/user').then((res) => setUsers(res.data));
     }
-  }, [dataFilter]);
+  }, [dataFilter, isFilterActive]);
 
   if (!users) return <div>Загрузка...</div>;
 
@@ -59,6 +60,13 @@ export const CatalogPage: FC = () => {
       />
       <div style={{ width: '100%' }}>
         <UsedFilters setDataFilter={setDataFilter} dataFilter={dataFilter}/>
+        
+        {isFilterActive && Array.isArray(users) && (
+          <Styled.FilterResultsTitle>
+            Подходящие предложения: {users.length}
+          </Styled.FilterResultsTitle>
+        )}
+        
         <ScrollableBox width="100%" height="750px">
           <ListCard users={users} />
         </ScrollableBox>
