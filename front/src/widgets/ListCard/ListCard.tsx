@@ -1,10 +1,9 @@
-import { showAllPopular } from '../../features/showAllPopular/showAllPopular';
+import { memo } from 'react';
 import type { User } from './types/user';
 import { Button } from '../../shared/ui/button';
 import { Card } from '../../entities/card';
 import * as Styled from './ListCard.styles';
 import iconbutton from '../../shared/img/icon/button-right.svg';
-import { showAllNew } from '../../features/showAllNew.ts/showAllNew';
 
 interface Props {
   users:
@@ -14,9 +13,10 @@ interface Props {
         recommended: User[];
       }
     | User[];
+  onShowAllCLick: (block?: 'popular' | 'new') => void;
 }
 
-export const ListCard = ({ users }: Props) => {
+export const ListCard = memo(({ users, onShowAllCLick }: Props) => {
   const isBlocks = (
     users: Props['users'],
   ): users is {
@@ -27,6 +27,8 @@ export const ListCard = ({ users }: Props) => {
     return !Array.isArray(users);
   };
 
+
+
   if (isBlocks(users)) {
     return (
       <Styled.Wrapper>
@@ -35,7 +37,7 @@ export const ListCard = ({ users }: Props) => {
             <Styled.Title>Популярное</Styled.Title>
             <Button
               variant="white"
-              onClick={showAllPopular}
+              onClick={() => onShowAllCLick('popular')}
               children="Смотреть все"
               icon={<img src={iconbutton} />}
               iconPosition="right"
@@ -63,7 +65,7 @@ export const ListCard = ({ users }: Props) => {
             <Styled.Title>Новое</Styled.Title>
             <Button
               variant="white"
-              onClick={showAllNew}
+              onClick={() => onShowAllCLick('new')}
               children="Смотреть все"
               icon={<img src={iconbutton} />}
               iconPosition="right"
@@ -132,4 +134,5 @@ export const ListCard = ({ users }: Props) => {
       </Styled.Section>
     </Styled.Wrapper>
   );
-};
+});
+ListCard.displayName = 'ListCard';

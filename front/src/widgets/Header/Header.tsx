@@ -62,7 +62,7 @@ export const Header = () => {
       <Styled.HeaderInner>
         {authPage ? (
           <>
-            <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
+            <Styled.Logo as={Link} to="/" state={{ catalogReset: true }} aria-label="SkillSwap — на главную">
               <Styled.LogoIcon>
                 <img src={logo} alt="" aria-hidden="true" />
               </Styled.LogoIcon>
@@ -70,7 +70,7 @@ export const Header = () => {
             </Styled.Logo>
             <Styled.AuthCloseButton
               type="button"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/', { state: { catalogReset: true } })}
               aria-label="Закрыть"
               icon={
                 <img
@@ -89,7 +89,7 @@ export const Header = () => {
         ) : (
           <>
             <Styled.LogoAndNav>
-              <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
+              <Styled.Logo as={Link} to="/" state={{ catalogReset: true }} aria-label="SkillSwap — на главную">
                 <Styled.LogoIcon>
                   <img src={logo} alt="" aria-hidden="true" />
                 </Styled.LogoIcon>

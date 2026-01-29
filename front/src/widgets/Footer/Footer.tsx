@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <Styled.Footer>
       <Styled.LogoContainer>
-        <Styled.LogoLink to={'/'}>
+        <Styled.LogoLink to="/" state={{ catalogReset: true }}>
           <img
             src={logo}
             alt="Логотип SkillSwap"
