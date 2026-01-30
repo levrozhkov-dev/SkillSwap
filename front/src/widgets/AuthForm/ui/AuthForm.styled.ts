@@ -104,6 +104,7 @@ export const Divider = styled.div`
 
 export const Title = styled.h2`
   text-align: center;
+  font-weight: 500;
 `;
 
 export const DecorativeImage = styled.img`

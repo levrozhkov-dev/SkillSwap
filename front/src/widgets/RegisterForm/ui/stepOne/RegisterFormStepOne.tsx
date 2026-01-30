@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { useState, useCallback, type FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '../../../../shared/ui/form-fields/input';
@@ -6,7 +6,15 @@ import * as Styled from './RegisterFormStepOne.styled';
 import googleIcon from '../../../../shared/img/icon/Google.svg';
 import appleIcon from '../../../../shared/img/icon/Apple.svg';
 import lightBulb from '../../../../shared/img/illustration/light-bulb.svg';
+import eyeVisible from '../../../../shared/img/icon/eyeVisible.svg';
+import eyeInvisible from '../../../../shared/img/icon/eyeInvisible.svg';
 import { registerStepOneSchema, type RegisterStepOneFormData } from '../../lib';
+
+// Проверка почты (пока только вывод в консоль)
+function checkEmailOnBackend(email: string): void {
+  if (!email || !email.includes('@')) return;
+  console.log('Проверка почты:', email);
+}
 
 interface RegisterFormStepOneProps {
   onSubmit: (data: RegisterStepOneFormData) => void;
@@ -17,14 +25,42 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({
   onSubmit,
   defaultValues,
 }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<RegisterStepOneFormData>({
     resolver: yupResolver(registerStepOneSchema),
     defaultValues,
   });
+
+  const togglePasswordVisible = useCallback(() => {
+    setPasswordVisible((v) => !v);
+  }, []);
+
+  const emailRegister = register('email');
+  const handleEmailBlur = useCallback(() => {
+    const email = getValues('email');
+    checkEmailOnBackend(email ?? '');
+  }, [getValues]);
+
+  const PasswordIcon = (
+    <Styled.EyeButton
+      type="button"
+      onClick={togglePasswordVisible}
+      aria-label={passwordVisible ? 'Скрыть пароль' : 'Показать пароль'}
+    >
+      <img
+        src={passwordVisible ? eyeInvisible : eyeVisible}
+        alt={passwordVisible ? 'Скрыть пароль' : 'Показать пароль'}
+        width={24}
+        height={24}
+      />
+    </Styled.EyeButton>
+  );
 
   const handleGoogleClick = () => {
     console.log('Продолжить с Google');
@@ -59,14 +95,20 @@ export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({
               placeholder="Введите email"
               error={!!errors.email}
               errorText={errors.email?.message}
-              {...register('email')}
+              {...emailRegister}
+              onBlur={(e) => {
+                emailRegister.onBlur(e);
+                handleEmailBlur();
+              }}
             />
 
             <Styled.PasswordWrapper>
               <Input
-                type="password"
+                type={passwordVisible ? 'text' : 'password'}
                 nameLabel="Пароль"
                 placeholder="Придумайте надёжный пароль"
+                icon={PasswordIcon}
+                iconPosition="right"
                 error={!!errors.password}
                 errorText={errors.password?.message}
                 {...register('password')}

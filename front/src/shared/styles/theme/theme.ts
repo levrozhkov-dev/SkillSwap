@@ -18,17 +18,23 @@ export const theme: DefaultTheme = {
   font: {
     family: 'var(--font-main)',
     size: {
+      xs: 'var(--font-size-xs)',
       sm: 'var(--font-size-sm)',
       md: 'var(--font-size-md)',
-      lg: 'var(--font-size-lg)'
+      lg: 'var(--font-size-lg)',
+      xl: 'var(--font-size-xl)',
     },
   },
 
   spacing: {
     xs: 'var(--space-xs)',
     sm: 'var(--space-sm)',
+    smd: 'var(--space-smd)',
+    smmd: 'var(--space-smmd)',
     md: 'var(--space-md)',
     lg: 'var(--space-lg)',
+    xl: 'var(--space-xl)',
+    xxl: 'var(--space-xxl)',
   },
 
   radius: {

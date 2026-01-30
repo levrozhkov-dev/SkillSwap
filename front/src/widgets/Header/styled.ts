@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { theme } from '../../shared/styles/theme';
 import { Button } from '../../shared/ui/button';
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled.header<{ $auth?: boolean }>`
   width: 100%;
-  padding: 36px 38px 32px 40px;
+  padding: ${(p) => (p.$auth ? '36px 38px 0 40px' : '36px 38px 32px 40px')};
   box-sizing: border-box;
   background-color: var(--color-bg-main);
   position: relative;

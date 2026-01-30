@@ -12,6 +12,11 @@ import type {
   RegisterStepThreeFormData,
 } from '../../widgets/RegisterForm/lib';
 
+export type LearnCategoryItem = {
+  categoryId: string;
+  subCategoryIds: string[];
+};
+
 //TODO: Временно, до создания слайса с данными формы
 type FormData = {
   email: string;
@@ -21,8 +26,7 @@ type FormData = {
   birthDate: Date | null;
   gender: string;
   city: string;
-  category: string;
-  subCategory: string[];
+  learnCategories: LearnCategoryItem[];
   skillTitle: string;
   skillCategory: string;
   skillSubCategory: string;
@@ -40,8 +44,7 @@ export const RegisterPage: FC = () => {
     birthDate: null,
     gender: '',
     city: '',
-    category: '',
-    subCategory: [],
+    learnCategories: [],
     skillTitle: '',
     skillCategory: '',
     skillSubCategory: '',
@@ -98,8 +101,7 @@ export const RegisterPage: FC = () => {
               birthDate: formData.birthDate,
               gender: formData.gender || undefined,
               city: formData.city,
-              category: formData.category,
-              subCategory: formData.subCategory,
+              learnCategories: formData.learnCategories,
               avatar: formData.avatar ?? undefined,
             }}
           />
