@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { GetUser } from '../../shared/api/req/getCategories';
 import type { User } from '../../widgets/ListCard/types/user';
 import { UserOffer } from '../../widgets/UserOffer/UserOfffer';
+import { SimilarCards } from '../../entities/similar-cards/SimilarCards';
 
 type RouteParams = {
   id?: string;
@@ -43,6 +44,8 @@ export const CardPage: FC = () => {
   return (
     <>
       <UserOffer userInfo={user} />
+      {/* показываем похожие карточки по категории навыка пользователя */}
+      <SimilarCards categoryId={user.skills.category}/>
     </>
   );
 };
