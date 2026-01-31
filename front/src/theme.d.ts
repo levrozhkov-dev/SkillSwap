@@ -19,17 +19,23 @@ declare module 'styled-components' {
     font: {
       family: string;
       size: {
+        xs: string;
         sm: string;
         md: string;
         lg: string;
+        xl: string;
       };
     };
 
     spacing: {
       xs: string;
       sm: string;
+      smd: string;
+      smmd: string;
       md: string;
       lg: string;
+      xl: string;
+      xxl: string;
     };
 
     radius: {

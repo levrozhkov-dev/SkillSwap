@@ -11,6 +11,14 @@ export const registerStepOneSchema = yup.object({
     .min(8, 'Пароль должен содержать не менее 8 знаков'),
 });
 
+const learnCategoryItemSchema = yup.object({
+  categoryId: yup.string().required(),
+  subCategoryIds: yup
+    .array()
+    .of(yup.string().required())
+    .required(),
+});
+
 export const registerStepTwoSchema = yup.object({
   name: yup
     .string()
@@ -39,12 +47,16 @@ export const registerStepTwoSchema = yup.object({
     .required('Пол обязателен')
     .oneOf(['male', 'female'], 'Выберите корректный пол'),
   city: yup.string().required('Город обязателен'),
-  category: yup.string().required('Категория обязательна'),
-  subCategory: yup
+  learnCategories: yup
     .array()
-    .of(yup.string().required())
-    .min(1, 'Выберите хотя бы одну подкатегорию')
-    .required('Подкатегория обязательна'),
+    .of(learnCategoryItemSchema)
+    .min(1, 'Выберите хотя бы одну категорию')
+    .required('Категория обязательна')
+    .test('atLeastOneSubCategory', 'Выберите хотя бы одну подкатегорию', (value) => {
+      if (!value?.length) return false;
+      const total = value.reduce((acc, item) => acc + (item.subCategoryIds?.length ?? 0), 0);
+      return total >= 1;
+    }),
 });
 
 export const registerStepThreeSchema = yup.object({
@@ -69,6 +81,10 @@ export const registerStepThreeSchema = yup.object({
     .test('minFiles', 'Загрузите минимум 4 изображения', (value) => {
       if (!value) return false;
       return value.length >= 4;
+    })
+    .test('maxFiles', 'Можно загрузить не более 20 изображений', (value) => {
+      if (!value?.length) return true;
+      return value.length <= 20;
     })
     .test('fileType', 'Разрешены только изображения', (value) => {
       if (!value?.length) return true;

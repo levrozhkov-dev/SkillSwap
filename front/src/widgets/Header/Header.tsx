@@ -67,7 +67,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <Styled.HeaderWrapper>
+    <Styled.HeaderWrapper $auth={authPage}>
       <Styled.HeaderInner>
         {authPage ? (
           <>

@@ -1,33 +1,22 @@
 import styled from 'styled-components';
 import { Button } from '../../../../shared/ui/button';
+import { theme } from '../../../../shared/styles/theme';
 
-export const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-bg-main);
-`;
+export {
+  FormContainer,
+  FormWrapper,
+  DecorativeBlock,
+  DecorativeImage,
+  DecorativeContent,
+  DecorativeTitle,
+  DecorativeText,
+} from '../RegisterFormCommon.styled';
 
-export const FormWrapper = styled.div`
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  max-width: 1136px;
-  justify-content: center;
-`;
+import { FormBlock as BaseFormBlock } from '../RegisterFormCommon.styled';
+import { SubmitButton as BaseSubmitButton } from '../RegisterFormCommon.styled';
 
-export const FormBlock = styled.div`
-  width: 100%;
-  max-width: 556px;
-  padding: 120px 60px;
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg);
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+export const FormBlock = styled(BaseFormBlock)`
+  padding: 122px 60px;
 `;
 
 export const SocialButton = styled(Button)`
@@ -36,29 +25,29 @@ export const SocialButton = styled(Button)`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid var(--color-text-secondary);
+  border: 1px solid ${theme.colors.textSecondary};
 
-  span {
-    display: flex;
+  & > span {
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: ${theme.spacing.smd};
   }
 `;
 
 export const Divider = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-  margin: 8px 0;
+  gap: ${theme.spacing.md};
+  color: ${theme.colors.textSecondary};
+  font-size: ${theme.font.size.sm};
+  margin: ${theme.spacing.sm} 0;
 
   &::before,
   &::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--color-text-secondary);
+    background: ${theme.colors.textSecondary};
     opacity: 0.3;
   }
 `;
@@ -66,50 +55,24 @@ export const Divider = styled.div`
 export const PasswordWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: ${theme.spacing.xs};
 `;
 
 export const PasswordHint = styled.span`
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  font-size: ${theme.font.size.xs};
+  color: ${theme.colors.textSecondary};
 `;
 
-export const SubmitButton = styled(Button)`
-  width: 100%;
-  padding: 12px;
-  justify-content: center;
-`;
-export const DecorativeBlock = styled.div`
-  width: 100%;
-  max-width: 556px;
-  padding: 60px;
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg);
+export const EyeButton = styled.button.attrs({ type: 'button' })`
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-export const DecorativeImage = styled.img`
-  width: 280px;
-  height: 280px;
-  margin-bottom: 24px;
-`;
-
-export const DecorativeContent = styled.div`
-  text-align: center;
-`;
-
-export const DecorativeTitle = styled.h2`
-  font-size: var(--font-size-xl);
-  color: var(--color-text-main);
-  margin-bottom: 12px;
-  font-weight: 500;
-`;
-
-export const DecorativeText = styled.p`
-  font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
-  line-height: 1.5;
+export const SubmitButton = styled(BaseSubmitButton)`
+  margin-top: ${theme.spacing.md};
 `;
