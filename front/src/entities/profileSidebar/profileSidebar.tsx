@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 import * as Styled from './profileSidebar.styled';
 
@@ -52,7 +51,7 @@ export const ProfileSidebar: FC = () => {
     <Styled.Container>
       <Styled.SidebarContainer>
         {menuItems.map((item) => (
-          <Link
+          <Styled.RouterLink
             key={item.path}
             to={item.path}
             onClick={(e) => item.underConstruction && e.preventDefault()}
@@ -78,7 +77,7 @@ export const ProfileSidebar: FC = () => {
               </Styled.IconWrapper>
               {item.label}
             </Styled.SidebarItem>
-          </Link>
+          </Styled.RouterLink>
         ))}
       </Styled.SidebarContainer>
     </Styled.Container>

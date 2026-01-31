@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../shared/styles/theme';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100%;
@@ -13,11 +14,23 @@ export const Container = styled.div`
   align-items: flex-start;
 `;
 
+
 export const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${theme.spacing.sm};
   width: 100%;
+`;
+
+export const RouterLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 `;
 
 export const SidebarItem = styled.button<{
