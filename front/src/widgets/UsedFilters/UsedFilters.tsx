@@ -1,57 +1,44 @@
 import * as Styled from "./styled";
 import cross from '../../shared/img/icon/cross.svg';
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "../../providers/store/store";
-import { deleteFilter } from "../../features/slice/usedFiltersSlice";
-import type { FilterData, UpdateFilter } from "../Filter/ui/types";
-import { mockFilterGender, mockFilterLearn } from "../../shared/mock/filters";
+import { useSelector } from "react-redux";
+import { deleteRadioFilter, selectUsedFilters, toggleFilter } from "../../features/slice/usedFiltersSlice";
+import { useAppDispatch } from "../../providers/store/store";
 
-interface UsedFilterProps {
-    setDataFilter: UpdateFilter;
-    dataFilter: FilterData;
-}
+export const UsedFilters: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const filtersList = useSelector(selectUsedFilters);
+    const deleteFilter = (filterItem: string): void => {
+        switch(filtersList[filterItem].length) {
+            case 1:
+                dispatch(deleteRadioFilter(filterItem));
+                break;
 
-export const UsedFilters: React.FC<UsedFilterProps> = ({
-    setDataFilter,
-    dataFilter
-}) => {
-    const filtersList = useSelector((state: RootState) => state.usedFilters.filters);
-    const categories = useSelector((state: RootState) => state.category.items);
-    const citiesFromApi = useSelector((state: RootState) => state.cities);
-    const dispatch = useDispatch<AppDispatch>();
-
-    const onDelete = (value: string) => {
-        dispatch(deleteFilter(value));
-        if(mockFilterGender.options.includes(value)) {
-            setDataFilter({...dataFilter, gender: null});
+            case 2:
+                dispatch(toggleFilter({
+                    filter: filtersList[filterItem][0], 
+                    filterValue: filterItem, 
+                    catId: filtersList[filterItem][1]
+                }));
+                break;
+            case 3:
+                dispatch(toggleFilter({
+                    filter: filtersList[filterItem][0], 
+                    filterValue: filterItem, 
+                    catId: filtersList[filterItem][1],
+                    subcatId: filtersList[filterItem][2]
+                }));
+                break;  
         }
-        if(mockFilterLearn.options.includes(value)) {
-            setDataFilter({...dataFilter, learn: null});
-        }
-        citiesFromApi.map((city) => {
-            if(city.name === value) {
-                const newCities = dataFilter.cities.filter(id => id !== city.id);
-                setDataFilter({...dataFilter, cities: newCities});
-            }
-        });
-        categories.map((category) => {
-            category.subCategories.map((subCategory) => {
-                if(subCategory.name === value) {
-                    const newSubCategories = dataFilter.categories[category.id].filter(id => id !== subCategory.id);
-                    setDataFilter({...dataFilter, cities: newSubCategories});
-                }
-            });
-        });
-    };
+    }
 
     return (
         <>
-        {(filtersList.length !== 0) && 
+        {(Object.keys(filtersList).length !== 0) && 
             <Styled.UsedFiltersWrapper>
-                {filtersList.map((value) => (
+                {Object.keys(filtersList).map((value) => (
                     <Styled.UsedFilter>
                         <span>{value}</span>
-                        <Styled.CrossContainer onClick={() => onDelete(value)}>
+                        <Styled.CrossContainer onClick={() => deleteFilter(value)}>
                             <img src={cross} alt="" aria-hidden="true" />
                         </Styled.CrossContainer>
                     </Styled.UsedFilter>

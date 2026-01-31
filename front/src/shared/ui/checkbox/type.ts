@@ -14,5 +14,4 @@ export interface CategoryData {
 export interface CategoryCheckboxProps {
   categoryData: CategoryData;
   selectedCategories: Record<number, number[]>;
-  setSelectedCategories: (val: Record<number, number[]>) => void;
 }

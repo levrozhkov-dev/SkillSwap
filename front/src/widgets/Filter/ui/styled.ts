@@ -31,7 +31,7 @@ export const FilterHeaderTitle = styled.h2`
   color: ${theme.colors.textMain};
 `;
 
-export const ResetButton = styled.button`
+export const ResetButton = styled.div`
   display: flex;
   flex-direction: row;
   gap: 4px;
