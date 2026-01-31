@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import * as Styled from './styled';
 import { useAppDispatch } from '../../../../providers/store/store';
-import { addFilter, deleteFilter } from '../../../../features/slice/usedFiltersSlice';
+import { toggleFilter } from '../../../../features/slice/usedFiltersSlice';
 export interface City {
   id: number;
   name: string;
@@ -11,26 +11,18 @@ export interface City {
 export interface CityCheckboxListProps {
   cities: City[];
   selectedCities: number[];
-  onChange: (cities: number[]) => void;
 }
 
 export const CityCheckboxList: React.FC<CityCheckboxListProps> = ({
   cities,
   selectedCities,
-  onChange,
 }) => {
   const dispatch = useAppDispatch();
   const [showAll, setShowAll] = useState(false);
   const visibleCities = showAll ? cities : cities.slice(0, 5);
 
-  const toggleCity = (cityId: number, checked: boolean, cityName: string) => {
-    const next = checked
-      ? [...selectedCities, cityId]
-      : selectedCities.filter((id) => id !== cityId);
-    checked
-      ? dispatch(addFilter(cityName))
-      : dispatch(deleteFilter(cityName));
-    onChange(next);
+  const toggleCity = (cityId: number, cityName: string) => {
+    dispatch(toggleFilter({filter: 'city', filterValue: cityName, catId: cityId}))
   };
 
   return (
@@ -40,7 +32,8 @@ export const CityCheckboxList: React.FC<CityCheckboxListProps> = ({
           key={city.id}
           label={city.name}
           checked={selectedCities.includes(city.id)}
-          onChange={(checked) => toggleCity(city.id, checked, city.name)}
+          isCategoryActive={false}
+          onChange={() => toggleCity(city.id, city.name)}
         />
       ))}
       {cities.length > 5 && (

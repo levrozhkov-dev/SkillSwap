@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../../providers/store/store';
 
 interface ICity {
   id: number;
@@ -21,3 +22,5 @@ const citiesSlice = createSlice({
 export const { setCities } = citiesSlice.actions;
 
 export default citiesSlice.reducer;
+
+export const selectCities = (state: RootState) => state.cities;
