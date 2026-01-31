@@ -21,11 +21,7 @@ export class UserController {
   getUsers() {
     return this.appService.getUsers();
   }
-  // Пользователь по ID
-  @Get(':id')
-  getUserById(@Param('id', ParseIntPipe) id: number) {
-    return this.appService.getUserById(id);
-  }
+
   @Get('new')
   getUserNew() {
     return this.appService.getUserNew();
@@ -37,5 +33,9 @@ export class UserController {
   @Post('category')
   getUsersByCategory(@Body('categoryId') categoryId: number) {
     return this.appService.getUsersByCategory(categoryId);
+  }
+  @Get(':id')
+  getUserById(@Param('id', ParseIntPipe) id: number) {
+    return this.appService.getUserById(id);
   }
 }

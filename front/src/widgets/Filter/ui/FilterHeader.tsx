@@ -1,18 +1,14 @@
 import * as Styled from './styled';
 import cross from '../../../shared/img/icon/cross-secondary.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import type { AppDispatch, RootState } from '../../../providers/store/store';
-import { clearFilters } from '../../../features/slice/usedFiltersSlice';
-import type { FilterHeaderProps } from './types';
+import type { AppDispatch } from '../../../providers/store/store';
+import { clearFilters, selectFilterNumber } from '../../../features/slice/usedFiltersSlice';
 
-export const FilterHeader: React.FC<FilterHeaderProps> = ({ clearState }) => {
-  const filterNumber = useSelector(
-    (state: RootState) => state.usedFilters.filters.length,
-  );
+export const FilterHeader: React.FC = () => {
+  const filterNumber = useSelector(selectFilterNumber);
   const dispatch = useDispatch<AppDispatch>();
   const resetFilters = () => {
     dispatch(clearFilters());
-    clearState();
   };
 
   return (

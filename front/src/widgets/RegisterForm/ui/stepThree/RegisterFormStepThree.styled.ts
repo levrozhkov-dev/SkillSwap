@@ -1,86 +1,23 @@
 import styled from 'styled-components';
-import { Button } from '../../../../shared/ui/button';
 import { theme } from '../../../../shared/styles/theme';
-
-export const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-bg-main);
-`;
-
-export const FormWrapper = styled.div`
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  max-width: 1136px;
-  justify-content: center;
-`;
-
-export const FormBlock = styled.div`
-  width: 100%;
-  max-width: 556px;
-  padding: 40px 60px;
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg);
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-`;
-
-export const ButtonsBlock = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: ${theme.spacing.lg};
-  margin-top: 16px;
-`;
-
-export const FormButton = styled(Button)`
-  width: 100%;
-  justify-content: center;
-`;
-
-export const DecorativeBlock = styled.div`
-  width: 100%;
-  max-width: 556px;
-  padding: 60px;
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
-
-export const DecorativeImage = styled.img`
-  width: 280px;
-  height: 280px;
-  margin-bottom: 24px;
-`;
-
-export const DecorativeTitle = styled.h2`
-  font-size: var(--font-size-lg);
-  color: var(--color-text-main);
-  margin-bottom: 12px;
-  font-weight: 500;
-`;
-
-export const DecorativeText = styled.p`
-  font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
-`;
+export {
+  FormContainer,
+  FormWrapper,
+  FormBlock,
+  ButtonsBlock,
+  FormButton,
+  ErrorText,
+  DecorativeBlock,
+  DecorativeImage,
+  DecorativeTitle,
+  DecorativeText,
+} from '../RegisterFormCommon.styled';
 
 export const Dropzone = styled.div<{ $isDragActive: boolean }>`
   width: 100%;
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
-  border: 1px dashed
-    ${(p) => (p.$isDragActive ? 'var(--color-accent-main)' : 'var(--color-text-secondary)')};
+  padding: ${theme.spacing.lg};
+  border-radius: ${theme.radius.md};
+  border: 1px dashed ${theme.colors.textSecondary};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,18 +25,19 @@ export const Dropzone = styled.div<{ $isDragActive: boolean }>`
   text-align: center;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
-  gap: 8px;
+  gap: ${theme.spacing.sm};
+  background-color: ${(p) => (p.$isDragActive ? theme.colors.buttonHover : theme.colors.bgCard)};
 `;
 
 export const DropzoneTitle = styled.div`
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  font-size: ${theme.font.size.md};
+  color: ${theme.colors.textSecondary};
 `;
 
 export const DropzoneAction = styled.div`
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: ${theme.spacing.sm};
 `;
 
 export const DropzoneActionIcon = styled.img`
@@ -108,22 +46,15 @@ export const DropzoneActionIcon = styled.img`
 `;
 
 export const DropzoneActionText = styled.span`
-  font-size: var(--font-size-sm);
-  color: var(--color-button-pressed);
-`;
-
-export const ErrorText = styled.div`
-  font-size: 0.75rem;
-  line-height: 1rem;
-  margin-top: 4px;
-  color: #bf3920;
+  font-size: ${theme.font.size.sm};
+  color: ${theme.colors.buttonPressed};
 `;
 
 export const ImagesPreview = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
+  gap: ${theme.spacing.sm};
+  margin-top: ${theme.spacing.sm};
 `;
 
 export const PreviewImageWrapper = styled.div`
@@ -136,7 +67,7 @@ export const PreviewImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: ${theme.radius.sm};
   display: block;
 `;
 
@@ -163,4 +94,3 @@ export const RemoveImageButton = styled.button`
     opacity: 1;
   }
 `;
-

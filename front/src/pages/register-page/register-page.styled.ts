@@ -14,5 +14,5 @@ export const MainContent = styled.main`
 `;
 
 export const StepProgressWrapper = styled.div`
-  padding: 24px 0;
+  padding-bottom: 32px;
 `;

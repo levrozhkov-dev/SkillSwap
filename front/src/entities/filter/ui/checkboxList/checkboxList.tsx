@@ -1,84 +1,70 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import type { CategoryCheckboxProps } from '../../../../shared/ui/checkbox/type';
 import * as Styled from './styled';
 import { useAppDispatch } from '../../../../providers/store/store';
-import { addFilter, deleteFilter } from '../../../../features/slice/usedFiltersSlice';
+import { deleteCategory, selectUsedFilters, toggleFilter } from '../../../../features/slice/usedFiltersSlice';
+import { useSelector } from 'react-redux';
 
 export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
   categoryData,
-  selectedCategories,
-  setSelectedCategories,
+  selectedCategories
 }) => {
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const usedFilters = useSelector(selectUsedFilters);
 
   const subIds = categoryData.subCategories.map((sub) => sub.id);
+  const subNames = categoryData.subCategories.map((sub) => sub.name);
 
-  // верхний чекбокс считается выбранным, если:
-  // - категория есть в selectedCategories
-  // - или если категория открыта
-  const categoryChecked =
-    Object.prototype.hasOwnProperty.call(selectedCategories, categoryData.id) ||
-    isOpen;
+  // верхний чекбокс считается checked, если: категория есть в selectedCategories, но подкатегорий нет
+  // active - если у этой категории есть выбранные подкатегории
+  // isOpen - или если категория открыта
+  
+  const categoryChecked = Object.keys(usedFilters).includes(categoryData.title);
+  const categoryActive = (selectedCategories[categoryData.id] && selectedCategories[categoryData.id].length > 0) ?? false;
 
   // вычисляем подкатегории
   const subChecked = subIds.map(
-    (id) => selectedCategories[categoryData.id]?.includes(id) ?? false,
+    (id) => selectedCategories[categoryData.id]?.includes(id) ?? false, 
   );
 
-  // клик по категории
-  const handleCategoryClick = () => {
-    const newIsOpen = !isOpen;
-    setIsOpen(newIsOpen);
+  // клик по категории - открытие и закрытие (по стрелочке)
+  const handleCategoryClick = useCallback((event: React.MouseEvent) => {
+    event.stopPropagation();
+    console.log('Toggle open - 1 раз');
+    setIsOpen(prev => !prev);
+  }, []);
 
-    if (!categoryChecked) {
-      // создаем пустой массив при первом открытии
-      setSelectedCategories({
-        ...selectedCategories,
-        [categoryData.id]: [],
-      });
-    } else if (categoryChecked && newIsOpen === false) {
-      // закрытие категории → удаляем категорию из состояния
-      const newSelected = { ...selectedCategories };
-      delete newSelected[categoryData.id];
-      setSelectedCategories(newSelected);
-    }
-  };
+  //клик по категории для выбора
+  const handleCategoryChange = useCallback(() => {   
+    dispatch(toggleFilter({
+      filter: 'category', 
+      filterValue: categoryData.title, 
+      catId: categoryData.id,
+      subcatList: subNames
+    }));
+  }, [dispatch, categoryData.title, categoryData.id, subNames]);
 
   // клик по субкатегории
-  const handleSubChange = (index: number, checked: boolean, name: string) => {
-    const subId = subIds[index];
-    const newSelected = { ...selectedCategories };
-    let catSubs = newSelected[categoryData.id] ?? [];
-
-    if (checked) {
-      catSubs = [...catSubs, subId];
-      dispatch(addFilter(name));
-    }
-    else {
-      catSubs = catSubs.filter((id) => id !== subId);
-      dispatch(deleteFilter(name));
-    }
-
-    if (catSubs.length === 0) {
-      // не удаляем категорию пока она открыта
-      if (!isOpen) delete newSelected[categoryData.id];
-      else newSelected[categoryData.id] = [];
-    } else {
-      newSelected[categoryData.id] = catSubs;
-    }
-
-    setSelectedCategories(newSelected);
+  const handleSubChange = (id: number, name: string) => {
+    dispatch(toggleFilter({
+      filter: 'subcategory', 
+      filterValue: name, 
+      catId: categoryData.id, 
+      subcatId: id
+    }));
+    dispatch(deleteCategory(categoryData.title));
   };
 
   return (
     <>
-      <Styled.CheckboxContainer className={isOpen ? 'open' : ''}>
+      <Styled.CheckboxContainer className={isOpen ? 'open' : ''} onClick={handleCategoryClick}>
         <Checkbox
           label={categoryData.title}
           checked={categoryChecked}
-          onChange={handleCategoryClick}
+          isCategoryActive={categoryActive}
+          onChange={handleCategoryChange}
         />
       </Styled.CheckboxContainer>
 
@@ -89,7 +75,8 @@ export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
               key={sub.id}
               label={sub.name}
               checked={subChecked[index]}
-              onChange={(checked) => handleSubChange(index, checked, sub.name)}
+              isCategoryActive={false}
+              onChange={() => handleSubChange(sub.id, sub.name)}
             />
           ))}
         </Styled.CheckboxListContainer>

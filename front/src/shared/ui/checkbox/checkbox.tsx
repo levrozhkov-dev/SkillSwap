@@ -1,6 +1,7 @@
 import React from 'react';
 import checkbox from '../../../shared/img/icon/checkbox.svg';
 import checkboxActive from '../../../shared/img/icon/checkbox-active.svg';
+import checkboxCategoryActive from '../../../shared/img/icon/checkbox-category-active.svg';
 
 import * as Styled from './checkbox.styled';
 
@@ -9,7 +10,8 @@ interface CheckboxProps {
   name?: string;
   id?: string;
   checked: boolean;
-  onChange: (checked: boolean) => void;
+  isCategoryActive: boolean;
+  onChange: () => void;
 }
 
 // компонент Checkbox
@@ -18,8 +20,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   name,
   id,
   checked,
+  isCategoryActive,
   onChange,
 }) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.stopPropagation(); // Если нужно
+    onChange();
+  };
+
   return (
     <Styled.Label>
       <Styled.Input
@@ -27,17 +35,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         name={name}
         id={id}
         checked={checked}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          onChange(e.target.checked)
-        }
+        onChange={handleChange}
       />
 
       <Styled.CheckboxIndicator checked={checked}>
-        {checked ? (
-          <Styled.IconImage src={checkboxActive} alt="Check icon" />
-        ) : (
-          <Styled.IconImage src={checkbox} alt="Check icon" />
-        )}
+        {isCategoryActive && <Styled.IconImage src={checkboxCategoryActive} alt="Check icon" />}
+        {(!isCategoryActive && checked) && <Styled.IconImage src={checkboxActive} alt="Check icon" />}
+        {(!isCategoryActive && !checked) && <Styled.IconImage src={checkbox} alt="Check icon" />}
       </Styled.CheckboxIndicator>
       {label}
     </Styled.Label>

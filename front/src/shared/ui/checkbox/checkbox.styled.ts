@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Label = styled.label`
-  width: 100%;
+  width: max-content;
   display: flex;
   align-items: center;
   justify-content: start;

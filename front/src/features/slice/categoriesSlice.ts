@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { GetCategories } from '../../shared/api/req/getCategories';
 import axios from 'axios';
+import type { RootState } from '../../providers/store/store';
 
 export interface ISubCategory {
   id: number;
@@ -107,3 +108,5 @@ const categoriesSlice = createSlice({
 export const { setCategories } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;
+
+export const selectCategories = (state: RootState) => state.category.items;
