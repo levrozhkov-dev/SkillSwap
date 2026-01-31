@@ -9,12 +9,30 @@ import { ScrollableBox } from '../../shared/ui/scrollableBox/scrollableBox';
 import { UsedFilters } from '../../widgets/UsedFilters/UsedFilters';
 import { useSelector } from 'react-redux';
 import { selectDataFilter, selectIsFilterActive } from '../../features/slice/usedFiltersSlice';
+import { Get } from '../../shared/api/req/get';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const isFilterActive = useSelector(selectIsFilterActive);
   const dataFilter = useSelector(selectDataFilter);
+
+
+  useEffect(() => {
+    if (!location.state?.view && Array.isArray(users)) {
+      GetUsers('/users/user').then((res) => setUsers(res.data));
+    }
+  }, [location.pathname, location.key, location.state]);
+
+  const handleUsers = async (block?: 'popular' | 'new') => {
+    const response = await Get(block === 'new' ? 'users/new' : 'users/likes');
+    setUsers(response.data);
+    navigate(location.pathname, { state: { view: 'flat', block: block ?? 'popular' } });
+  };
+
+
 
   useEffect(() => {
     console.log('dataFilter', dataFilter);
@@ -48,7 +66,7 @@ export const CatalogPage: FC = () => {
         )}
         
         <ScrollableBox width="100%" height="750px">
-          <ListCard users={users} />
+          <ListCard users={users} onShowAllClick={handleUsers}/>
         </ScrollableBox>
       </div>
     </Styled.CatalogPage>

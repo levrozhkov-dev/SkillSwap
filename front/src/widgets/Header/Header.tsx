@@ -71,7 +71,15 @@ export const Header = () => {
       <Styled.HeaderInner>
         {authPage ? (
           <>
-            <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
+            <Styled.Logo
+              as={Link}
+              to="/"
+              aria-label="SkillSwap — на главную"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = '/';
+              }}
+            >
               <Styled.LogoIcon>
                 <img src={logo} alt="" aria-hidden="true" />
               </Styled.LogoIcon>
@@ -98,7 +106,15 @@ export const Header = () => {
         ) : (
           <>
             <Styled.LogoAndNav>
-              <Styled.Logo as={Link} to="/" aria-label="SkillSwap — на главную">
+              <Styled.Logo
+                as={Link}
+                to="/"
+                aria-label="SkillSwap — на главную"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/';
+                }}
+              >
                 <Styled.LogoIcon>
                   <img src={logo} alt="" aria-hidden="true" />
                 </Styled.LogoIcon>
