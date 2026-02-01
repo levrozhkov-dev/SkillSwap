@@ -10,13 +10,8 @@ export interface HeaderInputProps {
   iconPosition?: 'left' | 'right';
 }
 
-export const HeaderInput: React.FC<HeaderInputProps> = ({
-  value,
-  onChange,
-  placeholder = 'Поиск...',
-  icon,
-  iconPosition = 'left',
-}) => {
+export const HeaderInput = (props: HeaderInputProps) => {
+  const { value, onChange, placeholder = 'Поиск...', icon, iconPosition = 'left' } = props;
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };

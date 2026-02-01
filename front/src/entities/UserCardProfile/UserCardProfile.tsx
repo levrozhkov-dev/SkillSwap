@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { CardAge, CardAvatar } from "../card";
 import * as Styled from "./UserCardProfile.styled";
 import type { CategorySelection, UserSkills } from "../../widgets/ListCard/types/user";
@@ -14,15 +13,9 @@ type UserCardProfileProps = {
   categories: CategorySelection[];
 };
 
-export const UserCardProfile: FC<UserCardProfileProps> = ({
-  avatarUrl,
-  name,
-  age,
-  city,
-  description,
-  skills,
-  categories,
-}) => {
+export const UserCardProfile = (props: UserCardProfileProps) => {
+  const { avatarUrl, name, age, city, description, skills, categories } = props;
+
   return (
     <Styled.UserCardProfile>
       <Styled.UserInfoWrapper>

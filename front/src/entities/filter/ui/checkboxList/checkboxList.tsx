@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import type { CategoryCheckboxProps } from '../../../../shared/ui/checkbox/type';
 import * as Styled from './styled';
@@ -6,10 +6,9 @@ import { useAppDispatch } from '../../../../providers/store/store';
 import { deleteCategory, selectUsedFilters, toggleFilter } from '../../../../features/slice/usedFiltersSlice';
 import { useSelector } from 'react-redux';
 
-export const CategoryCheckbox: React.FC<CategoryCheckboxProps> = ({
-  categoryData,
-  selectedCategories
-}) => {
+export const CategoryCheckbox = (props: CategoryCheckboxProps) => {
+  const { categoryData, selectedCategories } = props;
+
   const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const usedFilters = useSelector(selectUsedFilters);

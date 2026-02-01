@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Styled from './styled';
 import notificationIcon from '../../shared/img/icon/notification.svg';
@@ -11,11 +11,9 @@ interface HeaderUserProps {
   onClickUser: () => void;
 }
 
-export const HeaderUser: React.FC<HeaderUserProps> = ({
-  userName,
-  userAvatar,
-  onClickUser,
-}) => {
+export const HeaderUser = (props: HeaderUserProps) => {
+  const { userName, userAvatar, onClickUser } = props;
+
   const navigate = useNavigate();
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 

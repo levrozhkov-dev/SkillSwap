@@ -6,13 +6,11 @@ interface ButtonIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
   onClick?: () => void;
 }
 
-export const ButtonIcon: React.FC<ButtonIconProps> = ({
-  iconSrc,
-  onClick,
-  ...props
-}) => {
+export const ButtonIcon = (props: ButtonIconProps) => {
+  const { iconSrc, onClick, ...rest } = props;
+
   return (
-    <Styled.Button onClick={onClick} {...props}>
+    <Styled.Button onClick={onClick} {...rest}>
       <Styled.IconImage src={iconSrc} alt="Button icon" />
     </Styled.Button>
   );

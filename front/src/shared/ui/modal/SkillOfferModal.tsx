@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
 import * as Styled from './SkillOfferModal.styled';
@@ -24,19 +23,9 @@ export interface SkillOfferModalProps extends Omit<
   doneButtonText?: string;
 }
 
-export const SkillOfferModal: React.FC<SkillOfferModalProps> = ({
-  isOpen,
-  onClose,
-  skillName,
-  category,
-  description,
-  images = [],
-  onEdit,
-  onDone,
-  editButtonText = 'Редактировать',
-  doneButtonText = 'Готово',
-  ...modalProps
-}) => {
+export const SkillOfferModal = (props: SkillOfferModalProps) => {
+  const { isOpen, onClose, skillName, category, description, images = [], onEdit, onDone, editButtonText = 'Редактировать', doneButtonText = 'Готово', ...modalProps } = props;
+  
   const handleDone = () => {
     if (onDone) {
       onDone();

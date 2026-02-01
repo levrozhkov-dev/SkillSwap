@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Checkbox } from '../../../../shared/ui/checkbox/checkbox';
 import * as Styled from './styled';
 import { useAppDispatch } from '../../../../providers/store/store';
@@ -13,16 +13,15 @@ export interface CityCheckboxListProps {
   selectedCities: number[];
 }
 
-export const CityCheckboxList: React.FC<CityCheckboxListProps> = ({
-  cities,
-  selectedCities,
-}) => {
+export const CityCheckboxList = (props: CityCheckboxListProps) => {
+  const { cities, selectedCities } = props;
+
   const dispatch = useAppDispatch();
   const [showAll, setShowAll] = useState(false);
   const visibleCities = showAll ? cities : cities.slice(0, 5);
 
   const toggleCity = (cityId: number, cityName: string) => {
-    dispatch(toggleFilter({filter: 'city', filterValue: cityName, catId: cityId}))
+    dispatch(toggleFilter({filter: 'city', filterValue: cityName, catId: cityId}));
   };
 
   return (

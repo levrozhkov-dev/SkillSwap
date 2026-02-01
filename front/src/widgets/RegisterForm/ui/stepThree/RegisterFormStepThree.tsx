@@ -5,7 +5,6 @@ import {
   useRef,
   useState,
   type DragEvent,
-  type FC,
 } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -30,11 +29,9 @@ interface RegisterFormStepThreeProps {
   defaultValues?: Partial<RegisterStepThreeFormData>;
 }
 
-export const RegisterFormStepThree: FC<RegisterFormStepThreeProps> = ({
-  onSubmit,
-  onBack,
-  defaultValues,
-}) => {
+export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
+  const { onSubmit, onBack, defaultValues } = props;
+  
   const {
     register,
     handleSubmit,

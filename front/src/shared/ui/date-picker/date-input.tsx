@@ -7,15 +7,18 @@ type Props = {
 };
 
 export const DateInput = forwardRef<HTMLInputElement, Props>(
-  ({ value, onClick }, ref) => (
-    <Styled.Input
-      ref={ref}
-      value={value}
-      onClick={onClick}
-      placeholder="дд.мм.гггг"
-      readOnly
-    />
-  ),
+  ( props, ref) => {
+    const { value, onClick } = props;
+    return (
+      <Styled.Input
+        ref={ref}
+        value={value}
+        onClick={onClick}
+        placeholder="дд.мм.гггг"
+        readOnly
+      />
+    );
+  },
 );
 
 DateInput.displayName = 'DateInput';

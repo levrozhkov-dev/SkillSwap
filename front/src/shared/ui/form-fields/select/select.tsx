@@ -30,17 +30,8 @@ export interface SelectProps {
   disabled?: boolean;
 }
 
-export const Select: React.FC<SelectProps> = ({
-  nameLabel,
-  error,
-  errorText,
-  placeholder,
-  options,
-  value,
-  onChange,
-  multiple = false,
-  disabled = false,
-}) => {
+export const Select = (props: SelectProps) => {
+  const { nameLabel, error, errorText, placeholder, options, value, onChange, multiple = false, disabled = false } = props;
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
   const selectId = nameLabel || React.useId();

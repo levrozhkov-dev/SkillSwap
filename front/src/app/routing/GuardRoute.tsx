@@ -6,10 +6,8 @@ interface GuardRouteProps {
   redirectTo?: string;
 }
 
-export const GuardRoute = ({
-  type,
-  redirectTo,
-}: GuardRouteProps) => {
+export const GuardRoute = (props : GuardRouteProps) => {
+  const { type, redirectTo } = props;
   const location = useLocation();
   const { isLogged } = useAppSelector((state) => state.login);
   

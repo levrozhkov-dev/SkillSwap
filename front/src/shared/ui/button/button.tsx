@@ -11,7 +11,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   iconPosition?: 'left' | 'right';
 }
 
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button = (props: ButtonProps) => {
   const {
     variant = 'green',
     children,

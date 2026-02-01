@@ -15,18 +15,9 @@ export interface ModalProps {
   footer?: React.ReactNode;
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  onClose,
-  children,
-  title,
-  showCloseButton = true,
-  closeOnOverlayClick = true,
-  closeOnEscape = true,
-  maxWidth = '556px',
-  centered = false,
-  footer,
-}) => {
+export const Modal = (props: ModalProps) => {
+  const { isOpen, onClose, children, title, showCloseButton = true , closeOnOverlayClick = true, closeOnEscape = true, maxWidth = '556px', centered = false, footer } = props;
+
   useEffect(() => {
     if (!isOpen || !closeOnEscape) return;
 

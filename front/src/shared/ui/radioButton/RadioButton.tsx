@@ -1,4 +1,3 @@
-import React from 'react';
 import * as Styled from './RadioButon.styled';
 
 /* ВАЖНО: компонент контролируемый извне
@@ -17,13 +16,9 @@ interface RadioButtonProps {
 }
 
 // компонент RadioButton
-export const RadioButton: React.FC<RadioButtonProps> = ({
-  text,
-  name,
-  value,
-  checked,
-  onChange,
-}) => {
+export const RadioButton = (props: RadioButtonProps) => {
+  const { text, name, value, checked, onChange } = props;
+  
   return (
     <Styled.Label>
       {/* настоящий инпут скрыт стилями */}

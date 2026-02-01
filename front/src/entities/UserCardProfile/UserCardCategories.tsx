@@ -10,10 +10,9 @@ type UserCardCategoriesProps = {
   categories: CategorySelection[];
 };
 
-export const UserCardCategories: React.FC<UserCardCategoriesProps> = ({
-  skills,
-  categories,
-}) => {
+export const UserCardCategories = (props: UserCardCategoriesProps) => {
+  const { skills, categories } = props;
+  
   const allCategories = useSelector((state: RootState) => state.category.items);
 
   const canTeachItems = getCanTeachCategories(skills, allCategories);

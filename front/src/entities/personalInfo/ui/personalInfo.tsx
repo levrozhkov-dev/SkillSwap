@@ -1,8 +1,6 @@
 import {
   useCallback,
-  useEffect,
   useState,
-  type FC,
   type SyntheticEvent,
 } from 'react';
 import * as Styled from './personalInfo.styled';
@@ -38,19 +36,12 @@ export interface PersonalInfoProps {
   handleDateChange: (date: Date | null) => void;
 }
 
-export const PersonalInfo: FC<PersonalInfoProps> = ({
-  formValue,
-  cities,
-  isFormChanged,
-  handleSubmit,
-  handleInputChange,
-  handleDateChange,
-}) => {
+export const PersonalInfo = (props: PersonalInfoProps) => {
+  const { formValue, cities, isFormChanged, handleSubmit, handleInputChange, handleDateChange } = props;
+
   const [showPassword, setShowPassword] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [avatarPreview, setAvatarPreview] = useState<string>(
-    formValue.avatar || iconPhoto,
-  );
+  const avatarPreview = formValue.avatar || iconPhoto;
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const PasswordIcon = (
@@ -73,9 +64,10 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
       if (file) {
         const reader = new FileReader();
         reader.onloadend = () => {
-          setAvatarPreview(reader.result as string);
+          const result = reader.result as string;
+
           handleInputChange({
-            target: { name: 'avatar', value: reader.result as string },
+            target: { name: 'avatar', value: result },
           } as React.ChangeEvent<HTMLInputElement>);
         };
         reader.readAsDataURL(file);
@@ -91,10 +83,6 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
       handleSubmit(e);
     }
   };
-
-  useEffect(() => {
-    setAvatarPreview(formValue.avatar || iconPhoto);
-  }, [formValue.avatar]);
 
   // Валидация при отправке
   const validate = async (): Promise<boolean> => {

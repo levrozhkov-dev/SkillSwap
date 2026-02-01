@@ -8,7 +8,8 @@ interface ListSkillsProps {
   onSkillSelect: (value: string) => void;
 }
 
-export const ListSkills = ({ onSkillSelect }: ListSkillsProps) => {
+export const ListSkills = (props: ListSkillsProps) => {
+  const { onSkillSelect } = props;
   const categories = useSelector((state: RootState) => state.category.items);
 
   const groupedSkills = useMemo(() => {

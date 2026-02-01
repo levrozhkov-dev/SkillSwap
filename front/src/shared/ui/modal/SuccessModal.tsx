@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
 import * as Styled from './SuccessModal.styled';
@@ -14,15 +13,9 @@ export interface SuccessModalProps extends Omit<
   onButtonClick?: () => void;
 }
 
-export const SuccessModal: React.FC<SuccessModalProps> = ({
-  isOpen,
-  onClose,
-  title,
-  description,
-  buttonText = 'Готово',
-  onButtonClick,
-  ...modalProps
-}) => {
+export const SuccessModal = (props: SuccessModalProps) => {
+  const { isOpen, onClose, title, description, buttonText = 'Готово', onButtonClick, ...modalProps } = props;
+  
   const handleButtonClick = () => {
     if (onButtonClick) {
       onButtonClick();

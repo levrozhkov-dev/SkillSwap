@@ -10,15 +10,8 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   iconPosition?: 'left' | 'right';
 }
 
-export const Textarea: React.FC<TextareaProps> = ({
-  nameLabel,
-  error,
-  errorText,
-  placeholder,
-  icon,
-  iconPosition = 'right',
-  ...rest
-}) => {
+export const Textarea = (props: TextareaProps) => {
+  const { nameLabel, error, errorText, placeholder, icon, iconPosition = 'right', ...rest } = props;
   const textareaId = nameLabel || React.useId();
   const hasIcon = !!icon;
 

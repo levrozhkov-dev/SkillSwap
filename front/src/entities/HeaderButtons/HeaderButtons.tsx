@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '../../shared/ui/button/button';
 import * as Styled from './styled';
 
@@ -9,11 +8,8 @@ interface HeaderButtonsProps {
 }
 
 // компонент кнопок для Header (авторизация, регистрация)
-export const HeaderButtons: React.FC<HeaderButtonsProps> = ({
-  onLoginClick,
-  onRegisterClick,
-  className,
-}) => {
+export const HeaderButtons = (props: HeaderButtonsProps) => {
+  const { onLoginClick, onRegisterClick, className } = props;
   return (
     <Styled.ButtonsWrapper className={className}>
       <Styled.LoginButtonContainer>

@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import type { User } from "../ListCard/types/user";
 import * as Styled from "./UserOffer.styled";
 import { UserCardProfile } from "../../entities/UserCardProfile/UserCardProfile";
@@ -8,7 +7,8 @@ type UserOfferProps = {
   userInfo: User;
 }
 
-export const UserOffer: FC<UserOfferProps> = ({ userInfo }) => {
+export const UserOffer = (props: UserOfferProps) => {
+  const { userInfo } = props;
   return (
     <Styled.UserOffer>
       <UserCardProfile 

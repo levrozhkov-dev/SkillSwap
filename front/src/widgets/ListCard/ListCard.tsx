@@ -15,7 +15,9 @@ interface Props {
     onShowAllClick: (block?: 'popular' | 'new') => void;
 }
 
-export const ListCard = ({ users, onShowAllClick }: Props) => {
+export const ListCard = (props: Props) => {
+  const { users, onShowAllClick } = props;
+  
   const isBlocks = (
     users: Props['users'],
   ): users is {
