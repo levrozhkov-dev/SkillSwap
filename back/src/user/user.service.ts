@@ -1,8 +1,27 @@
 import { Injectable } from '@nestjs/common';
 import datauser from '../db/users.json';
+import * as fs from 'fs';
+import * as path from 'path';
 
+interface Offer {
+  userId: number;
+  status: string;
+  date: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  date: string;
+  liked: number;
+  skills?: { category: number };
+  sentOffers?: Offer[];
+  receivedOffers?: Offer[];
+}
 @Injectable()
 export class UserService {
+  private users: User[] = datauser as User[];
+
   getUser(): object {
     return datauser;
   }
@@ -72,5 +91,59 @@ export class UserService {
     );
 
     return filteredUsers.sort((a, b) => b.liked - a.liked);
+  }
+  sendOffer(senderId: number, receiverId: number): object {
+    const sender = this.users.find((user) => user.id === senderId);
+    const receiver = this.users.find((user) => user.id === receiverId);
+
+    if (!sender || !receiver) {
+      return { error: 'Пользователь не найден' };
+    }
+
+    // Инициализация массивов, если их нет
+    sender.sentOffers = sender.sentOffers ?? [];
+    receiver.receivedOffers = receiver.receivedOffers ?? [];
+
+    // Проверка на уже отправленное предложение
+    const alreadySent = sender.sentOffers.find(
+      (offer) => offer.userId === receiverId,
+    );
+    if (alreadySent) {
+      return { message: 'Предложение уже отправлено' };
+    }
+
+    const newOffer: Offer = {
+      userId: receiver.id,
+      status: 'pending',
+      date: new Date().toISOString(),
+    };
+
+    sender.sentOffers.push(newOffer);
+
+    receiver.receivedOffers.push({
+      userId: sender.id,
+      status: 'pending',
+      date: new Date().toISOString(),
+    });
+
+    const filePath = path.join(__dirname, '../db/users.json');
+    fs.writeFileSync(filePath, JSON.stringify(this.users, null, 2));
+
+    return { message: 'Предложение отправлено', sender, receiver };
+  }
+
+  updateUser(userUpdate) {
+    const index = this.users.findIndex((u) => u.id === userUpdate.id);
+    if (index === -1) return null; // пользователь не найден
+
+    this.users[index] = { ...this.users[index], ...userUpdate };
+
+    fs.writeFileSync(
+      path.join(__dirname, '../db/users.json'),
+      JSON.stringify(this.users, null, 2),
+      'utf-8',
+    );
+
+    return this.users[index];
   }
 }

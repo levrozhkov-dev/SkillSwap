@@ -34,6 +34,21 @@ export class UserController {
   getUsersByCategory(@Body('categoryId') categoryId: number) {
     return this.appService.getUsersByCategory(categoryId);
   }
+  @Post('send-offer')
+  sendOffer(@Body() body: { senderId: number; receiverId: number }) {
+    const { senderId, receiverId } = body;
+    return this.appService.sendOffer(senderId, receiverId);
+  }
+
+  @Post('update')
+  updateUser(@Body() userUpdate: any): any {
+    const updatedUser = this.appService.updateUser(userUpdate);
+    if (!updatedUser) {
+      return { error: 'Пользователь не найден' };
+    }
+    return updatedUser;
+  }
+
   @Get(':id')
   getUserById(@Param('id', ParseIntPipe) id: number) {
     return this.appService.getUserById(id);

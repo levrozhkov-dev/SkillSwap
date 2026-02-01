@@ -9,8 +9,10 @@ import {
 import { Profile } from '../../widgets/profile/ui/profile';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../providers/store/store';
+import { updateUser } from '../../shared/api/req/updateUsers';
 
 interface FormData {
+  id:number| undefined
   email: string;
   name: string;
   avatar: string;
@@ -31,6 +33,7 @@ export const ProfilePage: FC = () => {
   );
 
   const [formValue, setFormValue] = useState<FormData>({
+    id:user?.id,
     email: '',
     name: '',
     avatar: '',
@@ -66,6 +69,7 @@ export const ProfilePage: FC = () => {
   useEffect(() => {
     if (user) {
       setFormValue({
+        id:user.id,
         email: user.email || '',
         name: user.name || '',
         avatar: user.avatar || '',
@@ -80,7 +84,7 @@ export const ProfilePage: FC = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    //TODO отправка данных для изменения данных пользователя
+    updateUser('users/update', formValue);
     console.log('formValue:', formValue);
   };
 
