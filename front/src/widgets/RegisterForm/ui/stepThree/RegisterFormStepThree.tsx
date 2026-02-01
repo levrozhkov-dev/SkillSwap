@@ -13,6 +13,7 @@ import * as Styled from './RegisterFormStepThree.styled';
 import schoolBoardImage from '../../../../shared/img/illustration/school-board.svg';
 import galleryAddIcon from '../../../../shared/img/icon/gallery-add.svg';
 import { Input, Select, Textarea } from '../../../../shared/ui/form-fields';
+import { SkillModal } from '../../../../shared/ui/modal/SkillModal';
 import type { RootState } from '../../../../providers/store/store';
 import type {
   ICategory,
@@ -44,6 +45,10 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
     resolver: yupResolver(registerStepThreeSchema),
     defaultValues,
   });
+
+  // Состояние модалки подтверждения
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formDataForModal, setFormDataForModal] = useState<RegisterStepThreeFormData | null>(null);
 
   const categories = useSelector((state: RootState) => state.category.items);
 
@@ -84,6 +89,37 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
     previousCategoryIdRef.current = selectedCategoryId ?? null;
 
   }, [selectedCategoryId, categories, setValue]);
+
+  // Получение названий категорий для модалки
+  const getCategoryName = useCallback((categoryId: string) => {
+    const category = categories.find((cat) => cat.id.toString() === categoryId);
+    return category?.title || '';
+  }, [categories]);
+
+  const getSubCategoryName = useCallback((categoryId: string, subCategoryId: string) => {
+    const category = categories.find((cat) => cat.id.toString() === categoryId);
+    const subCategory = category?.subCategories.find((sub) => sub.id.toString() === subCategoryId);
+    return subCategory?.name || '';
+  }, [categories]);
+
+  // Обработчик сабмита формы — открывает модалку
+  const handleFormSubmit = (data: RegisterStepThreeFormData) => {
+    setFormDataForModal(data);
+    setIsModalOpen(true);
+  };
+
+  // Обработчик кнопки "Готово" в модалке
+  const handleConfirm = () => {
+    if (formDataForModal) {
+      onSubmit(formDataForModal);
+    }
+    setIsModalOpen(false);
+  };
+
+  // Обработчик кнопки "Редактировать" в модалке
+  const handleEdit = () => {
+    setIsModalOpen(false);
+  };
 
   const files = watch('skillImages') as FileList | null;
   const [previews, setPreviews] = useState<string[]>([]);
@@ -180,7 +216,7 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
     <Styled.FormContainer>
       <Styled.FormWrapper>
         <Styled.FormBlock>
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
             <Input
               nameLabel="Название навыка"
               placeholder="Введите название навыка"
@@ -318,6 +354,21 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
           </Styled.DecorativeText>
         </Styled.DecorativeBlock>
       </Styled.FormWrapper>
+
+      {/* Модалка подтверждения */}
+      <SkillModal
+        isOpen={isModalOpen}
+        onClose={handleEdit}
+        title="Ваше предложение"
+        subtitle="Пожалуйста, проверьте и подтвердите правильность данных"
+        skillName={formDataForModal?.skillTitle}
+        skillDescription={formDataForModal?.skillDescription}
+        categoryName={formDataForModal ? getCategoryName(formDataForModal.skillCategory) : ''}
+        subCategoryName={formDataForModal ? getSubCategoryName(formDataForModal.skillCategory, formDataForModal.skillSubCategory) : ''}
+        images={previews}
+        onEdit={handleEdit}
+        onConfirm={handleConfirm}
+      />
     </Styled.FormContainer>
   );
 };
