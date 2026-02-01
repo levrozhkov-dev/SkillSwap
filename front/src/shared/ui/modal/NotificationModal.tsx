@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
 import * as Styled from './NotificationModal.styled';
@@ -15,15 +14,9 @@ export interface NotificationModalProps extends Omit<
   onButtonClick?: () => void;
 }
 
-export const NotificationModal: React.FC<NotificationModalProps> = ({
-  isOpen,
-  onClose,
-  title,
-  description,
-  buttonText = 'Готово',
-  onButtonClick,
-  ...modalProps
-}) => {
+export const NotificationModal = (props: NotificationModalProps) => {
+  const { isOpen, onClose, title, description, buttonText = 'Готово', onButtonClick, ...modalProps } = props;
+  
   const handleButtonClick = () => {
     if (onButtonClick) {
       onButtonClick();

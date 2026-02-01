@@ -1,4 +1,4 @@
-import { useState, useCallback, type FC } from 'react';
+import { useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '../../../../shared/ui/form-fields/input';
@@ -21,10 +21,9 @@ interface RegisterFormStepOneProps {
   defaultValues?: Partial<RegisterStepOneFormData>;
 }
 
-export const RegisterFormStepOne: FC<RegisterFormStepOneProps> = ({
-  onSubmit,
-  defaultValues,
-}) => {
+export const RegisterFormStepOne = (props: RegisterFormStepOneProps) => {
+  const { onSubmit, defaultValues } = props;
+  
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const {

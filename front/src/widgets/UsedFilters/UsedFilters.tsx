@@ -29,7 +29,7 @@ export const UsedFilters: React.FC = () => {
                 }));
                 break;  
         }
-    }
+    };
 
     return (
         <>
@@ -47,5 +47,5 @@ export const UsedFilters: React.FC = () => {
         }
         </>
         
-    )
-}
+    );
+};

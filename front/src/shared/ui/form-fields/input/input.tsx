@@ -16,18 +16,11 @@ export interface InputProps extends Omit<
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    {
-      type = 'text',
-      nameLabel,
-      error,
-      errorText,
-      placeholder,
-      icon,
-      iconPosition = 'right',
-      ...rest
-    },
+    props,
     ref,
   ) => {
+  const { type = 'text', nameLabel, error, errorText, placeholder, icon, iconPosition = 'right', ...rest } = props;
+  
   const inputId = nameLabel || React.useId();
   const hasIcon = !!icon; // Флаг: есть ли иконка?
 

@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import * as S from './StepProgress.styled';
 
 interface StepProgressProps {
@@ -6,7 +5,9 @@ interface StepProgressProps {
   totalSteps: number;
 }
 
-export const StepProgress: FC<StepProgressProps> = ({ currentStep, totalSteps }) => {
+export const StepProgress = (props: StepProgressProps) => {
+  const { currentStep, totalSteps } = props;
+
   return (
     <S.StepProgressWrapper>
       <S.StepText>Шаг {currentStep} из {totalSteps}</S.StepText>

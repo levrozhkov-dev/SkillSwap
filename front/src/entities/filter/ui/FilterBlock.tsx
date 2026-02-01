@@ -4,12 +4,8 @@ import type { FilterBlockProps } from '../../../widgets/Filter/ui/types';
 import { useAppDispatch } from '../../../providers/store/store';
 import { addRadioFilter, deleteRadioFilter } from '../../../features/slice/usedFiltersSlice';
 
-export const FilterBlock: React.FC<FilterBlockProps> = ({
-  title,
-  name,
-  options,
-  state
-}) => {
+export const FilterBlock = (props: FilterBlockProps) => {
+  const { title, name, options, state } = props;
   const dispatch = useAppDispatch();
   const onChange = (value: string) => {
     options.map((option, index) => {

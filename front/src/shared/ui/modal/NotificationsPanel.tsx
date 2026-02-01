@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal, type ModalProps } from './Modal';
 import { Button } from '../button';
 import * as Styled from './NotificationsPanel.styled';
@@ -25,15 +24,9 @@ export interface NotificationsPanelProps extends Omit<
   onClearViewed?: () => void;
 }
 
-export const NotificationsPanel: React.FC<NotificationsPanelProps> = ({
-  isOpen,
-  onClose,
-  newNotifications = [],
-  viewedNotifications = [],
-  onReadAll,
-  onClearViewed,
-  ...modalProps
-}) => {
+export const NotificationsPanel = (props: NotificationsPanelProps) => {
+  const { isOpen, onClose, newNotifications = [], viewedNotifications = [], onReadAll, onClearViewed, ...modalProps } = props;
+  
   return (
     <Modal
       isOpen={isOpen}

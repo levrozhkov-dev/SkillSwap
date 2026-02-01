@@ -1,10 +1,9 @@
-import React from 'react';
-
 interface CardAgeProps {
   age: number;
 }
 
-export const CardAge: React.FC<CardAgeProps> = ({ age }) => {
+export const CardAge = (props: CardAgeProps) => {
+  const { age } = props;
   const getAgeWord = (age: number) => {
     if (age % 100 >= 11 && age % 100 <= 14) {
       return 'лет';

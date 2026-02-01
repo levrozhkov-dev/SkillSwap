@@ -8,15 +8,9 @@ export interface SkillModalProps extends Omit<ModalProps, 'children'> {
   children?: React.ReactNode;
 }
 
-export const SkillModal: React.FC<SkillModalProps> = ({
-  isOpen,
-  onClose,
-  skillName,
-  skillDescription,
-  children,
-  title,
-  ...modalProps
-}) => {
+export const SkillModal = (props: SkillModalProps) => {
+  const { isOpen, onClose, skillName, skillDescription, children, title, ...modalProps } = props;
+  
   return (
     <Modal
       isOpen={isOpen}

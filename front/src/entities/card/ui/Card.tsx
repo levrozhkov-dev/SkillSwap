@@ -1,4 +1,3 @@
-import React from 'react';
 import * as Styled from './Card.styled';
 import { CardAvatar } from './CardAvatar';
 import { CardName } from './CardName';
@@ -24,16 +23,8 @@ export interface CardProps {
   categories: CategorySelection[];
 }
 
-export const Card: React.FC<CardProps> = ({
-  id,
-  name,
-  avatar,
-  city,
-  age,
-  liked,
-  skills,
-  categories,
-}) => {
+export const Card = (props: CardProps) => {
+  const { id, name, avatar, city, age, liked, skills, categories } = props;
   const {
     liked: currentLiked,
     isLiked,

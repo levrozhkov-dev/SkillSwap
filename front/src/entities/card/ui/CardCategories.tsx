@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../providers/store/store';
 import TagCategory from '../../../shared/ui/tagCategory/TagCategory';
@@ -14,10 +13,9 @@ interface CardCategoriesProps {
   categories: CategorySelection[];
 }
 
-export const CardCategories: React.FC<CardCategoriesProps> = ({
-  skills,
-  categories,
-}) => {
+export const CardCategories = (props: CardCategoriesProps) => {
+  const { skills, categories } = props;
+  
   const allCategories = useSelector((state: RootState) => state.category.items);
 
   const canTeachItems = getCanTeachCategories(skills, allCategories);

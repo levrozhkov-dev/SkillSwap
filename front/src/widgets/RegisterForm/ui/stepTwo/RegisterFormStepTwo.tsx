@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type FC } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import * as Styled from './RegisterFormStepTwo.styled';
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -36,11 +36,8 @@ interface RegisterFormStepTwoProps {
   defaultValues?: Partial<RegisterStepTwoFormData>;
 }
 
-export const RegisterFormStepTwo: FC<RegisterFormStepTwoProps> = ({
-  onSubmit,
-  onBack,
-  defaultValues,
-}) => {
+export const RegisterFormStepTwo = (props: RegisterFormStepTwoProps) => {
+  const { onSubmit, onBack, defaultValues } = props;
   const {
     register,
     handleSubmit,

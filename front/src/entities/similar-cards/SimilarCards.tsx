@@ -4,7 +4,6 @@ import useEmblaCarousel from 'embla-carousel-react';
 import * as Styled from './styled';
 import { Card } from '../card';
 import { post } from '../../shared/api/req/post';
-import { GetUserAll } from '../../shared/api/req/getCategories';
 import ChevronRight from '../../shared/img/icon/chevron-right.svg';
 
 // типизируем пропсы для компонента
@@ -13,7 +12,8 @@ type TSimilarCardsProps = {
 };
 
 // принимаем пропс для
-export const SimilarCards = ({ categoryId }: TSimilarCardsProps) => {
+export const SimilarCards = (props: TSimilarCardsProps) => {
+  const { categoryId } = props;
   // стейт для карточек получаемых с сервера
   const [cards, setCards] = useState<User[]>([]);
 
@@ -57,7 +57,7 @@ export const SimilarCards = ({ categoryId }: TSimilarCardsProps) => {
     const func = async () => {
         const res = await post("users/category", {categoryId});
         setCards(res.data);
-    }
+    };
 
     void func();
   }, [categoryId]);

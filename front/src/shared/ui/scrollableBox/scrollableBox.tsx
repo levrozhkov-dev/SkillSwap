@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import * as Styled from './scrollableBox.styled';
 
 interface ScrollableBoxProps {
@@ -7,7 +7,9 @@ interface ScrollableBoxProps {
   children: ReactNode;
 }
 
-export const ScrollableBox: FC<ScrollableBoxProps> = ({ width, height, children }) => {
+export const ScrollableBox = (props: ScrollableBoxProps) => {
+  const { width, height, children } = props;
+  
   return (
     <Styled.Container width={width} height={height}>
       {children}

@@ -7,11 +7,8 @@ interface LoginDecorativeBlockProps {
   className?: string;
 }
 
-export const LoginDecorativeBlock: React.FC<LoginDecorativeBlockProps> = ({
-  children,
-  image,
-  className,
-}) => {
+export const LoginDecorativeBlock = (props: LoginDecorativeBlockProps) => {
+  const { children, image, className } = props;
   return (
     <Styled.DecorativeBlock className={className}>
       {image && (

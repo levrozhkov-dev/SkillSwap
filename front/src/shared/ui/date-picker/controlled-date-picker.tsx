@@ -29,17 +29,11 @@ interface CustomInputProps {
 // eslint-disable-next-line react/display-name
 const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   (
-    {
-      value,
-      onClick,
-      nameLabel,
-      error,
-      errorText,
-      icon,
-      iconPosition = 'right',
-    },
+    props,
     ref,
   ) => {
+    const { value, onClick, nameLabel, error, errorText, icon, iconPosition = 'right' } = props;
+    
     return (
       <Input
         ref={ref}

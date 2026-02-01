@@ -7,12 +7,9 @@ interface TagCategoryProps {
   tooltip?: string;
 }
 
-const TagCategory: React.FC<TagCategoryProps> = ({
-  color,
-  value,
-  id,
-  tooltip,
-}) => {
+const TagCategory = (props: TagCategoryProps) => {
+  const { color, value, id, tooltip } = props;
+  
   return (
     <Styled.TagCategory color={color} key={id} title={tooltip}>
       {value}

@@ -1,4 +1,3 @@
-import React from 'react';
 import * as Styled from './Card.styled';
 
 interface CardAvatarProps {
@@ -6,9 +5,8 @@ interface CardAvatarProps {
   alt?: string;
 }
 
-export const CardAvatar: React.FC<CardAvatarProps> = ({
-  src,
-  alt = 'User avatar',
-}) => {
+export const CardAvatar = (props: CardAvatarProps) => {
+  const { src, alt='User avatar' } = props;
+
   return <Styled.Avatar src={src} alt={alt} />;
 };

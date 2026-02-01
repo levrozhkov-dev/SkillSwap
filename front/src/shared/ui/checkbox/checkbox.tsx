@@ -15,14 +15,8 @@ interface CheckboxProps {
 }
 
 // компонент Checkbox
-export const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  name,
-  id,
-  checked,
-  isCategoryActive,
-  onChange,
-}) => {
+export const Checkbox = (props: CheckboxProps) => {
+  const { label, name, id, checked, isCategoryActive, onChange } = props;
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.stopPropagation(); // Если нужно
     onChange();

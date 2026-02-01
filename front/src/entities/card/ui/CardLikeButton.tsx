@@ -1,4 +1,3 @@
-import React from 'react';
 import { ButtonIcon } from '../../../shared/ui/buttonIcon/ButtonIcon';
 import like from '../../../shared/img/icon/like.svg';
 import likeActive from '../../../shared/img/icon/like-active.svg';
@@ -10,11 +9,8 @@ interface CardLikeButtonProps {
   onClick?: () => void;
 }
 
-export const CardLikeButton: React.FC<CardLikeButtonProps> = ({
-  liked,
-  isLiked = false,
-  onClick,
-}) => {
+export const CardLikeButton = (props: CardLikeButtonProps) => {
+  const { liked, isLiked = false, onClick } = props;
   const iconSrc = isLiked ? likeActive : like;
 
   return (

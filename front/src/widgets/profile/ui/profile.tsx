@@ -1,4 +1,4 @@
-import type { FC, SyntheticEvent } from 'react';
+import type { SyntheticEvent } from 'react';
 import * as Styled from './profile.styled';
 import { PersonalInfo } from '../../../entities/personalInfo/ui';
 import { ProfileSidebar } from '../../../entities/profileSidebar';
@@ -25,14 +25,8 @@ export interface ProfileProps {
   handleDateChange: (date: Date | null) => void;
 }
 
-export const Profile: FC<ProfileProps> = ({
-  formValue,
-  handleSubmit,
-  handleInputChange,
-  handleDateChange,
-  cities,
-  isFormChanged,
-}) => {
+export const Profile = (props: ProfileProps) => {
+  const { formValue, handleSubmit, handleInputChange, handleDateChange, cities, isFormChanged } = props;
   return (
     <Styled.Container>
       <ProfileSidebar />
