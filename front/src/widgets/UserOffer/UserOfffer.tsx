@@ -20,15 +20,7 @@ export const UserOffer: FC<UserOfferProps> = ({ userInfo }) => {
         skills={[userInfo.skills]} categories={userInfo.categories} />
       <OfferDetails 
         cardId = {userInfo.id}
-        title={userInfo.skills.name}
-        skill={
-          {
-            categoryId: userInfo.skills.category,
-            subCategoryId: userInfo.skills.subcategory
-          }
-        }
-        description={userInfo.skills.description}
-        images={userInfo.skills.imgs}
+        skillData={userInfo.skills}
         liked = {userInfo.liked} />
     </Styled.UserOffer>
   );

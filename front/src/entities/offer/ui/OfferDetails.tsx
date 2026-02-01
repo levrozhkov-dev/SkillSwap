@@ -8,32 +8,24 @@ import { OfferCarousel } from './OfferCarousel';
 import type { RootState } from '../../../providers/store/store';
 import { useSelector } from 'react-redux';
 import {useCardLike} from '../../../features/card-like/handleCardLike';
+import type { UserSkills } from '../../../widgets/ListCard/types/user';
 
 interface OfferDetailProps {
     cardId: number;
-    title: string;
-    skill: {
-        categoryId: number;
-        subCategoryId: number;
-    };
-    description: string;
-    images: string[];
     liked: number;
+    skillData: UserSkills;
 }
 
 export const OfferDetails: React.FC<OfferDetailProps> = ({
     cardId,
-    title,
-    skill,
-    description,
-    images,
+    skillData,
     liked: initialLikedCount
 }) => {
     const {liked, isLiked, handleToggleLike} = useCardLike(cardId, initialLikedCount);
     
     const categories = useSelector((state: RootState) => state.category.items);
-    const category = categories.find(category => category.id === skill.categoryId);
-    const subCategory = category?.subCategories.find(subCategory => subCategory.id === skill.subCategoryId);
+    const category = categories.find(category => category.id === skillData.category);
+    const subCategory = category?.subCategories.find(subCategory => subCategory.id === skillData.subcategory);
     
     return (
         <Styled.OfferWrapper>
@@ -44,15 +36,15 @@ export const OfferDetails: React.FC<OfferDetailProps> = ({
             </Styled.OfferActions>
             <Styled.OfferContent>
                 <Styled.OfferInfo>
-                    <Styled.H2>{title}</Styled.H2>
+                    <Styled.H2>{skillData.name}</Styled.H2>
                     <Styled.Caption>{category?.title || 'Неизвестная категория'} / {subCategory?.name || 'Неизвестная подкатегория'}</Styled.Caption>
-                    <Styled.P>{description}</Styled.P>
+                    <Styled.P>{skillData.description}</Styled.P>
                     <Styled.Btn>Предложить обмен</Styled.Btn>
                 </Styled.OfferInfo>
                 <Styled.OfferImages>
-                    <OfferCarousel images={images} />
+                    <OfferCarousel images={skillData.imgs} />
                     <Styled.MiniaturesColumn>
-                        {images.slice(1,4).map((image, index) => (
+                        {skillData.imgs.slice(1,4).map((image, index) => (
                             <Styled.MiniatureImage key={index} src={image} alt={`Миниатюра фотографии навыка №${index + 1}`} />
                         ))}
                     </Styled.MiniaturesColumn>
