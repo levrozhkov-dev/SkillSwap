@@ -9,6 +9,7 @@ export const OfferWrapper = styled.div`
     border-radius: var(--radius-smd);
     max-width: 1020px;
     max-height: 444px;
+    background: var(--color-bg-card);
 `;
 
 export const OfferActions = styled.div`
@@ -65,7 +66,7 @@ export const OfferImages = styled.div`
     grid-template-columns: 1fr 92px;
     gap: var(--space-md);
     height: 100%;
-    max-height: 324px;
+    min-height: 324px;
 `;
 
 export const MiniaturesColumn = styled.div`
@@ -77,8 +78,9 @@ export const MiniaturesColumn = styled.div`
 
 export const MiniatureImage = styled.img`
     width: 100%;
-    max-height: 92px;
+    min-height: 92px;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-smd);
 `;

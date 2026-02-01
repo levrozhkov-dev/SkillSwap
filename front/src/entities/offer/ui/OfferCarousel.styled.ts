@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { ButtonIcon } from "../../../shared/ui/buttonIcon/ButtonIcon";
 
 export const CarouselWrapper = styled.div`
-  overflow: hidden;
-  width: 100%;
-  position: relative;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 `;
 
 export const Container = styled.div`
-  display: flex;
-      max-height: 324px;
+    display: flex;
+    max-height: 324px;
     max-width: 324px;
 `;  
 
@@ -25,6 +25,7 @@ export const Image = styled.img`
     max-width: 324px;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     aspect-ratio: 1 / 1;
     border-radius: var(--radius-smd);
 `;
