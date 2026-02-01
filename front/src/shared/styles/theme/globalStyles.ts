@@ -79,7 +79,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   :root[data-theme='dark'] {
-    --color-bg-main: #12150f;
+    --color-bg-main: #12150f; 
     --color-bg-card: #1a2114;
     --color-text-main: #eef3e7;
     --color-text-secondary: #b7c3aa;
