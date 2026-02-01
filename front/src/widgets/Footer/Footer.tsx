@@ -5,7 +5,13 @@ export const Footer = () => {
   return (
     <Styled.Footer>
       <Styled.LogoContainer>
-        <Styled.LogoLink to={'/'}>
+        <Styled.LogoLink 
+          to={'/'}
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/';
+          }}
+        >
           <img
             src={logo}
             alt="Логотип SkillSwap"
