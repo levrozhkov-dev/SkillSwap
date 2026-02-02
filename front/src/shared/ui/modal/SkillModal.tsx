@@ -1,7 +1,6 @@
 import { Modal, type ModalProps } from './Modal';
 import * as Styled from './SkillModal.styled';
 import { OfferCarousel } from '../../../entities/offer/ui/OfferCarousel';
-import { Button } from '../button';
 import editIcon from '../../img/icon/edit.svg';
 
 export interface SkillModalProps extends Omit<ModalProps, 'children'> {
@@ -52,12 +51,15 @@ export const SkillModal = (props: SkillModalProps) => {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title={title || 'Ваше предложение'}
-      maxWidth="900px"
+      showCloseButton={false}
+      maxWidth="1024px"
       {...modalProps}
     >
       <Styled.SkillContent>
-        {subtitle && <Styled.Subtitle>{subtitle}</Styled.Subtitle>}
+        <Styled.HeaderSection>
+          <Styled.Title>Ваше предложение</Styled.Title>
+          {subtitle && <Styled.Subtitle>{subtitle}</Styled.Subtitle>}
+        </Styled.HeaderSection>
 
         <Styled.ContentWrapper>
           <Styled.InfoSection>
@@ -75,15 +77,15 @@ export const SkillModal = (props: SkillModalProps) => {
 
             <Styled.ButtonsWrapper>
               {onEdit && (
-                <Button variant="white" onClick={onEdit}>
+                <Styled.ModalButton variant="white" onClick={onEdit}>
                   Редактировать
-                  <img src={editIcon} alt="" />
-                </Button>
+                  <Styled.ButtonIcon src={editIcon} alt="" />
+                </Styled.ModalButton>
               )}
               {onConfirm && (
-                <Button variant="green" onClick={onConfirm}>
+                <Styled.ModalButton variant="green" onClick={onConfirm}>
                   Готово
-                </Button>
+                </Styled.ModalButton>
               )}
             </Styled.ButtonsWrapper>
           </Styled.InfoSection>
