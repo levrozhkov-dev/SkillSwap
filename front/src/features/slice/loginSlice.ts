@@ -6,6 +6,7 @@ interface LoginState {
   isLogged: boolean;
   user: Userprops | null;
 }
+
 const initialState: LoginState = {
   isLogged: false,
   user: null,
@@ -19,8 +20,8 @@ export const fetchLogin = createAsyncThunk<
   try {
     const response = await PostAuth('/auth/login', data);
     return response.data.user as Userprops;
-  } catch (err) {
-    return rejectWithValue(`Ошибка при логине ${err}`);
+  } catch (err: any) {
+    return rejectWithValue(err?.response?.data?.message || 'Ошибка при логине');
   }
 });
 
@@ -32,16 +33,34 @@ const loginSlice = createSlice({
       state.isLogged = false;
       state.user = null;
     },
+
     setUser: (state, action: { payload: Userprops }) => {
       state.user = action.payload;
     },
+
+    toggleFavourite: (state, action: { payload: number }) => {
+      if (!state.user) return;
+
+      const userId = action.payload;
+      const favs = state.user.favourites ?? [];
+
+      if (favs.includes(userId)) {
+        state.user.favourites = favs.filter((id) => id !== userId);
+      } else {
+        state.user.favourites = [...favs, userId];
+      }
+    },
   },
+
   extraReducers: (builder) => {
     builder.addCase(fetchLogin.fulfilled, (state, action) => {
-      state.user = action.payload;
+      state.user = {
+        ...action.payload,
+        favourites: action.payload.favourites ?? [],
+      };
       state.isLogged = true;
-      console.log('Login successful:', state.user);
     });
+
     builder.addCase(fetchLogin.rejected, (state) => {
       state.isLogged = false;
       state.user = null;
@@ -49,5 +68,5 @@ const loginSlice = createSlice({
   },
 });
 
-export const { logout, setUser } = loginSlice.actions;
+export const { logout, setUser, toggleFavourite } = loginSlice.actions;
 export default loginSlice.reducer;
