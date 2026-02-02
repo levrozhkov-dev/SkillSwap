@@ -11,6 +11,7 @@ interface CardLikeButtonProps {
 
 export const CardLikeButton = (props: CardLikeButtonProps) => {
   const { liked, isLiked = false, onClick } = props;
+
   const iconSrc = isLiked ? likeActive : like;
 
   return (

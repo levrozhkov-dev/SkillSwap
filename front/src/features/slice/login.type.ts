@@ -27,4 +27,7 @@ export type Userprops = {
   skills: UserSkills;
   categories: CategorySelection[];
   liked: number;
+  favourites: number[];
+  receivedOffers: number[];
+  sentOffers: number[];
 };
