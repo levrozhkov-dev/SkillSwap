@@ -5,7 +5,6 @@ import { GetUsers } from '../../shared/api/req/getCategories';
 import { Filter } from '../../widgets/Filter/ui/filter';
 import * as Styled from './styled';
 import { GetUserFilter } from '../../shared/api/req/postFilter';
-import { ScrollableBox } from '../../shared/ui/scrollableBox/scrollableBox';
 import { UsedFilters } from '../../widgets/UsedFilters/UsedFilters';
 import { useSelector } from 'react-redux';
 import { selectDataFilter, selectIsFilterActive } from '../../features/slice/usedFiltersSlice';
@@ -65,9 +64,7 @@ export const CatalogPage: FC = () => {
           </Styled.FilterResultsTitle>
         )}
         
-        <ScrollableBox width="100%" height="750px">
-          <ListCard users={users} onShowAllClick={handleUsers}/>
-        </ScrollableBox>
+        <ListCard users={users} onShowAllClick={handleUsers}/>
       </div>
     </Styled.CatalogPage>
   );

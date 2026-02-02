@@ -10,11 +10,11 @@ export {
 export const ContainerBlock = styled.div`
   background-color: ${theme.colors.bgCard};
   border-radius: 12px;
-  margin: 32px 0 50px 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  height: fit-content;
 `;
 
 export const FilterHeader = styled.div`
@@ -54,8 +54,8 @@ export const ResetButton = styled.div`
 
 export const ButtonText = styled.span`
   line-height: 24px;
-  
-`
+  font-size: 16px;
+`;
 
 export const CrossContainer = styled.button`
   width: 24px;
