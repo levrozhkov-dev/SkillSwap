@@ -1,0 +1,1 @@
+export {ProfileFavoritesPage} from "./profile-favorites"

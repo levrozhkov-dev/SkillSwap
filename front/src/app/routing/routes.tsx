@@ -10,6 +10,8 @@ import {
 } from '../../pages';
 import { Layout } from '../ui/layout';
 import { GuardRoute } from './GuardRoute';
+import { ProfileFavoritesPage } from '../../pages/profile-favorites';
+
 
 export const routeObjects: RouteObject[] = [
   // Основные страницы — рендерятся внутри Layout (через Outlet)
@@ -35,6 +37,10 @@ export const routeObjects: RouteObject[] = [
         element: <Layout />,
         children: [
           { path: '/profile', element: <ProfilePage /> },
+          {
+            path: '/profile/favorites',
+            element: <ProfileFavoritesPage />,
+          },
         ],
       },
     ],
