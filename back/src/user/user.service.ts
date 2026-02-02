@@ -146,4 +146,7 @@ export class UserService {
 
     return this.users[index];
   }
+  getFavouriteCards(cardIds: number[]) {
+    return this.users.filter((card) => cardIds.includes(card.id));
+  }
 }

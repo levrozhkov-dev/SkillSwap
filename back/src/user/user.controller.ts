@@ -49,6 +49,14 @@ export class UserController {
     return updatedUser;
   }
 
+  @Post('favourites')
+  getFavouriteCards(@Body() cardIds: number[]): any {
+    if (!Array.isArray(cardIds)) {
+      return { error: 'Нужен массив id карточек' };
+    }
+    return this.appService.getFavouriteCards(cardIds);
+  }
+
   @Get(':id')
   getUserById(@Param('id', ParseIntPipe) id: number) {
     return this.appService.getUserById(id);
