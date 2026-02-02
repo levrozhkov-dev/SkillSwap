@@ -9,11 +9,13 @@ import {
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as Styled from './RegisterFormStepThree.styled';
 import schoolBoardImage from '../../../../shared/img/illustration/school-board.svg';
 import galleryAddIcon from '../../../../shared/img/icon/gallery-add.svg';
 import { Input, Select, Textarea } from '../../../../shared/ui/form-fields';
 import { SkillModal } from '../../../../shared/ui/modal/SkillModal';
+import { SuccessModal } from '../../../../shared/ui/modal/SuccessModal';
 import type { RootState } from '../../../../providers/store/store';
 import type {
   ICategory,
@@ -32,6 +34,7 @@ interface RegisterFormStepThreeProps {
 
 export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
   const { onSubmit, onBack, defaultValues } = props;
+  const navigate = useNavigate();
   
   const {
     register,
@@ -46,8 +49,9 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
     defaultValues,
   });
 
-  // Состояние модалки подтверждения
+  // Состояние модалок
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [formDataForModal, setFormDataForModal] = useState<RegisterStepThreeFormData | null>(null);
 
   const categories = useSelector((state: RootState) => state.category.items);
@@ -108,17 +112,24 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
     setIsModalOpen(true);
   };
 
-  // Обработчик кнопки "Готово" в модалке
+  // Обработчик кнопки "Готово" в модалке подтверждения
   const handleConfirm = () => {
     if (formDataForModal) {
       onSubmit(formDataForModal);
     }
     setIsModalOpen(false);
+    setIsSuccessModalOpen(true);
   };
 
   // Обработчик кнопки "Редактировать" в модалке
   const handleEdit = () => {
     setIsModalOpen(false);
+  };
+
+  // Обработчик кнопки "Готово" в модалке успеха
+  const handleSuccessClose = () => {
+    setIsSuccessModalOpen(false);
+    navigate('/');
   };
 
   const files = watch('skillImages') as FileList | null;
@@ -368,6 +379,16 @@ export const RegisterFormStepThree = (props: RegisterFormStepThreeProps) => {
         images={previews}
         onEdit={handleEdit}
         onConfirm={handleConfirm}
+      />
+
+      {/* Модалка успеха */}
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={handleSuccessClose}
+        title="Ваше предложение создано"
+        description="Теперь вы можете предложить обмен"
+        buttonText="Готово"
+        onButtonClick={handleSuccessClose}
       />
     </Styled.FormContainer>
   );
