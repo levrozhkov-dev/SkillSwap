@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import * as Styled from './styled';
-import { HeaderInput } from '../../entities/header-input';
+import { SkillSearch } from '../../entities/header-input/search';
 import { HeaderButtons } from '../../entities/HeaderButtons';
 import { HeaderUser } from '../../entities/HeaderUser';
 import { ButtonIcon } from '../../shared/ui/buttonIcon/ButtonIcon';
 import chevronDownIcon from '../../shared/img/icon/chevron-down.svg';
 import logo from '../../shared/img/icon/logo.svg';
-import searchIcon from '../../shared/img/icon/search.svg';
 import cross from '../../shared/img/icon/cross.svg';
 import moonIcon from '../../shared/img/icon/moon.svg';
 import { ListSkills } from '../listSkills/listSkills';
@@ -16,7 +15,6 @@ import type { RootState } from '../../providers/store/store';
 import { ProfileMenu } from '../profileMenu';
 
 export const Header = () => {
-  const [searchValue, setSearchValue] = useState('');
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
   const skillsMenuRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -29,10 +27,6 @@ export const Header = () => {
 
   const isLogged = useSelector((state: RootState) => state.login.isLogged);
   const user = useSelector((state: RootState) => state.login.user);
-
-  const handleSearchChange = (value: string) => {
-    setSearchValue(value);
-  };
 
   const handleThemeToggle = () => {
     const root = document.documentElement;
@@ -152,7 +146,7 @@ export const Header = () => {
                       </Styled.SkillsDropdownCloseButton>
                       <ListSkills
                         onSkillSelect={(value) => {
-                          setSearchValue(value);
+                          console.log('Выбран навык:', value);
                           setIsSkillsOpen(false);
                         }}
                       />
@@ -163,17 +157,7 @@ export const Header = () => {
             </Styled.LogoAndNav>
 
             <Styled.SearchWrapper>
-              <HeaderInput
-                value={searchValue}
-                onChange={handleSearchChange}
-                placeholder="Искать навык"
-                icon={
-                  !searchValue ? (
-                    <img src={searchIcon} alt="" aria-hidden="true" />
-                  ) : undefined
-                }
-                iconPosition="left"
-              />
+              <SkillSearch/>
             </Styled.SearchWrapper>
 
             <Styled.RightSide>
