@@ -21,18 +21,32 @@ export const ResultsDropdown = styled.div`
   overflow-y: auto;
 `;
 
-export const ResultItem = styled.div`
+export const ResultItem = styled.div<{ $isFocused: boolean }>`
   padding: 12px 16px;
   cursor: pointer;
   border-bottom: 1px solid var(--color-bg-line);
-  transition: background 0.2s;
-
+  transition: background 0.2s, outline 0.2s;
+  background-color: ${props => 
+    props.$isFocused 
+      ? 'var(--color-button-hover)' 
+      : 'transparent'};
+  outline: ${props => 
+    props.$isFocused 
+      ? '2px solid var(--color-accent)' 
+      : 'none'};
+  outline-offset: -2px;
+  
   &:hover {
-    background: var(--color-button-hover);
+    background-color: var(--color-button-hover);
   }
-
+  
   &:last-child {
     border-bottom: none;
+  }
+  
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
   }
 `;
 
