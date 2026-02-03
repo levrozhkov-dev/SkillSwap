@@ -55,9 +55,20 @@ export const ButtonAll = styled.button`
   }
 `;
 
-export const CheckboxListContainer = styled.div`
+export const CheckboxListContainer = styled.div<{ isClosing?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: var(--space-smd, 12px);
   margin-left: 14px;
+  margin-top: -8px;
+  max-height: 1000px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${(props) =>
+    props.isClosing &&
+    `
+    max-height: 0;
+    opacity: 0;
+  `}
 `;

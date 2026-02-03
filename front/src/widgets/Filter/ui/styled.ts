@@ -15,6 +15,7 @@ export const ContainerBlock = styled.div`
   flex-direction: column;
   gap: 32px;
   height: fit-content;
+  align-self: flex-start;
 `;
 
 export const FilterHeader = styled.div`

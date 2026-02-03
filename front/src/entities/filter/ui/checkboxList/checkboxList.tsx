@@ -67,19 +67,17 @@ export const CategoryCheckbox = (props: CategoryCheckboxProps) => {
         />
       </Styled.CheckboxContainer>
 
-      {isOpen && (
-        <Styled.CheckboxListContainer>
-          {categoryData.subCategories.map((sub, index) => (
-            <Checkbox
-              key={sub.id}
-              label={sub.name}
-              checked={subChecked[index]}
-              isCategoryActive={false}
-              onChange={() => handleSubChange(sub.id, sub.name)}
-            />
-          ))}
-        </Styled.CheckboxListContainer>
-      )}
+      <Styled.CheckboxListContainer isClosing={!isOpen}>
+        {categoryData.subCategories.map((sub, index) => (
+          <Checkbox
+            key={sub.id}
+            label={sub.name}
+            checked={subChecked[index]}
+            isCategoryActive={false}
+            onChange={() => handleSubChange(sub.id, sub.name)}
+          />
+        ))}
+      </Styled.CheckboxListContainer>
     </>
   );
 };

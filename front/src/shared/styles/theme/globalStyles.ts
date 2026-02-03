@@ -102,5 +102,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: var(--font-main);
     background-color: var(--color-bg-main);
     color: var(--color-text-main);
+    scroll-behavior: smooth;
   }
 `;
