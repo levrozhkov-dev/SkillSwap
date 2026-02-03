@@ -1,8 +1,4 @@
-import {
-  useCallback,
-  useState,
-  type SyntheticEvent,
-} from 'react';
+import { useCallback, useState, type SyntheticEvent } from 'react';
 import * as Styled from './personalInfo.styled';
 import iconPhoto from '../../../shared/img/icon/user-circle.svg';
 import iconEditPhoto from '../../../shared/img/icon/gallery-edit.svg';
@@ -37,7 +33,14 @@ export interface PersonalInfoProps {
 }
 
 export const PersonalInfo = (props: PersonalInfoProps) => {
-  const { formValue, cities, isFormChanged, handleSubmit, handleInputChange, handleDateChange } = props;
+  const {
+    formValue,
+    cities,
+    isFormChanged,
+    handleSubmit,
+    handleInputChange,
+    handleDateChange,
+  } = props;
 
   const [showPassword, setShowPassword] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);

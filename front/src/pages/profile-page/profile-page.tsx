@@ -12,7 +12,7 @@ import { type RootState } from '../../providers/store/store';
 import { updateUser } from '../../shared/api/req/updateUsers';
 
 interface FormData {
-  id:number| undefined
+  id: number | undefined;
   email: string;
   name: string;
   avatar: string;
@@ -33,7 +33,7 @@ export const ProfilePage: FC = () => {
   );
 
   const [formValue, setFormValue] = useState<FormData>({
-    id:user?.id,
+    id: user?.id,
     email: '',
     name: '',
     avatar: '',
@@ -69,7 +69,7 @@ export const ProfilePage: FC = () => {
   useEffect(() => {
     if (user) {
       setFormValue({
-        id:user.id,
+        id: user.id,
         email: user.email || '',
         name: user.name || '',
         avatar: user.avatar || '',
