@@ -1,7 +1,6 @@
 import type { SyntheticEvent } from 'react';
 import * as Styled from './profile.styled';
 import { PersonalInfo } from '../../../entities/personalInfo/ui';
-import { ProfileSidebar } from '../../../entities/profileSidebar';
 
 interface FormData {
   email: string;
@@ -26,10 +25,16 @@ export interface ProfileProps {
 }
 
 export const Profile = (props: ProfileProps) => {
-  const { formValue, handleSubmit, handleInputChange, handleDateChange, cities, isFormChanged } = props;
+  const {
+    formValue,
+    handleSubmit,
+    handleInputChange,
+    handleDateChange,
+    cities,
+    isFormChanged,
+  } = props;
   return (
     <Styled.Container>
-      <ProfileSidebar />
       <PersonalInfo
         cities={cities}
         formValue={formValue}

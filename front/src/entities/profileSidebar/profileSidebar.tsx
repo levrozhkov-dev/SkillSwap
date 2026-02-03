@@ -29,7 +29,7 @@ export const ProfileSidebar: FC = () => {
       label: 'Избранное',
       path: '/profile/favorites',
       icon: LikeIcon,
-      underConstruction: true,
+      underConstruction: false,
     },
     {
       label: 'Мои навыки',
