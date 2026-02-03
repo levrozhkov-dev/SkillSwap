@@ -10,7 +10,7 @@ async function bootstrap() {
     origin: 'http://localhost:5173',
     credentials: true,
   });
-
+  app.useBodyParser('json', { limit: '1mb' });
   app.useStaticAssets(join(process.cwd(), 'src/db'), {
     prefix: '/db/',
   });

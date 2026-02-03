@@ -11,6 +11,7 @@ import type {
   RegisterStepTwoFormData,
   RegisterStepThreeFormData,
 } from '../../widgets/RegisterForm/lib';
+import { postReg } from '../../shared/api/req/postReg';
 
 export type LearnCategoryItem = {
   categoryId: string;
@@ -57,18 +58,51 @@ export const RegisterPage: FC = () => {
     setCurrentStep(2);
   };
 
-  const handleStepTwoSubmit = (data: RegisterStepTwoFormData) => {
+  const fileListToBase64 = (files: FileList | null): Promise<string[]> => {
+    if (!files) return Promise.resolve([]);
+    const fileArray = Array.from(files);
+    return Promise.all(
+      fileArray.map(
+        (file) =>
+          new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = (err) => reject(err);
+          }),
+      ),
+    );
+  };
+
+  const handleStepTwoSubmit = async (data: RegisterStepTwoFormData) => {
+    let avatarBase64: string[] = [];
+    if (data.avatar) {
+      avatarBase64 = await fileListToBase64(data.avatar);
+    }
+
     setFormData((prev) => ({
       ...prev,
       ...data,
+      avatar: avatarBase64.length > 0 ? avatarBase64[0] : null,
     }));
     setCurrentStep(3);
   };
 
-  const handleStepThreeSubmit = (data: RegisterStepThreeFormData) => {
-    setFormData(prev => {
-      const merged = { ...prev, ...data };
-      console.log('formData -', merged);
+  // Изменяем handleStepThreeSubmit для skillImages
+  const handleStepThreeSubmit = async (data: RegisterStepThreeFormData) => {
+    let skillImagesBase64: string[] = [];
+    if (data.skillImages) {
+      skillImagesBase64 = await fileListToBase64(data.skillImages);
+    }
+
+    setFormData((prev) => {
+      const merged = {
+        ...prev,
+        ...data,
+        skillImages: skillImagesBase64,
+      };
+      postReg('users/create', merged);
+      console.log('formData with base64 -', merged);
       return merged;
     });
   };

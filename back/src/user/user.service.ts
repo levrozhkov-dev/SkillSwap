@@ -149,4 +149,71 @@ export class UserService {
   getFavouriteCards(cardIds: number[]) {
     return this.users.filter((card) => cardIds.includes(card.id));
   }
+
+  createUser(data: any) {
+    // Находим максимальный существующий ID
+
+    const maxId = this.users.reduce((max, user) => Math.max(max, user.id), 0);
+    let age = 0;
+    if (data.birthDate) {
+      const birth = new Date(data.birthDate);
+      const today = new Date();
+      age = today.getFullYear() - birth.getFullYear();
+      const m = today.getMonth() - birth.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+      }
+    }
+
+    const categories = (data.learnCategories || []).map((cat: any) => ({
+      idCategory: Number(cat.categoryId),
+      idSubCategory: (cat.subCategoryIds || []).map((sub: any) => Number(sub)),
+    }));
+
+    // Преобразуем данные навыков
+    let skillsObj = {};
+    if (data.skillTitle) {
+      skillsObj = {
+        id:
+          this.users.reduce(
+            (max, u) => Math.max(max, (u.skills as any)?.id || 0),
+            0,
+          ) + 1,
+        name: data.skillTitle,
+        skill: data.skillTitle,
+        category: Number(data.skillCategory),
+        subcategory: Number(data.skillSubCategory),
+        description: data.skillDescription || '',
+        imgs: data.skillImages || [],
+      };
+    }
+
+    // Создаём нового пользователя с уникальным ID и текущей датой
+    const newUser = {
+      id: maxId + 1,
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      avatar: data.avatar,
+      city: data.city,
+      description: '',
+      age: age,
+      date: new Date().toISOString(),
+      liked: 0,
+      favourites: [],
+      categories: categories,
+      skills: data.skillTitle ? (skillsObj as any) : undefined,
+      sentOffers: [],
+      receivedOffers: [],
+    };
+
+    // Добавляем в массив пользователей
+    this.users.push(newUser);
+
+    // Сохраняем в JSON
+    const filePath = path.join(__dirname, '../db/users.json');
+    fs.writeFileSync(filePath, JSON.stringify(this.users, null, 2), 'utf-8');
+
+    return newUser;
+  }
 }

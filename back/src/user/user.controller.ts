@@ -56,7 +56,10 @@ export class UserController {
     }
     return this.appService.getFavouriteCards(cardIds);
   }
-
+  @Post('/create')
+  createUser(@Body() data: any) {
+    return this.appService.createUser(data);
+  }
   @Get(':id')
   getUserById(@Param('id', ParseIntPipe) id: number) {
     return this.appService.getUserById(id);
