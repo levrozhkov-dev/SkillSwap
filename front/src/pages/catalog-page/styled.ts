@@ -5,6 +5,7 @@ export const CatalogPage = styled.div`
   gap: var(--space-lg);
   padding-top: var(--space-xxl);
   padding-bottom: var(--space-xxl);
+  
 `;
 
 export const FilterResultsTitle = styled.h2`
