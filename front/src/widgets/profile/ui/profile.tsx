@@ -15,7 +15,11 @@ interface FormData {
 
 export interface ProfileProps {
   formValue: FormData;
-  cities: { value: string; label: string }[];
+  cityOptions: {
+    options: { value: string; label: string }[];
+    loading: boolean;
+    searchCities: (query: string) => void;
+  };
   isFormChanged: boolean;
   handleSubmit: (e: SyntheticEvent) => void;
   handleInputChange: (
@@ -30,13 +34,13 @@ export const Profile = (props: ProfileProps) => {
     handleSubmit,
     handleInputChange,
     handleDateChange,
-    cities,
+    cityOptions,
     isFormChanged,
   } = props;
   return (
     <Styled.Container>
       <PersonalInfo
-        cities={cities}
+        cityOptions={cityOptions}
         formValue={formValue}
         isFormChanged={isFormChanged}
         handleSubmit={handleSubmit}

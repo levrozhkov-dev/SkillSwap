@@ -15,6 +15,8 @@ import type {
   ISubCategory,
 } from '../../../../features/slice/categoriesSlice';
 import { registerStepTwoSchema, type RegisterStepTwoFormData } from '../../lib';
+import { useCityOptions } from '../../../../shared/api/geo-suggest';
+import { AutoComplete } from '../../../../shared/ui/form-fields/autocomplete';
 
 //Разделитель для составного ключа (categoryId + subId), чтобы подкатегории из разных категорий не сливались
 const SUB_KEY_SEP = '|';
@@ -50,13 +52,14 @@ export const RegisterFormStepTwo = (props: RegisterFormStepTwoProps) => {
     defaultValues,
   });
 
-  const cities = useSelector((state: RootState) => state.cities);
   const categories = useSelector((state: RootState) => state.category.items);
 
-  const cityOptions = useMemo(
-    () => cities.map((city) => ({ value: city.name, label: city.name })),
-    [cities],
-  );
+  const cities = useSelector((state: RootState) => state.cities);
+  const {
+    options: cityOptions,
+    loading,
+    searchCities,
+  } = useCityOptions(cities);
 
   const categoriesOptions = useMemo(
     () =>
@@ -226,14 +229,18 @@ export const RegisterFormStepTwo = (props: RegisterFormStepTwoProps) => {
                 field: { onChange, value },
                 fieldState: { error },
               }) => (
-                <Select
+                <AutoComplete
                   nameLabel="Город"
-                  placeholder="Выберите город"
+                  placeholder="Начните вводить город"
                   error={!!error}
                   errorText={error?.message}
                   options={cityOptions}
                   value={value ?? undefined}
                   onChange={onChange}
+                  onSearchChange={searchCities}
+                  isLoading={loading}
+                  searchable
+                  allowCustomValue
                 />
               )}
             />
@@ -312,9 +319,7 @@ export const RegisterFormStepTwo = (props: RegisterFormStepTwoProps) => {
                       nameLabel="Категория навыка, которому хотите научиться"
                       placeholder="Выберите категории"
                       error={isCategoryError}
-                      errorText={
-                        isCategoryError ? error?.message : undefined
-                      }
+                      errorText={isCategoryError ? error?.message : undefined}
                       options={categoriesOptions}
                       multiple
                       value={selectedCategoryIds}

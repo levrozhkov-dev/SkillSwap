@@ -10,6 +10,7 @@ import { Profile } from '../../widgets/profile/ui/profile';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../providers/store/store';
 import { updateUser } from '../../shared/api/req/updateUsers';
+import { useCityOptions } from '../../shared/api/geo-suggest';
 
 interface FormData {
   id: number | undefined;
@@ -26,11 +27,7 @@ interface FormData {
 export const ProfilePage: FC = () => {
   const user = useSelector((state: RootState) => state.login.user);
   const cities = useSelector((state: RootState) => state.cities);
-
-  const cityOptions = useMemo(
-    () => cities.map((city) => ({ value: city.name, label: city.name })),
-    [cities],
-  );
+  const cityOptions = useCityOptions(cities);
 
   const [formValue, setFormValue] = useState<FormData>({
     id: user?.id,
@@ -105,7 +102,7 @@ export const ProfilePage: FC = () => {
 
   return (
     <Profile
-      cities={cityOptions}
+      cityOptions={cityOptions}
       formValue={formValue}
       isFormChanged={isFormChanged}
       handleSubmit={handleSubmit}
