@@ -108,13 +108,13 @@ export const FormFieldIcon = styled.span<FormFieldIconPositionProps>`
   ${(props) =>
     props.iconPosition === 'left' &&
     css`
-      left: ${theme.spacing.lg};
+      left: ${theme.spacing.md};
     `}
 
   ${(props) =>
     props.iconPosition === 'right' &&
     css`
-      right: ${theme.spacing.lg};
+      right: ${theme.spacing.md};
     `}
 `;
 
