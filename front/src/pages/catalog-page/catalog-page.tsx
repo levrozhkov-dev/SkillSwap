@@ -5,12 +5,12 @@ import { GetUsers } from '../../shared/api/req/getCategories';
 import { Filter } from '../../widgets/Filter/ui/filter';
 import * as Styled from './styled';
 import { GetUserFilter } from '../../shared/api/req/postFilter';
-import { ScrollableBox } from '../../shared/ui/scrollableBox/scrollableBox';
 import { UsedFilters } from '../../widgets/UsedFilters/UsedFilters';
 import { useSelector } from 'react-redux';
 import { selectDataFilter, selectIsFilterActive } from '../../features/slice/usedFiltersSlice';
 import { Get } from '../../shared/api/req/get';
 import { useLocation, useNavigate } from 'react-router-dom';
+import StickyBox from 'react-sticky-box';
 
 export const CatalogPage: FC = () => {
   const [users, setUsers] = useState<UsersResponse | null>(null);
@@ -55,7 +55,9 @@ export const CatalogPage: FC = () => {
 
   return (
     <Styled.CatalogPage>
-      <Filter />
+      <StickyBox offsetTop={32} offsetBottom={32}>
+        <Filter />
+      </StickyBox>
       <div style={{ width: '100%' }}>
         <UsedFilters />
         
@@ -65,9 +67,7 @@ export const CatalogPage: FC = () => {
           </Styled.FilterResultsTitle>
         )}
         
-        <ScrollableBox width="100%" height="750px">
-          <ListCard users={users} onShowAllClick={handleUsers}/>
-        </ScrollableBox>
+        <ListCard users={users} onShowAllClick={handleUsers}/>
       </div>
     </Styled.CatalogPage>
   );

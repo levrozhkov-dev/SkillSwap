@@ -37,7 +37,8 @@ export const Checkbox = (props: CheckboxProps) => {
         {(!isCategoryActive && checked) && <Styled.IconImage src={checkboxActive} alt="Check icon" />}
         {(!isCategoryActive && !checked) && <Styled.IconImage src={checkbox} alt="Check icon" />}
       </Styled.CheckboxIndicator>
-      {label}
+      {/*Нужно для длинных названий (например, Подготовка к экзаменам (IELTS, TOEFL) в категории Иностранные языки)*/}
+      <Styled.LabelText>{label}</Styled.LabelText>
     </Styled.Label>
   );
 };
