@@ -114,8 +114,8 @@ export const Input = styled.input`
   background: transparent;
   border: none;
   color: ${theme.colors.textMain};
-  font-family: var(--font-main);
-  font-size: 16px;
+  font-family: ${theme.font.family};
+  font-size: ${theme.font.size.md};
   letter-spacing: 0.02em;
   outline: none;
   width: 100%;
