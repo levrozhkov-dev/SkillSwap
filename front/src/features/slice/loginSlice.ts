@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { PostAuth } from '../../shared/api/req/auth';
-import type { Userprops } from './login.type';
+import type { Userprops, Offer } from './login.type';
 
 interface LoginState {
   isLogged: boolean;
@@ -50,6 +50,14 @@ const loginSlice = createSlice({
         state.user.favourites = [...favs, userId];
       }
     },
+    setOffer: (state, action: { payload: Offer }) => {
+      if (!state.user) return;
+      const recieverId = action.payload.userId;
+      const offers = state.user.sentOffers;
+      if(!offers.find(offer => offer.userId === recieverId)) {
+        state.user.sentOffers = [...offers, action.payload];
+      }
+    },
   },
 
   extraReducers: (builder) => {
@@ -68,5 +76,5 @@ const loginSlice = createSlice({
   },
 });
 
-export const { logout, setUser, toggleFavourite } = loginSlice.actions;
+export const { logout, setUser, toggleFavourite, setOffer } = loginSlice.actions;
 export default loginSlice.reducer;

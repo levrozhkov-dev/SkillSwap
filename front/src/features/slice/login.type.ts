@@ -13,6 +13,12 @@ export type CategorySelection = {
   idSubCategory: number[];
 };
 
+export interface Offer {
+  userId: number;
+  status: string;
+  date: string;
+}
+
 export type Userprops = {
   id: number;
   name: string;
@@ -28,6 +34,6 @@ export type Userprops = {
   categories: CategorySelection[];
   liked: number;
   favourites: number[];
-  receivedOffers: number[];
-  sentOffers: number[];
+  receivedOffers: Offer[];
+  sentOffers: Offer[];
 };

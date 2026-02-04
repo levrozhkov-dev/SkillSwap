@@ -61,6 +61,17 @@ export const Btn = styled(Button)`
     min-height: 48px;
     justify-content: center;
 `;
+
+export const BtnDisabled = styled(Button)`
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    min-width: 218px;
+    min-height: 48px;
+    justify-content: center;
+    cursor: not-allowed;
+    pointer-events: none;
+`;
+
 export const OfferImages = styled.div`
     display: grid;
     grid-template-columns: 1fr 92px;
