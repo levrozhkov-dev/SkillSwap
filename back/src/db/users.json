@@ -24,7 +24,7 @@
       "category": 1,
       "subcategory": 4,
       "description": "Консультации по построению личного бренда и подготовке резюме и портфолио.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
     "sentOffers":[],
     "receivedOffers":[]
@@ -57,7 +57,7 @@
       "category": 2,
       "subcategory": 2,
       "description": "Обучаю базовой и продвинутой фотографии, а также видеомонтажу для соцсетей.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },   
    "sentOffers":[],
     "receivedOffers":[]
@@ -90,7 +90,7 @@
       "category": 3,
       "subcategory": 7,
       "description": "Подготовка к международным экзаменам и развитие разговорного английского.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -123,7 +123,7 @@
       "category": 6,
       "subcategory": 2,
       "description": "Работаю с питанием, режимом дня и балансом жизни и работы.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -155,7 +155,7 @@
       "category": 1,
       "subcategory": 2,
       "description": "Настройка рекламных кампаний и аналитика эффективности.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -186,7 +186,7 @@
       "category": 1,
       "subcategory": 3,
       "description": "Тренинги по переговорам и техникам закрытия сделок.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -218,7 +218,7 @@
       "category": 2,
       "subcategory": 6,
       "description": "Работа с художественными и коммерческими текстами.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -250,7 +250,7 @@
       "category": 4,
       "subcategory": 4,
       "description": "Обучение скорочтению и приёмам запоминания информации.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -281,7 +281,7 @@
       "category": 5,
       "subcategory": 1,
       "description": "Системы хранения и оптимизация пространства.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -312,7 +312,7 @@
       "category": 1,
       "subcategory": 7,
       "description": "Внедрение agile-практик и управление рисками.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -343,7 +343,7 @@
       "category": 2,
       "subcategory": 1,
       "description": "Обучаю основам академического и цифрового рисунка.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -374,7 +374,7 @@
       "category": 2,
       "subcategory": 4,
       "description": "Создание аранжировок и базовый саунд-дизайн.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -405,7 +405,7 @@
       "category": 2,
       "subcategory": 7,
       "description": "Применяю арт-техники для работы со стрессом и выгоранием.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -436,7 +436,7 @@
       "category": 3,
       "subcategory": 3,
       "description": "Живой разговорный испанский и практика через кейсы.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -467,7 +467,7 @@
       "category": 3,
       "subcategory": 5,
       "description": "Комбинирую разговорную практику и изучение иероглифов.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -500,7 +500,7 @@
       "category": 4,
       "subcategory": 6,
       "description": "Работаю с целями, мотивацией и поддержкой изменений.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -531,7 +531,7 @@
       "category": 4,
       "subcategory": 2,
       "description": "Техники конспектирования, планирования и повторения материала.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -563,7 +563,7 @@
       "category": 5,
       "subcategory": 3,
       "description": "Рецепты на каждый день и базовые техники готовки.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -595,7 +595,7 @@
       "category": 5,
       "subcategory": 5,
       "description": "Базовый ремонт и создание уютных интерьеров.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -627,7 +627,7 @@
       "category": 6,
       "subcategory": 1,
       "description": "Мягкие практики для расслабления и концентрации.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -659,7 +659,7 @@
       "category": 6,
       "subcategory": 5,
       "description": "Составляю безопасные программы тренировок для разных уровней.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -691,7 +691,7 @@
       "category": 6,
       "subcategory": 3,
       "description": "Практики поддержки, работа со стрессом и выгоранием.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -723,7 +723,7 @@
       "category": 1,
       "subcategory": 6,
       "description": "Инструменты планирования и приоритизации задач.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -754,7 +754,7 @@
       "category": 5,
       "subcategory": 2,
       "description": "Учимся планировать расходы и формировать подушку безопасности.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -786,7 +786,7 @@
       "category": 1,
       "subcategory": 8,
       "description": "Разбираем бизнес-модели, риски и гипотезы.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -817,7 +817,7 @@
       "category": 3,
       "subcategory": 4,
       "description": "Практика разговорного немецкого и грамматики через диалоги.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -848,7 +848,7 @@
       "category": 2,
       "subcategory": 5,
       "description": "Работа над голосом, телом и вниманием на сцене.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -879,7 +879,7 @@
       "category": 5,
       "subcategory": 4,
       "description": "Ухаживаем за растениями и создаём зелёные уголки.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -911,7 +911,7 @@
       "category": 6,
       "subcategory": 6,
       "description": "Составляем режим, который подходит именно вам.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -943,7 +943,7 @@
       "category": 2,
       "subcategory": 8,
       "description": "Делаем аксессуары и декор для дома своими руками.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -975,7 +975,7 @@
       "category": 1,
       "subcategory": 3,
       "description": "Практические кейсы по сложным переговорам.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1006,7 +1006,7 @@
       "category": 3,
       "subcategory": 2,
       "description": "Разговорный французский с опорой на реальные ситуации.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1037,7 +1037,7 @@
       "category": 6,
       "subcategory": 7,
       "description": "Помогаю выстраивать границы и планировать нагрузку.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1069,7 +1069,7 @@
       "category": 4,
       "subcategory": 5,
       "description": "Помогаю выстраивать уроки и удерживать внимание учеников.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1100,7 +1100,7 @@
       "category": 4,
       "subcategory": 3,
       "description": "Структурирую контент и связываю темы в целостную программу.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1131,7 +1131,7 @@
       "category": 2,
       "subcategory": 2,
       "description": "Учимся снимать и обрабатывать фото на смартфон.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1162,7 +1162,7 @@
       "category": 6,
       "subcategory": 4,
       "description": "Простые практики присутствия в повседневной жизни.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1193,7 +1193,7 @@
       "category": 5,
       "subcategory": 4,
       "description": "Подбор текстиля, декора и расстановки мебели.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     }
   },
   {
@@ -1222,7 +1222,7 @@
       "category": 1,
       "subcategory": 1,
       "description": "Построение процессов, one-to-one и обратная связь.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]
@@ -1253,7 +1253,7 @@
       "category": 3,
       "subcategory": 1,
       "description": "Разработка SPA-приложений на React с использованием хуков и контекста.",
-      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums2.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
+      "imgs": [ "http://localhost:2000/db/skill/drums.png","http://localhost:2000/db/skill/drums1.png","http://localhost:2000/db/skill/drums3.png","http://localhost:2000/db/skill/drums4.png"]
     },
         "sentOffers":[],
     "receivedOffers":[]

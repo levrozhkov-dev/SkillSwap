@@ -187,6 +187,17 @@ export class UserService {
         imgs: data.skillImages || [],
       };
     }
+    let genderRus = '';
+    switch (data.gender) {
+      case 'male':
+        genderRus = 'Мужской';
+        break;
+      case 'female':
+        genderRus = 'Женский';
+        break;
+      default:
+        genderRus = 'Не указан';
+    }
 
     // Создаём нового пользователя с уникальным ID и текущей датой
     const newUser = {
@@ -195,6 +206,7 @@ export class UserService {
       email: data.email,
       password: data.password,
       avatar: data.avatar,
+      gender: genderRus,
       city: data.city,
       description: '',
       age: age,
