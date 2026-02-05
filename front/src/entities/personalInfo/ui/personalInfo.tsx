@@ -9,6 +9,7 @@ import EyeInvisible from '../../../shared/img/icon/eyeInvisible.svg?react';
 import { ControlledDatePicker } from '../../../shared/ui/date-picker/controlled-date-picker';
 import { Input, Select, Textarea } from '../../../shared/ui/form-fields';
 import { editUserFormSchema } from '../lib/validationSchemas';
+import { AutoComplete } from '../../../shared/ui/form-fields/autocomplete';
 
 export interface UserFormData {
   email: string;
@@ -23,7 +24,11 @@ export interface UserFormData {
 
 export interface PersonalInfoProps {
   formValue: UserFormData;
-  cities: { value: string; label: string }[];
+  cityOptions: {
+    options: { value: string; label: string }[];
+    loading: boolean;
+    searchCities: (query: string) => void;
+  };
   isFormChanged: boolean;
   handleSubmit: (e: SyntheticEvent) => void;
   handleInputChange: (
@@ -35,7 +40,7 @@ export interface PersonalInfoProps {
 export const PersonalInfo = (props: PersonalInfoProps) => {
   const {
     formValue,
-    cities,
+    cityOptions,
     isFormChanged,
     handleSubmit,
     handleInputChange,
@@ -46,6 +51,7 @@ export const PersonalInfo = (props: PersonalInfoProps) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const avatarPreview = formValue.avatar || iconPhoto;
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { options: cities, loading, searchCities } = cityOptions;
 
   const PasswordIcon = (
     <Styled.EyeButton
@@ -171,7 +177,7 @@ export const PersonalInfo = (props: PersonalInfoProps) => {
               }
             />
           </Styled.BirthdateAndGenderBlock>
-          <Select
+          {/* <Select
             nameLabel="Город"
             placeholder="Выберите город"
             options={cities}
@@ -183,7 +189,25 @@ export const PersonalInfo = (props: PersonalInfoProps) => {
             }
             error={!!errors.city}
             errorText={errors.city}
+          /> */}
+          <AutoComplete
+            nameLabel="Город"
+            placeholder="Начните вводить город"
+            error={!!errors.city}
+            errorText={errors.city}
+            options={cities}
+            value={formValue.city ?? undefined}
+            onChange={(value) =>
+              handleInputChange({
+                target: { name: 'city', value },
+              } as React.ChangeEvent<HTMLInputElement>)
+            }
+            onSearchChange={searchCities}
+            isLoading={loading}
+            searchable
+            allowCustomValue
           />
+
           <Textarea
             nameLabel="О себе"
             name="description"
